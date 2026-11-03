@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+} from '../../config/site.ts';
+
+const pageTitle = `Can Concrete Leveling Be Done in Winter? | Cold Weather`;
+const pageDescription = `Can you level concrete in winter? Learn how polyurethane foam lifting operates in cold Ohio weather, heated trailer specs, and frost limits. Read our guide.`;
+
+const breadcrumbs = [
+  { name: 'Technical Guides', path: '/guides/' },
+  { name: 'Concrete Leveling in Winter', path: '/guides/concrete-leveling-in-winter/' },
+];
+
+const faqItems = [
+  {
+    q: `Can polyurethane foam expand properly in freezing temperatures?`,
+    a: `Yes. Polyurethane foam cures via an exothermic chemical reaction between isocyanate and polyol resins that generates internal temperatures exceeding 130 to 160 degrees Fahrenheit during polymerization. As long as the liquid chemicals are delivered at proper temperatures through heated hoses, the reaction creates its own heat and cures fully regardless of exterior air temperatures.`,
+  },
+  {
+    q: `Why can polyjacking be done in winter when mudjacking cannot?`,
+    a: `Traditional mudjacking relies on water-based slurry containing topsoil and cement. In sub-freezing weather, the water in the slurry freezes inside delivery pumps, lines, and boreholes, preventing mudjacking trucks from operating. Polyurethane uses 100 percent liquid chemical reactants with zero water, eliminating the risk of frozen lines.`,
+  },
+  {
+    q: `Can you level concrete if the subgrade soil underneath is frozen solid?`,
+    a: `If the ground beneath a slab has experienced severe deep-frost heaving that lifted the slab higher than its original grade, lifting cannot be performed until the frost heaves melt. However, in most residential situations where a slab has settled into a subgrade void, our heated rigs can inject foam and stabilize the slab throughout typical Ohio winter months.`,
+  },
+  {
+    q: `Why is winter concrete leveling critical for snow removal safety?`,
+    a: `Sunken concrete panels create sharp 1-inch to 3-inch vertical ledges along driveways and sidewalks. During winter snow storms, snowblower augers and snowplow cutting edges strike these hidden concrete lips at full speed, breaking equipment, shearing plow pins, and tossing operators. Leveling before heavy snow restores a smooth, safe plowing surface.`,
+  },
+];
+
+import { getArticleSchema, getFaqSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getArticleSchema({
+    title: 'Can Concrete Leveling Be Done in Winter? Cold Weather Polyjacking Guide',
+    description: 'An engineering analysis of winter polyurethane foam concrete leveling, heated equipment thermodynamics, and cold-weather slab stabilization.',
+    canonicalPath: '/guides/concrete-leveling-in-winter/',
+  }),
+  getFaqSchema(faqItems),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/guides/concrete-leveling-in-winter/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Can Concrete Leveling Be Done in Winter?</h1>
+    <p class="lead">
+      Learn the chemical thermodynamics, equipment requirements, and geotechnical conditions for lifting concrete flatwork during cold Ohio winter months in {city}, {state}.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Winter Concrete Dilemma for Homeowners</h2>
+          <p>
+            When winter arrives in {city}, {state}, homeowners often assume that all exterior concrete repairs must grind to a halt until spring.
+          </p>
+          <p>
+            For traditional concrete contractors and old-fashioned mudjacking crews, that assumption is largely true. Pouring new concrete flatwork in freezing weather is risky and expensive, requiring heated blankets, chemical accelerating admixtures, and high risk of surface freeze damage. Similarly, mudjacking utilizes water-based soil-and-cement slurry that freezes solid inside pump lines and injection hoses when temperatures dip below 32 degrees Fahrenheit.
+          </p>
+          <p>
+            However, <strong>polyurethane foam concrete leveling (polyjacking) operates under fundamentally different physical and chemical principles</strong>. With specialized heated mobile proportioning rigs and temperature-controlled delivery hoses, our crews successfully raise sunken driveways, sidewalks, and garage floors throughout Ohio winters.
+          </p>
+          <p>
+            Cold-weather concrete engineering research from the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> and the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> details the critical role of controlled exothermic curing in structural polymer applications. Here is how winter polyjacking works and when cold-weather leveling is appropriate.
+          </p>
+
+          <h2>The Chemistry of Winter Polyjacking: Exothermic Curing</h2>
+          <p>
+            The reason polyurethane foam performs reliably in winter lies in the chemical reaction between its two constituent components: polymeric isocyanate (A-side) and polyol resin blend (B-side).
+          </p>
+          <p>
+            When these two liquid streams mix inside the impingement chamber of our injection gun, they initiate an intense <strong>exothermic chemical polymerization</strong>. This reaction generates its own substantial heat—internal reaction temperatures quickly rise to between <strong>130 and 165 degrees Fahrenheit</strong> beneath the slab.
+          </p>
+          <p>
+            Because the reaction produces abundant thermal energy, the expanding foam creates its own heated subterranean micro-climate. The foam expands rapidly, fills voids in the subgrade, and cures to full compressive strength within 15 to 30 minutes, completely unaffected by sub-freezing exterior ambient air temperatures.
+          </p>
+
+          <h2>Heated Mobile Proportioning Equipment Standards</h2>
+          <p>
+            While the chemical reaction generates internal heat during expansion, the raw liquid components must reach the injection gun at strict target temperatures to mix properly.
+          </p>
+          <p>
+            Our winter service rigs are engineered specifically for cold-weather operation:
+          </p>
+          <ul>
+            <li style="margin-bottom: 14px;">
+              <strong>Insulated & Heated Rig Enclosures:</strong> The raw chemical drums are housed inside fully insulated, climate-controlled mobile trailers maintained at a constant 75 to 80 degrees Fahrenheit.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Internal Pre-Heaters:</strong> High-output digital heat exchangers heat the isocyanate and polyol liquids to between 110 and 130 degrees Fahrenheit as they flow from storage tanks into the pumping lines.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Heated Delivery Hose Bundles:</strong> The liquid travels through up to 200 feet of delivery hose wrapped with continuous internal copper heating elements and thermal insulation. This ensures that the chemical reactants reach the mechanical injection packers at the exact viscosity and temperature required for optimal expansion.
+            </li>
+          </ul>
+
+          <h2>When Can Concrete Be Lifted in Winter? (The Frost Rule)</h2>
+          <p>
+            An experienced tradesperson will always assess subgrade frost depth before drilling. There is an important geotechnical distinction between a sunken slab over an unfrozen void versus a slab affected by active frost heaving:
+          </p>
+
+          <h3>1. Slabs Eligible for Winter Leveling</h3>
+          <p>
+            If a concrete slab settled into a subgrade void during the previous summer or autumn—such as a driveway apron dropping in front of a garage or a front stoop separating from a foundation wall—the void cavity remains empty underground. In central Ohio, geothermal heat from the earth keeps soil temperatures several inches below the surface well above deep-freeze levels for much of the early winter. In these conditions, injecting expanding poly foam easily fills the void and raises the slab to target elevation.
+          </p>
+
+          <h3>2. Slabs That Must Wait for Spring Thaw</h3>
+          <p>
+            If a slab has experienced severe "frost heave"—where water trapped in saturated clay froze solid, expanded by 9 percent, and pushed one side of a sidewalk higher than normal—the concrete cannot be leveled until the frozen ice lens completely thaws. Attempting to level adjoining slabs to match a temporary frost-heaved panel would result in an uneven walkway once the ground thaws in spring.
+          </p>
+          <p>
+            During our on-site inspection, our technicians check elevation benchmarks against non-moving structures (such as foundation brick ledges) to verify whether the slab is resting on settled subgrade or active frost heave.
+          </p>
+
+          <h2>Why You Should Not Wait Until Spring for Winter Repairs</h2>
+          <p>
+            In many situations, delaying concrete leveling until spring creates severe safety and financial hazards:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Snowplow and Snowblower Damage:</strong> An uneven concrete lip on a driveway or sidewalk is invisible under two inches of snow. Snowplow cutting edges and snowblower augers strike these abrupt ledges at full force, cracking the concrete slab corners, destroying expensive snow removal equipment, and shearing plow pins.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Ice Damming at the Garage Threshold:</strong> A sunken driveway apron directs melting snow straight into the joint beneath the garage door. Overnight, this pooled water freezes solid, creating a hazardous sheet of black ice that glues the garage door weatherstrip to the floor and damages electric openers.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Slip-and-Fall Liability:</strong> An uneven sidewalk covered in hidden winter ice creates an acute slip-and-fall hazard for mail carriers and pedestrians. Municipal citation deadlines do not pause during winter months.
+            </li>
+          </ul>
+
+          <h2>Related Technical Resources</h2>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/mudjacking-vs-polyjacking/">Mudjacking vs. Polyjacking Technical Comparison</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/how-long-foam-lifting-lasts/">How Long Does Foam Lifting Last?</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair & Leveling</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for pricing breakdowns.
+            </li>
+          </ul>
+
+          <h2>Eliminating Snowblower and Snowplow Blade Obstacles</h2>
+          <p>
+            One of the most immediate practical benefits of winter concrete leveling is preventing catastrophic damage to snow removal equipment. When a driveway approach slab or sidewalk panel settles 1.5 to 2.5 inches, it exposes a rigid vertical concrete lip. During winter snowstorms, municipal plow trucks, residential snowblower augers, and driveway plow blades hit this hidden obstacle at speed.
+          </p>
+          <p>
+            Striking a raised concrete lip shears plow shear pins, damages vehicle suspensions, bends snowblower blades, and frequently chips off large chunks of the concrete slab itself. By leveling sunken slabs flush with adjoining garage floors and street curbs before heavy snowfall hits, equipment glides smoothly across transitions without jamming.
+          </p>
+
+          <h2>Preventing Dangerous Winter Ice Dams on Walkways</h2>
+          <p>
+            When a sidewalk panel or front entryway slab develops negative pitch, melting snow during sunny winter afternoons drains into the sunken depression rather than running off into the yard. As evening temperatures drop below 32°F, this standing puddle freezes into a sheet of black ice directly across the pedestrian walking path.
+          </p>
+          <p>
+            Shoveling cannot remove frozen sheets of ice, and heavy salt applications cause concrete scaling over time. Polyurethane lifting re-establishes a clean 2 percent drainage slope away from doorways and steps, ensuring meltwater flows off the slab surface before it can refreeze.
+          </p>
+
+          <h2>Frequently Asked Questions About Winter Leveling</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Winter Service Dispatch</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Our heated mobile polyjacking rigs operate year-round across {city} and surrounding townships:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Operation:</strong> Climate-controlled heated trailer</li>
+            <li><strong>Reaction Temp:</strong> 130°F to 165°F exothermic</li>
+            <li><strong>Cure Speed:</strong> 15 to 30 minutes in winter</li>
+            <li><strong>Plowing Safe:</strong> Flush joints eliminate blade hits</li>
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Winter Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Fix Your Sinking Concrete This Winter</h2>
+          <p>
+            Do not let a sunken driveway apron damage your car or risk a winter slip-and-fall injury on your walkway. Request an on-site evaluation today or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle="Winter Leveling Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

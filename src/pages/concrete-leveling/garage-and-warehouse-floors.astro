@@ -1,0 +1,287 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const pageTitle = `Garage & Warehouse Floor Leveling Columbus | Poly Foam`;
+const pageDescription = `Garage and warehouse floor leveling in Columbus, OH. Lift heavy-load interior concrete slabs and stabilize joints with poly foam. Call for a quote.`;
+
+const breadcrumbs = [
+  { name: 'Concrete Leveling', path: '/concrete-leveling/' },
+  { name: 'Garage & Warehouse Floors', path: '/concrete-leveling/garage-and-warehouse-floors/' },
+];
+
+const garageProject = pastProjects.find((p) => p.serviceType === 'garage-and-warehouse-floors') || pastProjects[5];
+
+const faqItems = [
+  {
+    q: `Why did my interior garage floor slab drop away from the foundation wall?`,
+    a: `In residential construction, garage foundation frost walls rest on deep concrete footings, whereas the garage floor is poured as an independent floating slab over gravel fill. If utility trench backfill beneath the floor settles or water washes base stone away, the floor slab drops while the outer perimeter walls remain stationary.`,
+  },
+  {
+    q: `Can polyurethane foam support commercial forklifts and heavy pallet jacks?`,
+    a: `Yes. Structural polyurethane foam engineered for industrial slab stabilization has an extraordinary compressive strength of 6,000 to 14,000 pounds per square foot (40 to 100+ psi). It transfers high axle point loads evenly across the subgrade, eliminating joint rocking and spalling under continuous forklift operations.`,
+  },
+  {
+    q: `Do we need to remove stored tools and shelving before the floor is leveled?`,
+    a: `In most cases, heavy workbenches and perimeter shelving can stay in place. Because high-density foam exerts substantial hydraulic lift, it easily raises the slab and normal garage contents together. We only ask that the immediate floor area above settled joint lines be swept clear of small items so our drill operators can work.`,
+  },
+  {
+    q: `Will lifting the garage floor crack interior drywall or framing?`,
+    a: `Floating garage slabs are separated from perimeter stud walls by expansion joint material. During injection, our technicians continuously monitor laser elevations to lift only the slab without putting upward thrust on wall framing or sill plates.`,
+  },
+];
+
+import {
+  getServiceSchema,
+  getHowToSchema,
+  getFaqSchema,
+  getProjectGallerySchema,
+} from '../../utils/schema.ts';
+
+const floorHowToSteps = [
+  {
+    title: 'Subsurface Void & Elevation Profiling',
+    text: 'We map the interior floor using precision laser levels to locate the lowest point of settlement and identify rocking joints under active load.',
+  },
+  {
+    title: '5/8-Inch Precision Port Coring',
+    text: 'We drill dime-sized 5/8-inch holes through the slab using HEPA-vacuum-assisted rotary hammer drills, capturing concrete dust before it enters the air.',
+  },
+  {
+    title: 'Structural Foam Injection',
+    text: 'We pump high-density polymer under the floor. The foam fills voids, pre-compacts loose fill, and raises the slab until laser elevations show flush joint alignment.',
+  },
+  {
+    title: 'Flush Cement Patching & Cleanup',
+    text: 'We remove packers, seal each port with color-matched high-strength mortar, and vacuum the floor. Vehicles and equipment can re-enter immediately.',
+  },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Garage and Warehouse Floor Slab Leveling in ${city}, ${state}`,
+    serviceType: 'Interior Floor Slab Lifting & Joint Stabilization',
+    description: `Garage floor leveling, industrial warehouse slab stabilization, and joint rocking elimination using poly foam in ${city}, ${state}.`,
+    canonicalPath: '/concrete-leveling/garage-and-warehouse-floors/',
+  }),
+  getHowToSchema({
+    name: 'Interior Garage & Warehouse Floor Slab Leveling Procedure',
+    description: 'A 4-step precision method for raising heavy-load interior concrete floors and stabilizing rocking forklift joints using high-density polyurethane foam.',
+    canonicalPath: '/concrete-leveling/garage-and-warehouse-floors/',
+    steps: floorHowToSteps,
+  }),
+  getFaqSchema(faqItems),
+  getProjectGallerySchema([garageProject]),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/concrete-leveling/garage-and-warehouse-floors/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Garage and Warehouse Floor Slab Leveling in {city}</h1>
+    <p class="lead">
+      Restore heavy-load interior concrete floors without tearing out walls or interrupting operations. We lift sunken garage slabs and stabilize rocking warehouse joints with high-density polyurethane foam.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Structural Mechanics of Floating Garage Floors</h2>
+          <p>
+            When an interior garage floor drops in {city}, {state}, homeowners often notice a gap of one to three inches opening beneath the baseboards or drywall along the foundation perimeter wall. Water pools under parked vehicles instead of draining toward the overhead door, and cracks spread outward across the floor.
+          </p>
+          <p>
+            This occurs because residential garage floors are built as "floating slabs." The outer perimeter walls of the garage sit atop deep structural foundation walls anchored on virgin soil below the frost line. The interior concrete floor, however, is poured independently over a gravel cushion inside the foundation box.
+          </p>
+          <p>
+            If plumbing trenches, sewer pipe tie-ins, or uncompacted subgrade dirt consolidate beneath the garage, the soil recedes. The floating concrete slab loses its subgrade support. Under the repeated dead-weight and dynamic impact of passenger cars, pickup trucks, and heavy tool storage, the unsupported slab slowly sinks toward the center or tilts toward the back wall.
+          </p>
+          <p>
+            Structural floor maintenance protocols outlined by the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> indicate that restoring subgrade contact via pressure-injected structural material re-establishes uniform load transfer, halting progressive stress cracking across the floor.
+          </p>
+
+          <h2>Commercial Warehouse Floor Stabilization & Rocking Joints</h2>
+          <p>
+            In commercial distribution centers, freight terminals, and manufacturing warehouses across central Ohio, sunken and rocking concrete floor slabs represent a serious operational hazard:
+          </p>
+          <ul>
+            <li style="margin-bottom: 14px;">
+              <strong>Forklift Mast Damage & Driver Fatigue:</strong> When a loaded forklift with solid polyurethane tires drives across an uneven control joint, the impact causes the forklift mast to shake violently, risking dropped pallet loads and spinal fatigue for equipment operators.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Joint Spalling & Deterioration:</strong> An unsupported slab corner deflects downward whenever a heavy wheel rolls over it, then springs back when the load passes. This constant deflection—known as joint rocking—pulverizes the top concrete edges, creating wide, crumbled joint craters that accelerate tire wear.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Robotic AGV Interruption:</strong> Modern automated guided vehicles (AGVs) and autonomous warehouse robots require strict floor flatness and levelness tolerances. Floor dips trigger laser sensor errors and stall automated fulfillment operations.
+            </li>
+          </ul>
+
+          <h2>Why Polyurethane Foam Beats Mudjacking & Floor Tear-Out</h2>
+          <p>
+            Traditional methods of dealing with a sunken interior floor slab are invasive and costly.
+          </p>
+          <p>
+            Tearing out an interior slab requires jackhammers, interior dust barriers, wheelbarrows, and dumpsters. Demolition vibrates foundation footings and risks damaging underground plumbing conduits. Once a new floor is poured, it cannot bear forklift or vehicle traffic for up to 28 days, shutting down facility production.
+          </p>
+          <p>
+            Mudjacking inside a building is equally problematic. Mudjacking pumps generate messy slurry overflows, and the large 2-inch to 3-inch boreholes leave conspicuous circular patches across polished or sealed floors. Most critically, mudjacking slurry adds thousands of pounds of heavy wet grout onto subsoils that already failed under load.
+          </p>
+          <p>
+            Polyurethane foam injection solves these trade challenges cleanly:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Immense Compressive Strength:</strong> High-density poly foam cures to between 6,000 and 14,000 pounds per square foot (40 to 100+ psi), easily supporting heavy industrial point loads and pallet racking systems.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Minimal Disruption:</strong> Drill holes are only 5/8 inch in diameter. Our crew works quietly, cleanly, and can stabilize floor sections in phases overnight or during scheduled shift changes.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Rapid Return to Service:</strong> The foam cures through an exothermic chemical reaction in 15 to 30 minutes. Forklifts and delivery trucks can resume full-speed operations immediately after hole patching.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Zero Soil Overloading:</strong> Poly foam weighs only 3 to 5 pounds per cubic foot, expanding into deep subgrade voids without adding crushing weight to native clays.
+            </li>
+          </ul>
+          <p>
+            Industrial paving research from the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> confirms that stabilizing subgrade voids under slab joints extends the functional service life of industrial floors by decades.
+          </p>
+
+          <!-- Dedicated Garage Floor Before/After Project Case Study -->
+          <div style="margin-top: 40px; margin-bottom: 48px;">
+            <h2>Garage Floor Leveling Before & After Case Study</h2>
+            <p class="text-secondary" style="margin-bottom: 24px;">
+              Inspect real before and after results from a settled interior garage floor bay in Columbus, OH. Slide the divider to see the 2.25-inch center rut restored to level grade:
+            </p>
+            <BeforeAfterSlider project={garageProject} showDetails={true} />
+          </div>
+
+          <h2>Our 4-Step Interior Floor Leveling Process</h2>
+          <ol class="process-list" style="margin-bottom: 32px;">
+            <li class="process-item">
+              <div class="process-number">01</div>
+              <div class="process-content">
+                <h3>Subsurface Void & Elevation Profiling</h3>
+                <p>
+                  We map the interior floor using precision laser levels to locate the lowest point of settlement and identify rocking joints under active load.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">02</div>
+              <div class="process-content">
+                <h3>5/8-Inch Precision Port Coring</h3>
+                <p>
+                  We drill dime-sized 5/8-inch holes through the slab using HEPA-vacuum-assisted rotary hammer drills, capturing concrete dust before it enters the air.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">03</div>
+              <div class="process-content">
+                <h3>Structural Foam Injection</h3>
+                <p>
+                  We pump high-density polymer under the floor. The foam fills voids, pre-compacts loose fill, and raises the slab until laser elevations show flush joint alignment.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">04</div>
+              <div class="process-content">
+                <h3>Flush Cement Patching & Cleanup</h3>
+                <p>
+                  We remove packers, seal each port with color-matched high-strength mortar, and vacuum the floor. Vehicles and equipment can re-enter immediately.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <h2>Related Concrete Leveling Services</h2>
+          <p>
+            Explore our specialized leveling solutions for other areas around your property:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair & Leveling</a> for driveway approach alignment.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/sidewalks/">Sidewalk Leveling & Trip Hazard Repair</a> for exterior walkways.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting (Polyjacking)</a> for technical material specifications.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for project budget estimates.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions About Garage & Warehouse Floors</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Floor Leveling Quote</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Eliminate floor drops and stabilize rocking warehouse joints in {city}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Port Size:</strong> 5/8-inch (dime size)</li>
+            <li><strong>Cure Time:</strong> 15 to 30 minutes</li>
+            <li><strong>Load Rating:</strong> Heavy forklift & truck rated</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>License:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Floor Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Restore Your Garage or Industrial Floor</h2>
+          <p>
+            Do not let a sunken interior slab continue stressing vehicle tires or disrupting forklift traffic. Request an on-site evaluation today or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm preselectedService="garage" formTitle="Floor Leveling Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

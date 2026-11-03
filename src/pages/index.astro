@@ -1,0 +1,446 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroDiagram from '../components/HeroDiagram.astro';
+import EstimateForm from '../components/EstimateForm.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  streetAddress,
+  serviceAreaTowns,
+  warrantyText,
+  licenseNumber,
+  yearsInBusiness,
+} from '../config/site.ts';
+
+// Meta constraints: Title <= 60 chars, Description 140-155 chars
+const pageTitle = `Concrete Leveling in ${city}, ${state} | ${businessName}`;
+const pageDescription = `High-density polyurethane concrete leveling in ${city}, ${state}. Lift sunken driveways, sidewalks, and patios with 5/8-inch ports. Call for a free quote.`;
+
+// FAQ items present in visible HTML
+const faqItems = [
+  {
+    q: `How does polyurethane foam lift settled concrete?`,
+    a: `Two liquid polymers are mixed and injected through 5/8-inch holes drilled into the sunken slab. Within seconds beneath the surface, the liquid expands into a high-density, closed-cell foam. That expansion fills voids in the subgrade, compacts loose soil, and exerts up to 256 pounds per square inch of controlled hydraulic lift to bring the slab back to level grade.`,
+  },
+  {
+    q: `How long before we can walk and drive on the concrete?`,
+    a: `Polyurethane foam cures through an exothermic chemical reaction rather than moisture evaporation. It reaches 90 percent of its structural load capacity in roughly 15 minutes. Homeowners can walk on sidewalks immediately after injection ports are patched. Passenger vehicles can drive over garage floors and driveways 30 minutes after completion.`,
+  },
+  {
+    q: `Will concrete leveling fix underlying drainage or soil washout?`,
+    a: `No. Foam lifting compacts loose subsoil and fills existing voids, but it does not redirect downspout discharge or repair broken buried pipes. If roof runoff pours directly against a slab edge, water will continue carving channels beneath the soil over time. We evaluate site drainage during the inspection so you can correct downspouts before or after lifting.`,
+  },
+  {
+    q: `What is the difference between mudjacking holes and polyjacking holes?`,
+    a: `Traditional mudjacking requires drilling large 2-inch diameter holes through your concrete slab to pump a heavy slurry of topsoil and portland cement. Polyurethane foam uses small 5/8-inch holes—about the diameter of a standard dime. Small drill holes preserve the structural reinforcement of the slab and blend into the concrete surface after color-matched patching.`,
+  },
+  {
+    q: `How much does concrete leveling cost in ${city}, ${state}?`,
+    a: `Most residential concrete leveling projects in the ${city} area range from $600 to $2,400 depending on the square footage, void volume beneath the slab, and injection points required. In contrast, tearing out and repouring concrete typically runs $3,000 to $8,000 once excavation, haul-away, forming, and lawn restoration are factored in.`,
+  },
+];
+
+import {
+  getWebSiteSchema,
+  getBusinessSchema,
+  getHowToSchema,
+  getFaqSchema,
+  getProjectGallerySchema,
+} from '../utils/schema.ts';
+
+const homeHowToSteps = [
+  {
+    title: 'Subgrade Assessment and Elevation Mapping',
+    text: 'We inspect the settled section using continuous optical laser levels to calculate the exact drop in millimeters across all perimeter joints, locate subsurface utilities, and determine the precise injection grid.',
+  },
+  {
+    title: 'Precision Port Drilling (5/8-Inch Ports)',
+    text: 'We drill dime-sized 5/8-inch injection holes through the concrete slab at calculated points using rotary hammer drills that leave the aggregate matrix intact.',
+  },
+  {
+    title: 'Two-Part Polyurethane Foam Injection',
+    text: 'We insert mechanical injection packers into the ports and pump liquid polymer. The material expands underground into high-density closed-cell foam, exerting controlled hydraulic pressure to lift the slab.',
+  },
+  {
+    title: 'Port Patching and Immediate Cleanup',
+    text: 'The packers are removed, and ports are filled flush with color-matched polymer-modified hydraulic cement mortar. The slab is immediately reopened to foot and vehicle traffic.',
+  },
+];
+
+const schemas = [
+  getWebSiteSchema(),
+  getBusinessSchema(),
+  getHowToSchema({
+    name: 'How Concrete Slabs Are Lifted With Polyurethane Foam',
+    description: 'A 4-step professional process for leveling sunken concrete driveways, sidewalks, and patios using high-density polyurethane foam.',
+    canonicalPath: '/',
+    steps: homeHowToSteps,
+  }),
+  getFaqSchema(faqItems),
+  getProjectGallerySchema(pastProjects.slice(0, 3)),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/"
+  schemas={schemas}
+>
+  <!-- Hero Section -->
+  <section class="section bg-surface">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1>Concrete Leveling in {city}, {state}</h1>
+          <p class="lead">
+            We lift and stabilize sunken driveways, sidewalks, patios, and garage floors using high-density polyurethane foam. Small 5/8-inch drill holes, 15-minute cure times, and no yard excavation.
+          </p>
+          <div class="hero-actions">
+            <a href="/contact/" class="btn-primary">
+              Schedule Free On-Site Inspection
+            </a>
+            <a href={phoneTel} class="btn-secondary">
+              Direct Call: {phoneDisplay}
+            </a>
+          </div>
+          <p class="hero-note">
+            Direct contractor service across {city} metro. Most residential jobs take two to three hours and are usable immediately.
+          </p>
+        </div>
+
+        <div class="hero-media">
+          <HeroDiagram />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem & Trade Explanation Section -->
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Why Concrete Slabs Sink in {city}</h2>
+          <p>
+            Concrete itself is remarkably durable, but it depends entirely on the stability of the subgrade underneath it. When a slab sinks, the fault rarely lies within the concrete mix. In central {state}, native soils contain dense glacial clay that shrinks during dry summer stretches and swells during spring rain. If water washes uncompacted fill soil away from under a slab, a hollow void develops.
+          </p>
+          <p>
+            Without uniform subgrade support, a 4-inch concrete slab cannot carry its own weight plus vehicle loads. The slab drops along control joints or snaps across stress lines. Common trouble areas include driveway panels abutting the garage foundation, front entry steps where backfill settled against the basement wall, and sidewalk slabs adjoining municipal tree root systems.
+          </p>
+          <p>
+            According to guidelines published by the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> on slab-on-grade maintenance, addressing void formation early prevents structural fracturing that forces complete tear-out. Polyurethane foam lifting targets that void space directly without adding excess dead-weight to already compromised subsoil.
+          </p>
+
+          <h2>Ruled Index of Concrete Lifting Services</h2>
+          <p class="text-secondary">
+            Select an application below to view technical lifting procedures, typical void depths, and panel alignment standards:
+          </p>
+
+          <div class="index-rows">
+            <a href="/concrete-leveling/polyurethane-foam-lifting/" class="index-row">
+              <span class="index-row-title">Polyurethane Foam Lifting (Polyjacking)</span>
+              <p class="index-row-desc">
+                High-density two-part structural foam injected via dime-sized ports. Waterproof, lightweight, and stable under extreme freeze-thaw cycles.
+              </p>
+              <span class="index-row-action">Read Technical Specs &rarr;</span>
+            </a>
+
+            <a href="/concrete-leveling/driveways/" class="index-row">
+              <span class="index-row-title">Sunken Driveway Repair</span>
+              <p class="index-row-desc">
+                Lift settled driveway approaches and entryway slabs flush with the garage floor threshold to protect car tires and suspension.
+              </p>
+              <span class="index-row-action">Driveway Details &rarr;</span>
+            </a>
+
+            <a href="/concrete-leveling/sidewalks/" class="index-row">
+              <span class="index-row-title">Sidewalk Trip Hazard Leveling</span>
+              <p class="index-row-desc">
+                Eliminate municipal offset penalties and homeowner liability by raising sunken walkway panels to meet pedestrian grade standards.
+              </p>
+              <span class="index-row-action">Sidewalk Standards &rarr;</span>
+            </a>
+
+            <a href="/concrete-leveling/patios-and-pool-decks/" class="index-row">
+              <span class="index-row-title">Patio & Pool Deck Leveling</span>
+              <p class="index-row-desc">
+                Correct negative pitch directing rainwater back toward basement sill plates and re-align shifting poolside coping slabs.
+              </p>
+              <span class="index-row-action">Patio Solutions &rarr;</span>
+            </a>
+
+            <a href="/concrete-leveling/garage-and-warehouse-floors/" class="index-row">
+              <span class="index-row-title">Garage & Warehouse Floor Lifting</span>
+              <p class="index-row-desc">
+                Restore heavy-load industrial and residential interior floor slabs without breaking up interior partition framing.
+              </p>
+              <span class="index-row-action">Floor Leveling &rarr;</span>
+            </a>
+
+            <a href="/concrete-leveling/porches-and-steps/" class="index-row">
+              <span class="index-row-title">Porch & Step Stabilization</span>
+              <p class="index-row-desc">
+                Raise pulling-away stoops and settled entry steps back into plumb alignment with the home threshold.
+              </p>
+              <span class="index-row-action">Step Realignment &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Local Service Snapshot</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            We operate fully equipped self-contained mobile pumping rigs throughout {city} and surrounding townships:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Main Metro:</strong> {city}, {state}</li>
+            {yearsInBusiness && <li><strong>Crew Experience:</strong> {yearsInBusiness} Years</li>}
+            {licenseNumber && <li><strong>License:</strong> {licenseNumber}</li>}
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+          </ul>
+          <p class="text-secondary" style="font-size: 15px;">
+            Need an accurate proposal? Call our shop line directly or fill out our quick inspection form:
+          </p>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Request Inspection
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Contractor Before/After Results Showcase -->
+  <section class="section bg-surface">
+    <div class="container">
+      <div class="section-heading text-center max-w-3xl mx-auto mb-8">
+        <span class="ba-tag ba-tag-service">Verified Field Results</span>
+        <h2>Recent Concrete Leveling Before & After Case Studies</h2>
+        <p class="section-lead">
+          See how expanding high-density polyurethane foam lifts sunken driveways, walkways, and patios back to laser-calibrated grade. Slide the handle left and right to inspect real pre-lift settlement drops against 100% flush restored alignments.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <BeforeAfterSlider project={pastProjects[0]} showDetails={true} />
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-secondary mb-4">
+          Need proof of work on sidewalks, pool decks, steps, or interior garage slabs?
+        </p>
+        <a href="/before-and-after/" class="btn-secondary">
+          Browse All Before & After Case Studies ({pastProjects.length}+ Documented Lifts) &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process: Vertical Numbered List -->
+  <section class="section bg-bg">
+    <div class="container">
+      <h2>Our 4-Step Concrete Lifting Process</h2>
+      <p class="lead">
+        Here is how our crew restores your sunken concrete slabs from arrival to final cleanup:
+      </p>
+
+      <ol class="process-list">
+        <li class="process-item">
+          <div class="process-number">01</div>
+          <div class="process-content">
+            <h3>Subgrade Assessment and Elevation Mapping</h3>
+            <p>
+              We inspect the settled section using continuous optical laser levels to calculate the exact drop in millimeters across all perimeter joints. We locate subsurface utility lines, check foundation drainage paths, and determine the precise injection grid required to lift the panel evenly without putting torsional stress on the slab center.
+            </p>
+          </div>
+        </li>
+
+        <li class="process-item">
+          <div class="process-number">02</div>
+          <div class="process-content">
+            <h3>Precision Port Drilling (5/8-Inch Ports)</h3>
+            <p>
+              We drill 5/8-inch injection holes through the concrete slab at strategic points. These ports are roughly the size of a dime. Unlike mudjacking equipment that punches 2-inch to 3-inch craters through your concrete, our small rotary hammer drill bits leave the aggregate matrix intact and cause zero spiderweb cracking around the borehole rim.
+            </p>
+          </div>
+        </li>
+
+        <li class="process-item">
+          <div class="process-number">03</div>
+          <div class="process-content">
+            <h3>Two-Part Polyurethane Foam Injection</h3>
+            <p>
+              We insert mechanical injection packers into the drilled ports. Our mobile proportioning unit heats and pumps liquid isocyanate and polyol resin directly beneath the slab. The liquid flows into unseen voids, fissures, and washed-out soil cavities. Within seconds, the chemical reaction expands the material into a rigid, waterproof foam that exerts upward hydraulic pressure, lifting the slab millimeter by millimeter under laser monitoring.
+            </p>
+          </div>
+        </li>
+
+        <li class="process-item">
+          <div class="process-number">04</div>
+          <div class="process-content">
+            <h3>Port Patching and Immediate Cleanup</h3>
+            <p>
+              Once the slab reaches level grade and pitch is restored, the injection packers are removed. We tap color-matched hydraulic cement mortar into the 5/8-inch holes and trowel the surface flush with the surrounding concrete texture. The work area is swept clean, and the slab is ready for immediate foot or vehicular traffic.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Comparison Section: Real HTML Table -->
+  <section class="section bg-neutral">
+    <div class="container">
+      <h2>How Poly Foam Compares to Mudjacking & Concrete Replacement</h2>
+      <p>
+        Homeowners frequently ask whether they should mudjack, lift with foam, or rip out and pour new concrete. The engineering standards defined by the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> highlight that preserving sound existing concrete provides structural continuity while preventing costly demolition disposal in local landfills.
+      </p>
+
+      <div class="table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">Factor</th>
+              <th scope="col">Polyurethane Foam Lifting</th>
+              <th scope="col">Traditional Mudjacking</th>
+              <th scope="col">Full Concrete Replacement</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Drill Hole Diameter</td>
+              <td>5/8 inch (dime-sized, subtle patch)</td>
+              <td>1.5 to 2.5 inches (noticeable patched circles)</td>
+              <td>No holes (entire slab demolished)</td>
+            </tr>
+            <tr>
+              <td>Material Weight on Subsoil</td>
+              <td>3 to 5 lbs per cubic foot (lightweight)</td>
+              <td>100 to 140 lbs per cubic foot (heavy grout)</td>
+              <td>150 lbs per cubic foot (new concrete mass)</td>
+            </tr>
+            <tr>
+              <td>Cure Time to Usable Weight</td>
+              <td>15 to 30 minutes</td>
+              <td>24 to 48 hours</td>
+              <td>7 to 28 days for full design strength</td>
+            </tr>
+            <tr>
+              <td>Moisture & Washout Resistance</td>
+              <td>100% closed-cell hydrophobic (waterproof)</td>
+              <td>Vulnerable to water breakdown and erosion</td>
+              <td>Solid slab, but subsoil underneath remains vulnerable</td>
+            </tr>
+            <tr>
+              <td>Lawn & Property Disruption</td>
+              <td>None; single lightweight hose pulled to site</td>
+              <td>Heavy truck ruts, pump slurry washouts</td>
+              <td>Excavators, dumpsters, torn up turf, noise</td>
+            </tr>
+            <tr>
+              <td>Relative Project Cost</td>
+              <td>Moderate ($600 to $2,400 typical)</td>
+              <td>Lowest initial cost, higher recurrence risk</td>
+              <td>Highest ($3,000 to $9,000+ with disposal)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="text-secondary">
+        Want detailed cost breakdowns and panel estimates? Review our <a href="/concrete-leveling-cost/">concrete leveling cost guide</a> or speak with a technician about your specific property.
+      </p>
+    </div>
+  </section>
+
+  <!-- Single Full-Width Ink Band Allowed by Design System -->
+  <section class="band-ink">
+    <div class="container">
+      <h2>Honest Limits of Concrete Leveling</h2>
+      <p>
+        A reputable contractor tells you what foam can do—and what it cannot do. Polyurethane foam lifting cures settled slabs caused by soil consolidation, uncompacted utility trenches, and localized void washouts. However, foam lifting will not repair concrete that has fractured into dozens of small crumbling gravel chunks. If the slab surface is spalling, flaking from severe road salt damage, or lacks structural cohesion, replacement is the proper engineering solution.
+      </p>
+      <p>
+        Furthermore, foam lifting does not alter the fundamental laws of geology. If roof water continues gushing out of an unextended downspout directly beside your walkway, water will eventually carve fresh paths through the deeper soil strata. We diagnose root causes on every job site so you can protect your investment for years to come.
+      </p>
+      <div style="margin-top: 32px;">
+        <a href="/contact/" class="btn-primary" style="margin-right: 16px; margin-bottom: 16px;">
+          Book Free Diagnostic Inspection
+        </a>
+        <a href="/concrete-leveling/polyurethane-foam-lifting/" class="btn-secondary">
+          Read Detailed Polyjacking Specs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Area Coverage -->
+  <section class="section bg-surface">
+    <div class="container">
+      <h2>Serving {city} and Nearby Townships</h2>
+      <p>
+        We dispatch our mobile polyjacking rigs across Franklin and contiguous counties every weekday. We provide free residential on-site quotes for property owners throughout:
+      </p>
+
+      <div class="index-rows">
+        {serviceAreaTowns.map((town) => (
+          <a href={`/service-areas/${town.slug}/`} class="index-row">
+            <span class="index-row-title">{town.name}, {state}</span>
+            <p class="index-row-desc">
+              Leveling driveways, sidewalks, and pool slabs across {town.name}. Fast dispatch and local neighborhood knowledge.
+            </p>
+            <span class="index-row-action">View Town Details &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section with Native Details & Summary -->
+  <section class="section bg-neutral">
+    <div class="container">
+      <h2>Frequently Asked Questions About Concrete Leveling</h2>
+      <p class="lead">
+        Straight answers from tradespeople who work with concrete every day.
+      </p>
+
+      <div class="faq-list">
+        {faqItems.map((faq) => (
+          <details class="faq-item">
+            <summary>{faq.q}</summary>
+            <p>{faq.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- On-Site Estimate Request Section -->
+  <section class="section bg-surface">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Get a Firm Proposal on Your Sunken Concrete</h2>
+          <p>
+            Do not wait for a small 1-inch trip hazard to become a cracked, unrepairable slab or a municipal citation. Tell us where your concrete has settled, and we will send a leveling technician to shoot laser elevations and provide an itemized written quote.
+          </p>
+          <p>
+            Prefer to speak directly with an estimator right now? Call our local line at <a href={phoneTel} class="phone-link">{phoneDisplay}</a> during business hours.
+          </p>
+        </div>
+        <div>
+          <EstimateForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

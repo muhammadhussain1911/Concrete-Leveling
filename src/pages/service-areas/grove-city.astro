@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const townName = 'Grove City';
+const townCounty = 'Franklin County';
+
+const pageTitle = `Concrete Leveling Grove City, OH | Poly Foam Lifting`;
+const pageDescription = `Precision concrete leveling in Grove City, OH. Lift sunken driveways, sidewalks, and patios with 5/8-inch ports. Call for an on-site inspection.`;
+
+const breadcrumbs = [
+  { name: 'Service Areas', path: '/service-areas/' },
+  { name: `${townName}, ${state}`, path: `/service-areas/grove-city/` },
+];
+
+import { getServiceSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getServiceSchema({
+    name: `Concrete Leveling and Polyjacking in ${townName}, ${state}`,
+    serviceType: 'Polyurethane Foam Concrete Leveling',
+    description: `Professional polyurethane foam concrete lifting for residential driveways, walkways, and patios across ${townName}, ${state}.`,
+    canonicalPath: '/service-areas/grove-city/',
+    areaName: townName,
+    countyName: townCounty,
+  }),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/service-areas/grove-city/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Concrete Leveling in Grove City, {state}</h1>
+    <p class="lead">
+      Lifting and stabilizing sunken driveways, sidewalks, patios, and garage floors across {townName}. High-density polyurethane foam lifting with small 5/8-inch ports, 15-minute cure time, and no lawn excavation.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Subgrade Settlement Dynamics in Grove City Subdivisions</h2>
+          <p>
+            Located southwest of Columbus in {townCounty}, Grove City has experienced tremendous residential and commercial growth over the past two decades. From established neighborhoods around Town Center to expansive master-planned developments in Beulah Park and the Stringtown Road corridor, thousands of modern homes have been constructed.
+          </p>
+          <p>
+            The underlying geological strata in Grove City consists of dense, low-permeability Wisconsinan glacial clays. During subdivision land development, massive scrapers and bulldozers clear topsoil and re-grade terrain. In the process, deep trenches for sanitary sewers, storm mains, and foundation footings are excavated and backfilled.
+          </p>
+          <p>
+            Unless that backfill dirt was compacted in shallow mechanical lifts, it slowly consolidates over five to twelve years under the weight of rain and snow. In Grove City subdivisions, we consistently observe driveway aprons dropping two to three inches below garage floors, front walkway slabs sinking near downspout lines, and backyard patios pulling away from brick siding.
+          </p>
+
+          <h2>Why Grove City Homeowners Choose Poly Foam Lifting</h2>
+          <p>
+            When concrete flatwork settles, tearing it out and pouring new concrete is rarely necessary. Tearing out a concrete driveway in Grove City costs thousands of dollars and damages lawn turf with heavy mixer trucks.
+          </p>
+          <p>
+            Traditional mudjacking is also poorly suited for Grove City's heavy clay soils. Mudjacking injects wet topsoil and cement slurry weighing 120 pounds per cubic foot. Adding that massive dead-weight directly over already settling clay often triggers secondary subgrade collapse within two or three seasons.
+          </p>
+          <p>
+            Polyurethane foam lifting is the modern engineering solution:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Lightweight Subgrade Support:</strong> High-density poly foam weighs only 3 to 5 pounds per cubic foot. It expands into subgrade voids and pre-compacts loose backfill without adding crushing weight to the ground.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Small 5/8-Inch Ports:</strong> We drill dime-sized holes that leave rebar reinforcement intact. After lifting, ports are sealed with color-matched mortar that blends cleanly into the concrete.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>15-Minute Cure:</strong> The expanding foam reaches full compressive strength in 15 to 30 minutes, allowing homeowners to park cars in their garage immediately after completion.
+            </li>
+          </ul>
+
+          <h2>Common Grove City Concrete Leveling Applications</h2>
+          <div class="index-rows">
+            <div class="index-row">
+              <span class="index-row-title">Driveway Apron Realignment</span>
+              <p class="index-row-desc">
+                Raising settled approach slabs flush with garage door thresholds to eliminate tire jarring and prevent rainwater from pooling near foundation walls.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Sidewalk & Walkway Trip Hazard Repair</span>
+              <p class="index-row-desc">
+                Eliminating pedestrian trip hazards on front sidewalks to comply with municipal pedestrian safety guidelines and HOA rules.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Patio & Porch Pitch Restoration</span>
+              <p class="index-row-desc">
+                Raising settled stoops and outdoor patio slabs to direct stormwater away from residential basement walls.
+              </p>
+            </div>
+          </div>
+
+          <h2>Neighboring Central Ohio Communities We Serve</h2>
+          <p>
+            In addition to Grove City, our crews provide daily concrete lifting dispatch across southwestern Franklin County and neighboring townships:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/hilliard/">Concrete Leveling in Hilliard, {state}</a> for suburban driveway and sidewalk stabilization.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/dublin/">Concrete Leveling in Dublin, {state}</a> for HOA walkway compliance.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/westerville/">Concrete Leveling in Westerville, {state}</a> for residential slab leveling.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/">View All Regional Service Areas</a>.
+            </li>
+          </ul>
+
+          <p style="margin-top: 24px;">
+            Want to learn more about the technical process? Read our detailed engineering guide on <a href="/concrete-leveling/polyurethane-foam-lifting/">polyurethane foam concrete leveling and polyjacking</a> or review our <a href="/concrete-leveling-cost/">concrete leveling cost guide</a> for typical pricing ranges.
+          </p>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Grove City Dispatch</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Serving all residential neighborhoods and commercial properties throughout {townCounty}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Service Area:</strong> {townName}, {state} (43123)</li>
+            <li><strong>Method:</strong> Two-Part Poly Foam</li>
+            <li><strong>Hole Size:</strong> 5/8-inch Dime Sized</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>Contractor ID:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Grove City Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule Your Grove City Concrete Inspection</h2>
+          <p>
+            Do not let a sunken driveway apron or uneven walkway continue worsening with each freeze-thaw cycle. Provide your property details below and our Grove City estimator will visit to shoot laser elevations and deliver a firm written proposal.
+          </p>
+          <p>
+            Or reach our dispatch desk directly by calling <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle={`Request a ${townName} Inspection`} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

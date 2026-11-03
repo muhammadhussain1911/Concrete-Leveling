@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+} from '../../config/site.ts';
+
+const pageTitle = `How Long Does Poly Foam Concrete Lifting Last? | Guide`;
+const pageDescription = `How long does polyurethane foam concrete leveling last? Learn about material lifespan, compressive strength, and durability factors. Read our guide.`;
+
+const breadcrumbs = [
+  { name: 'Technical Guides', path: '/guides/' },
+  { name: 'How Long Foam Lifting Lasts', path: '/guides/how-long-foam-lifting-lasts/' },
+];
+
+const faqItems = [
+  {
+    q: `Does polyurethane foam break down or rot underground?`,
+    a: `No. Once the two-part polymer cures, it forms an inert, closed-cell thermoset plastic matrix. It does not biodegrade, is immune to soil microbes and insects, and does not dissolve in groundwater or road deicing chemicals. Under ordinary subterranean conditions shielded from direct sunlight ultraviolet rays, cured polyurethane lasts indefinitely.`,
+  },
+  {
+    q: `What is the compressive strength of structural lifting foam?`,
+    a: `High-density polyurethane lifting foam is engineered to withstand extreme pressures ranging from 6,000 to 14,000 pounds per square foot (40 to 100+ psi). Because the foam distributes weight evenly across the entire underside of the slab, it easily supports passenger vehicles, delivery trucks, and industrial forklift traffic.`,
+  },
+  {
+    q: `Can a concrete slab settle again after being lifted with foam?`,
+    a: `The foam itself will never compress, wash away, or decompose. However, if deep soil movement occurs beneath the foam layer—such as from an un-repaired underground plumbing leak or unextended downspouts carving new erosion channels deeper in the subgrade—the underlying dirt can shift. Addressing site drainage protects the lift permanently.`,
+  },
+  {
+    q: `How does polyurethane lifespan compare to mudjacking lifespan?`,
+    a: `Traditional mudjacking slurry is cement- and soil-based, making it susceptible to water washouts, freeze-thaw breakdown, and secondary soil collapse due to its heavy weight (120 lbs/cu ft). Polyurethane foam is hydrophobic, weighs only 3 to 5 lbs/cu ft, and provides permanent void filling that far outlasts mudjacking.`,
+  },
+];
+
+import { getArticleSchema, getFaqSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getArticleSchema({
+    title: 'How Long Does Polyurethane Foam Concrete Lifting Last? Lifespan & Durability',
+    description: 'A comprehensive technical examination of the lifespan, chemical stability, and geotechnical durability of polyurethane foam concrete leveling.',
+    canonicalPath: '/guides/how-long-foam-lifting-lasts/',
+  }),
+  getFaqSchema(faqItems),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/guides/how-long-foam-lifting-lasts/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>How Long Does Polyurethane Foam Concrete Lifting Last?</h1>
+    <p class="lead">
+      Examine the cured durability, compressive load ratings, and environmental lifespan of closed-cell structural polyurethane foam beneath residential and commercial pavements in {city}, {state}.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Difference Between Material Lifespan and Subgrade Stability</h2>
+          <p>
+            When homeowners evaluate concrete leveling options in {city}, {state}, they want to know whether polyjacking is a permanent repair or merely a temporary patch. To answer that question accurately, a tradesperson must distinguish between two distinct elements:
+          </p>
+          <ol style="margin-left: 24px; margin-bottom: 24px;">
+            <li style="margin-bottom: 8px;">
+              <strong>The Lifespan of the Injected Polyurethane Material</strong>
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>The Ongoing Stability of the Underlying Subgrade Soil</strong>
+            </li>
+          </ol>
+          <p>
+            As a material, high-density closed-cell polyurethane foam is virtually permanent. Once injected and fully polymerized underground, the foam forms an inert thermoset plastic matrix that does not biodegrade, dissolve, or rot.
+          </p>
+          <p>
+            However, the pavement as a whole rests on the earth. How long your lifted concrete remains level depends on whether the root environmental cause of the original settlement—such as roof downspout washouts or poor soil compaction—has been addressed. Structural maintenance guidelines from the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> emphasize that geotechnical void remediation must be coupled with positive surface drainage to ensure multi-decade performance.
+          </p>
+
+          <h2>The Chemical Durability of Closed-Cell Polyurethane</h2>
+          <p>
+            Polyurethane lifting foam is manufactured through an exothermic chemical reaction between polymeric isocyanates (A-side) and specialized polyols (B-side). During injection beneath your slab, millions of microscopic closed cells form.
+          </p>
+          <p>
+            This closed-cell microstructure provides exceptional physical properties:
+          </p>
+          <ul>
+            <li style="margin-bottom: 14px;">
+              <strong>100% Hydrophobic (Waterproof):</strong> Polyurethane foam absorbs less than 2 percent moisture by volume. It does not soften, disintegrate, or leach when submerged in standing groundwater. Unlike cementitious mudjacking grout that dissolves when water washes through the subgrade, poly foam acts as a permanent subterranean moisture barrier.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Immune to Biological Attack:</strong> Soil microbes, fungi, bacteria, and subterranean insects cannot digest or break down cured polyurethane. Termites, ants, and burrowing pests will not tunnel through or consume high-density polymer foam.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Chemical & Salt Resistance:</strong> Winter road deicing salts (sodium chloride, calcium chloride), automotive motor oil, gasoline spills, and fertilizer runoff filtering through slab expansion joints have zero effect on cured polyurethane.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>UV Shielding Underground:</strong> The only environmental factor that degrades polyurethane polymers is prolonged ultraviolet (UV) radiation from direct sunlight. Because lifting foam is buried completely beneath a four-inch solid concrete slab, it is permanently shielded from UV exposure, giving it an indefinite subterranean lifespan.
+            </li>
+          </ul>
+
+          <h2>Compressive Strength: Can It Support Heavy Loads Long Term?</h2>
+          <p>
+            A common misconception is that foam is "soft" or "spongy." Packaging foam and residential cushion foam have densities of less than one pound per cubic foot. In contrast, the structural polyurethane formulation engineered for concrete lifting cures at high densities.
+          </p>
+          <p>
+            Our structural foam delivers a cured compressive strength ranging from <strong>6,000 to 14,000 pounds per square foot (40 to 100+ psi)</strong>. To put that in perspective:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              A fully loaded commercial passenger SUV places roughly 30 to 35 psi of contact pressure on a driveway through its tire contact patches.
+            </li>
+            <li style="margin-bottom: 8px;">
+              A four-inch solid concrete slab distributes that wheel load outward across several square feet of foam beneath.
+            </li>
+          </ul>
+          <p>
+            Because the foam distributes vehicle weight evenly across the entire subgrade surface area rather than at concentrated pressure points, the material will never crush, compress, or lose its elevation under daily residential or commercial traffic. Heavy highway engineering standards published by the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> document that structural polymers maintain their design compressive modulus under millions of cyclic vehicle load applications.
+          </p>
+
+          <h2>What Factors Can Cause a Slab to Settle Again?</h2>
+          <p>
+            An ethical contractor will always be honest about the physical limitations of geotechnical lifting. While the polyurethane foam itself will never fail, a concrete slab can settle again if the deeper soil strata beneath the foam layer shifts:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Uncorrected Downspout Drainage:</strong> If your roof downspouts continue dumping hundreds of gallons of water directly beside your driveway apron, water will carve new flow channels beneath the foam layer deeper in the native soil.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Underground Plumbing Leaks:</strong> A cracked sewer lateral, leaking lawn irrigation pipe, or broken municipal water main will wash away subgrade soil regardless of how well the slab was lifted.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Deep-Seated Glacial Faulting:</strong> If deep native clay strata several feet beneath the foundation settle due to severe multi-year drought, entire building foundations can shift slightly.
+            </li>
+          </ul>
+          <p>
+            During our on-site inspection, our technicians evaluate your downspout extensions, surface grading, and perimeter soil conditions so you can address drainage factors and protect your leveled concrete permanently.
+          </p>
+
+          <h2>Comparing Lifespan: Poly Foam vs. Mudjacking vs. Replacement</h2>
+          <p>
+            When evaluating long-term value:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Traditional Mudjacking:</strong> Typically lasts two to five years on central Ohio soils. Its heavy weight (120 lbs/cu ft) causes secondary settlement, and water washouts erode the cement slurry over time.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Full Concrete Replacement:</strong> If poured over the same uncompacted backfill without stabilizing the subgrade, a new concrete slab frequently sinks again within three to seven years, costing thousands in wasted expense.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Polyurethane Foam Lifting:</strong> Provides an indefinite material lifespan, lightweight subgrade support that eliminates secondary collapse, and waterproof void sealing that lasts as long as the concrete slab itself.
+            </li>
+          </ul>
+
+          <h2>ASTM Testing Standards and Subterranean Chemical Stability</h2>
+          <p>
+            The polyurethane formulations deployed in modern geotechnical slab lifting are tested in accordance with rigorous <a href="https://www.astm.org/" target="_blank" rel="noopener noreferrer">ASTM International</a> standards for cellular plastics. Specific benchmarks include ASTM D1621 (Compressive Properties of Rigid Cellular Plastics) and ASTM D2842 (Water Absorption of Rigid Cellular Plastics).
+          </p>
+          <p>
+            Unlike organic topsoils or limestone screenings that dissolve under acidic groundwater conditions, cured closed-cell polyurethane is chemically inert. It demonstrates complete resistance to:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <strong>Hydrocarbons and Automotive Fluids:</strong> Motor oil, gasoline, diesel fuel, and transmission fluid that leak onto garage floors or driveways will not soften or degrade the polymer underneath.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Deicing Salts and Chlorides:</strong> Calcium chloride, sodium chloride, and potassium deicing pellets carried on vehicle tires during Ohio winters wash off harmlessly without attacking the subgrade barrier.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Soil Acidity and Fertilizers:</strong> Lawn nitrates, sulfates, and acidic rainwater have zero effect on closed-cell polyurethane chemistry.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Burrowing Rodents and Insects:</strong> Because the material is an inorganic synthetic polymer containing zero food source or nesting value, chipmunks, mice, ants, and termites cannot digest or burrow through cured high-density foam.
+            </li>
+          </ul>
+
+          <h2>Related Technical Resources</h2>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/mudjacking-vs-polyjacking/">Mudjacking vs. Polyjacking Technical Comparison</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/why-concrete-sinks/">Why Concrete Sinks: Subgrade Soil Settlement Explained</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for project budget estimates.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting Technical Specs</a>.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Permanent Slab Support</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Get an on-site evaluation of your settling concrete flatwork in {city}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Material:</strong> Closed-cell poly foam</li>
+            <li><strong>Compressive Rating:</strong> Up to 14,000 psf</li>
+            <li><strong>Washout Risk:</strong> 100% waterproof</li>
+            <li><strong>Soil Overburden:</strong> 95% lighter than mud</li>
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Inspection
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Invest in Long-Term Concrete Stabilization</h2>
+          <p>
+            Do not waste money on temporary mudjacking patches or expensive tear-outs. Request an on-site evaluation today or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle="Long-Term Leveling Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

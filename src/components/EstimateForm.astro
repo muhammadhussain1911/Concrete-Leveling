@@ -1,0 +1,131 @@
+---
+import { phoneDisplay, phoneTel } from '../config/site.ts';
+
+export interface Props {
+  preselectedService?: string;
+  formTitle?: string;
+}
+
+const {
+  preselectedService = '',
+  formTitle = 'Request an On-Site Concrete Inspection',
+} = Astro.props;
+---
+
+<div class="form-wrap">
+  <div class="form-intro">
+    <p class="index-row-title" style="margin-bottom: 8px;">{formTitle}</p>
+    <p class="text-secondary" style="font-size: 15px; margin-bottom: 24px;">
+      Direct dispatch. We examine the slab thickness, subgrade voids, and laser elevations before providing a fixed-price proposal. Or call <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+    </p>
+  </div>
+
+  <form
+    name="estimate-request"
+    method="POST"
+    action="/thank-you/"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    enctype="multipart/form-data"
+    novalidate
+  >
+    <input type="hidden" name="form-name" value="estimate-request" />
+
+    <!-- Netlify honeypot field -->
+    <p class="sr-only-field">
+      <label>
+        Do not fill this field if you are human: <input name="bot-field" />
+      </label>
+    </p>
+
+    <!-- Full Name -->
+    <div class="form-group">
+      <label for="lead-name">Your Full Name *</label>
+      <input
+        type="text"
+        id="lead-name"
+        name="name"
+        class="form-input"
+        required
+        autocomplete="name"
+        placeholder="e.g. David Miller"
+      />
+      <div id="name-error" class="form-error">Please enter your name so our estimator knows who to ask for.</div>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="lead-phone">Direct Phone Number *</label>
+      <input
+        type="tel"
+        id="lead-phone"
+        name="phone"
+        class="form-input"
+        required
+        autocomplete="tel"
+        placeholder="e.g. (614) 555-0143"
+      />
+      <div id="phone-error" class="form-error">Please enter a valid 10-digit telephone number for dispatch.</div>
+      <div class="form-help">Used only to confirm inspection scheduling and provide quote documents.</div>
+    </div>
+
+    <!-- Address or ZIP -->
+    <div class="form-group">
+      <label for="lead-location">Property Address or ZIP Code *</label>
+      <input
+        type="text"
+        id="lead-location"
+        name="location"
+        class="form-input"
+        required
+        autocomplete="postal-code"
+        placeholder="e.g. 43016 or 7422 Riverside Dr, Dublin"
+      />
+      <div id="location-error" class="form-error">Please provide the street address or ZIP code of the property.</div>
+    </div>
+
+    <!-- What is Sinking -->
+    <div class="form-group">
+      <label for="lead-service">What Concrete Is Sinking or Uneven? *</label>
+      <select id="lead-service" name="service" class="form-select" required>
+        <option value="">Select the settled concrete area...</option>
+        <option value="driveway" selected={preselectedService === 'driveway'}>Driveway Slab or Approach</option>
+        <option value="sidewalk" selected={preselectedService === 'sidewalk'}>Sidewalk / Front Walkway (Trip Hazard)</option>
+        <option value="patio" selected={preselectedService === 'patio'}>Patio or Pool Deck</option>
+        <option value="garage" selected={preselectedService === 'garage'}>Garage Floor or Interior Slab</option>
+        <option value="steps" selected={preselectedService === 'steps'}>Front Porch, Stoop, or Steps</option>
+        <option value="commercial" selected={preselectedService === 'commercial'}>Commercial or Warehouse Slab</option>
+        <option value="other" selected={preselectedService === 'other'}>Other Concrete Surface</option>
+      </select>
+      <div id="service-error" class="form-error">Please select the type of sunken slab.</div>
+    </div>
+
+    <!-- Optional Photo Upload -->
+    <div class="form-group">
+      <label for="lead-photo">Attach Slab Photo (Optional)</label>
+      <input
+        type="file"
+        id="lead-photo"
+        name="photo"
+        class="form-input"
+        accept="image/*"
+      />
+      <div class="form-help">A quick snapshot showing the drop-off or settlement helps us assess void depth before arriving.</div>
+    </div>
+
+    <!-- Job Description / Message -->
+    <div class="form-group">
+      <label for="lead-message">Additional Notes (Optional)</label>
+      <textarea
+        id="lead-message"
+        name="message"
+        class="form-textarea"
+        placeholder="Describe how much the concrete dropped, whether water pools toward your home foundation, or any timing requirements."
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary" style="width: 100%;">
+      Submit Request for Free Inspection
+    </button>
+  </form>
+</div>

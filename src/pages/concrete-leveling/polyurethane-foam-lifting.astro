@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+// SEO Title (<= 60 chars) & Meta Description (140-155 chars)
+const pageTitle = `Polyurethane Foam Concrete Leveling ${city} | Polyjacking`;
+const pageDescription = `Polyurethane foam concrete leveling and polyjacking in ${city}, ${state}. High-density lifting foam, 5/8-inch drill holes, 15-minute cure. Get a firm quote.`;
+
+const breadcrumbs = [
+  { name: 'Concrete Leveling', path: '/concrete-leveling/' },
+  { name: 'Polyurethane Foam Lifting', path: '/concrete-leveling/polyurethane-foam-lifting/' },
+];
+
+const faqItems = [
+  {
+    q: `What chemical components make up polyjacking foam?`,
+    a: `Polyjacking utilizes a closed-cell, two-part polyurethane system consisting of polymethylene polyphenyl isocyanate (A-side) and a specialized polyol resin blend (B-side) formulated with blowing agents, catalysts, and surfactants. When pumped under high pressure through an impingement-mix gun, the two components initiate an exothermic polymerization that expands into a rigid, cellular matrix within seconds.`,
+  },
+  {
+    q: `How does polyurethane foam hold up heavy vehicle traffic?`,
+    a: `The high-density polyurethane formulation engineered for structural concrete lifting exhibits a cured compressive strength ranging from 6,000 to 14,000 pounds per square foot (40 to 100 psi). Because this foam transfers weight evenly across the entire subgrade surface area rather than at pinpoint pressure spots, it effortlessly supports passenger cars, commercial delivery trucks, and loaded warehouse forklifts.`,
+  },
+  {
+    q: `Will moisture, soil acids, or seasonal frost degrade the cured foam?`,
+    a: `No. Once fully cured, the polyurethane material is completely inert, hydrophobic, and non-biodegradable. It does not absorb standing water, will not dissolve in soil moisture, and resists degradation from roadway deicing salts and soil microbes. Unlike cementitious mudjacking slurry that erodes when exposed to moving water, polyurethane acts as a permanent underground moisture barrier.`,
+  },
+  {
+    q: `Can you see the injection drill holes after the job is finished?`,
+    a: `Our drill holes are only 5/8 inch in diameter—about the size of a standard dime. After the slab reaches grade and the injection packers are removed, we fill the holes with a color-matched hydraulic cement mortar flush with the surrounding concrete texture. Over several weeks of weathering and foot traffic, the small dots blend seamlessly into the existing slab.`,
+  },
+  {
+    q: `Why does polyurethane lifting cost more than old-fashioned mudjacking?`,
+    a: `Polyurethane raw resin is a precision-engineered chemical polymer manufactured to exacting laboratory tolerances, whereas mudjacking relies on inexpensive local soil, sand, and bagged portland cement. While polyurethane has higher raw material costs, it requires dramatically smaller drill holes, creates zero lawn damage, weighs 95 percent less on unstable soils, and provides permanent void sealing that avoids repeat settlement callbacks.`,
+  },
+  {
+    q: `What happens if a slab has hairline cracks before injection?`,
+    a: `Minor surface shrinkage cracks and hairline fractures can be lifted successfully if the concrete retains its structural continuity. During the injection process, our operators control the flow rate so the expanding foam supports both sides of the fracture simultaneously without tearing the crack wider. However, severely crushed concrete broken into small gravel-like chunks cannot be lifted and should be replaced.`,
+  },
+];
+
+import {
+  getServiceSchema,
+  getHowToSchema,
+  getFaqSchema,
+  getProjectGallerySchema,
+} from '../../utils/schema.ts';
+
+const polyjackingHowToSteps = [
+  {
+    title: 'Elevation Benchmarking and Utility Clearance',
+    text: 'We benchmark stable adjoining surfaces using optical laser transits, identify subsurface utilities, and determine elevation targets.',
+  },
+  {
+    title: 'Systematic Borehole Grid Pattern',
+    text: 'We drill clean 5/8-inch ports spaced 3 to 4 feet apart through the slab into subgrade voids and vacuum away all stone dust.',
+  },
+  {
+    title: 'Packer Seating and Controlled Injections',
+    text: 'We insert mechanical packers and inject liquid polyurethane in short bursts, continuously monitoring elevations with laser receivers.',
+  },
+  {
+    title: 'Subgrade Densification and Soil Pre-Compaction',
+    text: 'Expanding foam penetrates void cavities, pre-compacts loose subsoil to maximum density, and exerts upward hydraulic force.',
+  },
+  {
+    title: 'Packer Removal, Surface Patching, and Final Clean',
+    text: 'Packers are removed, ports are sealed flush with polymer-modified hydraulic cement mortar, and the slab is ready for immediate traffic.',
+  },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Polyurethane Foam Concrete Leveling (Polyjacking) in ${city}, ${state}`,
+    serviceType: 'Polyurethane Concrete Lifting & Void Filling',
+    description: `High-density polyurethane foam concrete leveling, polyjacking, void filling, and structural slab lifting throughout ${city}, ${state}.`,
+    canonicalPath: '/concrete-leveling/polyurethane-foam-lifting/',
+  }),
+  getHowToSchema({
+    name: 'Polyurethane Foam Concrete Leveling (Polyjacking) Procedure',
+    description: 'Detailed 5-step engineering procedure for lifting and stabilizing concrete slabs with expanding high-density polyurethane polymers.',
+    canonicalPath: '/concrete-leveling/polyurethane-foam-lifting/',
+    steps: polyjackingHowToSteps,
+    totalTime: 'PT3H',
+  }),
+  getFaqSchema(faqItems),
+  getProjectGallerySchema(pastProjects.slice(0, 3)),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/concrete-leveling/polyurethane-foam-lifting/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Polyurethane Foam Concrete Leveling (Polyjacking) in {city}</h1>
+    <p class="lead">
+      The modern technical standard for precision concrete slab lifting. Utilizing high-density closed-cell polymers injected through 5/8-inch ports, we restore sunken slabs to level grade without heavy excavation.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Understanding Polyurethane Foam Lifting Science</h2>
+          <p>
+            Polyurethane concrete leveling—commonly known throughout the trades as polyjacking or foam jacking—is a specialized geotechnical process designed to raise, align, and stabilize sunken concrete slabs. Concrete pavements across {city}, {state} frequently settle due to subgrade erosion, poor soil compaction during residential construction, and seasonal moisture fluctuation in our native glacial clay beds.
+          </p>
+          <p>
+            When subgrade soil shifts or washes away, empty voids form directly below the concrete slab. Left unsupported, the rigid pavement drops under its own weight and the dynamic impact of vehicular and pedestrian traffic. Traditional methods such as mudjacking pumped heavy soil-cement slurries into the ground through large 2-inch to 3-inch boreholes. Polyjacking replaces that outdated method with high-density, structural two-component polymers that expand underground with controlled hydraulic force.
+          </p>
+          <p>
+            According to technical concrete restoration protocols referenced by the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a>, subgrade stabilization must address soil voids without introducing excessive surcharge loads that trigger secondary settlement. Because high-density polyurethane weighs only 3 to 5 pounds per cubic foot compared to mudjacking grout at 100 to 140 pounds per cubic foot, polyjacking eliminates the primary reason why leveled slabs sink a second time.
+          </p>
+
+          <h2>The Chemical Reaction: Two-Part Hydrophobic Polymers</h2>
+          <p>
+            The material injected under your concrete is not ordinary packaging spray foam. It is a high-density, closed-cell structural polyurethane formulation specifically engineered for heavy infrastructure, highway pavements, and residential slabs. The system consists of two separate liquid reactants kept in heated tanks inside our mobile service trailer:
+          </p>
+          <ul>
+            <li style="margin-bottom: 16px;">
+              <strong>Component A (Isocyanate):</strong> A polymeric methylene diphenyl diisocyanate (PMDI) that provides the molecular backbone and structural rigidity of the cured matrix.
+            </li>
+            <li style="margin-bottom: 16px;">
+              <strong>Component B (Polyol Resin Blend):</strong> A proprietary blend of polyols, tertiary amine catalysts, surfactants, and non-ozone-depleting hydrofluoroolefin blowing agents that control expansion speed, cell formation, and final density.
+            </li>
+          </ul>
+          <p>
+            These two liquid streams are pumped separately through heated, high-pressure lines at temperatures between 110 and 130 degrees Fahrenheit and pressures between 1,000 and 1,500 psi. When the trigger of the mechanical-purge injection gun is pulled, the components collide within an internal impingement mixing chamber.
+          </p>
+          <p>
+            The chemical reaction begins in less than five seconds. First, the mixed liquid flows into unseen subterranean fissures, wormholes, and compaction gaps, reaching deep pockets that thick mud slurry could never penetrate. Within fifteen to thirty seconds, the reaction undergoes a dramatic volumetric expansion of 15 to 25 times its liquid volume. The expanding gas bubbles generate upward lifting pressure of up to 256 psi (over 36,000 pounds per square foot), gently and uniformly elevating the concrete slab above.
+          </p>
+
+          <h2>5/8-Inch Injection Holes vs. Mudjacking Core Holes</h2>
+          <p>
+            One of the most noticeable differences between polyurethane foam leveling and mudjacking is the size and number of drill holes required on the finished concrete surface.
+          </p>
+          <p>
+            Mudjacking relies on heavy mechanical pumps that move viscous cement and limestone aggregate slurry. To push that thick sludge without plugging the delivery hoses, contractors must core 1.5-inch to 2.5-inch holes directly through the center of your driveway or patio. A standard two-car driveway might require fifteen or twenty large holes. In addition to weakening the rebar or wire mesh grid inside the concrete, those large core holes leave permanent discolored circles resembling polka dots across the driveway for the rest of its lifespan.
+          </p>
+          <p>
+            In contrast, polyjacking equipment handles low-viscosity liquid chemicals. We use high-speed rotary hammer drills equipped with 5/8-inch bits—about the size of a ten-cent dime. We insert precision brass or Delrin mechanical injection packers equipped with internal back-pressure check valves. The small diameter leaves the internal tensile reinforcement of the slab completely intact. When the lift is completed, our technicians patch the holes with specialized polymer-modified portland mortar tinted to match the aged tone of your concrete. Within a few weeks of natural surface dusting and weathering, the injection points become virtually undetectable.
+          </p>
+
+          <h2>Hydrophobic Performance and Moisture Resistance</h2>
+          <p>
+            Water is the number-one enemy of concrete subgrades in {city}. Downspout overflow, snowmelt pooling along foundation perimeters, and broken sprinkler lines frequently carve subterranean ravines beneath concrete flatwork.
+          </p>
+          <p>
+            Traditional mudjacking grout is water-based. If ground moisture flows past the mudjacking plug, the soil and sand particles slowly dissolve and wash away, causing the slab to settle back into the void. Polyurethane foam is 100 percent hydrophobic and features a closed-cell content exceeding 90 percent. It does not absorb water, will not degrade from prolonged immersion, and actually acts as an impermeable subsurface barrier that forces groundwater to divert harmlessly around the slab foundation.
+          </p>
+          <p>
+            The environmental safety of the material is another critical trade advantage. Polyurethane foam is chemically inert once cured. It does not leach toxins, heavy metals, or volatile organic compounds into surrounding soil or groundwater tables. The material has been vetted and used for decades by state departments of transportation across the United States to stabilize interstate bridge approach slabs and heavy highway pavements.
+          </p>
+
+          <h2>Complete Step-by-Step Polyjacking Field Procedure</h2>
+          <p>
+            When our crew arrives at your {city} property, we follow a strict sequential trade protocol to guarantee structural accuracy and safety:
+          </p>
+
+          <ol class="process-list" style="margin-bottom: 48px;">
+            <li class="process-item">
+              <div class="process-number">01</div>
+              <div class="process-content">
+                <h3>Elevation Benchmarking and Utility Clearance</h3>
+                <p>
+                  Before touching a drill, our lead technician sets up an optical laser transit or digital zip-level to benchmark reference points on adjoining stable surfaces, such as the garage door threshold or foundation brick ledge. We identify buried gas, electrical, and irrigation lines to verify that no injection points interfere with utilities.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-item">
+              <div class="process-number">02</div>
+              <div class="process-content">
+                <h3>Systematic Borehole Grid Pattern</h3>
+                <p>
+                  We map out a calculated borehole pattern spaced roughly 3 to 4 feet apart along the settled zone. Holes are drilled cleanly through the 4-inch or 6-inch slab until the drill bit punches through into the void cavity beneath. We vacuum away pulverized stone dust to ensure a clean mechanical seal.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-item">
+              <div class="process-number">03</div>
+              <div class="process-content">
+                <h3>Packer Seating and Controlled Injections</h3>
+                <p>
+                  We tap mechanical injection packers into the 5/8-inch holes and lock the hydraulic injection nozzle into place. The technician delivers brief, controlled shots of polyurethane liquid. As the foam expands in short bursts, laser receivers monitor the elevation in real-time. Because the material expands in stages, we can control the rise to within one-sixteenth of an inch, preventing over-lifting or stress fractures.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-item">
+              <div class="process-number">04</div>
+              <div class="process-content">
+                <h3>Subgrade Densification and Soil Pre-Compaction</h3>
+                <p>
+                  As the foam expands within the void, it encounters the loose subgrade beneath. Instead of only pushing upward against the slab, the expanding chemical pushes downward and outward, consolidating loose gravel and porous clay until the soil reaches maximum compaction density. Only when the subgrade can compress no further does the upward hydraulic lift take place.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-item">
+              <div class="process-number">05</div>
+              <div class="process-content">
+                <h3>Packer Removal, Surface Patching, and Final Clean</h3>
+                <p>
+                  The injection packers are unthreaded from the boreholes. We drive non-shrink hydraulic cement grout into each hole, tooling the mortar flush with the concrete surface. The crew sweeps the area, packs the lightweight delivery hoses back into the trailer, and hands you the completed work order. The entire job typically wraps up in two to four hours.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <!-- Dedicated Polyjacking Before/After Results Showcase -->
+          <div style="margin-top: 48px; margin-bottom: 56px;">
+            <h2>Polyjacking Before & After Field Results</h2>
+            <p class="text-secondary" style="margin-bottom: 24px;">
+              See real engineering transformations achieved with high-density polyurethane lifting. Slide the divider to inspect void reduction and restored grades:
+            </p>
+            <BeforeAfterSlider project={pastProjects[0]} showDetails={true} />
+            <div style="text-align: center; margin-top: 20px;">
+              <a href="/before-and-after/" class="btn-secondary">
+                View All {pastProjects.length}+ Before & After Contractor Case Studies &rarr;
+              </a>
+            </div>
+          </div>
+
+          <h2>Where Polyurethane Foam Lifting Works Best</h2>
+          <p>
+            Polyjacking is versatile across both light residential flatwork and heavy industrial flooring:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Sunken Driveways and Garage Aprons:</strong> Raising driveway panels that have settled 1 to 4 inches below the garage floor, eliminating tire damage and preventing winter ice damming.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Sidewalks and Public Walkways:</strong> Eliminating dangerous vertical offsets that violate municipal trip hazard codes and standards established by <a href="https://www.ada.gov" target="_blank" rel="noopener noreferrer">ADA.gov walkway safety standards</a>.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Patios and Back Stoops:</strong> Correcting negative grading where patio slabs tilt backward and channel hundreds of gallons of rainwater directly against residential foundation walls.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Pool Decks and Coping Stones:</strong> Stabilizing shifting pool perimeter panels without dropping heavy equipment onto delicate buried plumbing and filtration conduits.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Warehouse and Commercial Slabs:</strong> Lifting rocked joints and rocking panels under active forklift traffic inside industrial logistics distribution facilities.
+            </li>
+          </ul>
+
+          <h2>When Concrete Cannot Be Lifted: Honest Limitations</h2>
+          <p>
+            No ethical tradesperson claims that polyjacking fixes every damaged slab. There are distinct engineering scenarios where concrete leveling is not the right answer:
+          </p>
+          <p>
+            First, polyjacking requires a structurally cohesive slab. If your concrete has cracked into an alligator pattern of dozens of small, dislodged fragments measuring less than 12 inches across, injecting foam will only lift individual gravel pieces rather than the slab as a whole. Severely fractured concrete must be demolished and replaced.
+          </p>
+          <p>
+            Second, surface spalling and flaking cannot be reversed by lifting. Severe chemical attack from winter rock salt, poor finishing during initial pouring, or sub-standard air entrainment causes the top layer of concrete to crumble. Lifting restores elevation and pitch, but it does not restore a ruined concrete cream finish. Guidance from the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> details the limits of surface restoration when concrete structural paste has deteriorated.
+          </p>
+          <p>
+            Third, polyjacking does not eliminate persistent soil movement caused by unmanaged stormwater or mature tree roots. If massive tree roots are actively growing under a walkway, the roots will push the concrete upward regardless of foam. Similarly, if roof gutters dump rain directly at the edge of the slab without downspout extensions, water will eventually bypass the foam and wash soil away deeper in the subgrade. We inspect these site variables during our initial assessment so you understand the whole picture.
+          </p>
+
+          <h2>Related Concrete Leveling Services & Next Steps</h2>
+          <p>
+            Review our dedicated technical guides for specific slab applications around your property:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair & Leveling</a> for apron and garage approach alignment.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/sidewalks/">Sidewalk Leveling & Trip Hazard Repair</a> for residential walkways and HOA compliance.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/patios-and-pool-decks/">Patio and Pool Deck Concrete Leveling</a> for drainage pitch correction.
+            </li>
+            <li>
+              <a href="/concrete-leveling-cost/">Comprehensive Concrete Leveling Cost Guide</a> for itemized price ranges and square-foot estimates.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Technical Questions</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <!-- Sidebar Contact Card -->
+        <aside class="sidebar-box">
+          <h3>Request a Polyjacking Quote</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Our mobile rig operates throughout {city} and surrounding townships. Speak directly with a field estimator or submit your property details below:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Method:</strong> High-Density Polyurethane</li>
+            <li><strong>Port Size:</strong> 5/8-inch (Dime size)</li>
+            <li><strong>Cure Time:</strong> 15 minutes</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>License:</strong> {licenseNumber}</li>}
+          </ul>
+
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Schedule On-Site Inspection
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Or call: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA Band -->
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule Your On-Site Polyjacking Assessment</h2>
+          <p>
+            Do not let a sunken driveway or walkway worsen with each passing freeze-thaw cycle. Fill out the form below or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a> to arrange an in-person elevation evaluation.
+          </p>
+        </div>
+        <div>
+          <EstimateForm preselectedService="other" formTitle="Polyjacking Estimate Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

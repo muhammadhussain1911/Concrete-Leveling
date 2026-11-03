@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const townName = 'Westerville';
+const townCounty = 'Franklin and Delaware Counties';
+
+const pageTitle = `Concrete Leveling Westerville, OH | Poly Foam Lifting`;
+const pageDescription = `Precision concrete leveling in Westerville, OH. Lift sunken driveways, sidewalks, and patios with 5/8-inch ports. Call for an on-site inspection.`;
+
+const breadcrumbs = [
+  { name: 'Service Areas', path: '/service-areas/' },
+  { name: `${townName}, ${state}`, path: `/service-areas/westerville/` },
+];
+
+import { getServiceSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getServiceSchema({
+    name: `Concrete Leveling and Polyjacking in ${townName}, ${state}`,
+    serviceType: 'Polyurethane Foam Concrete Leveling',
+    description: `Professional polyurethane foam concrete lifting for residential driveways, walkways, and patios across ${townName}, ${state}.`,
+    canonicalPath: '/service-areas/westerville/',
+    areaName: townName,
+    countyName: townCounty,
+  }),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/service-areas/westerville/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Concrete Leveling in Westerville, {state}</h1>
+    <p class="lead">
+      Restoring sunken driveways, sidewalks, patios, and garage floors across {townName}. High-density polyurethane foam lifting with small 5/8-inch ports, 15-minute cure time, and zero lawn disruption.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Geological Factors Behind Sinking Concrete in Westerville</h2>
+          <p>
+            Spanning both northern Franklin County and southern Delaware County, Westerville features complex subsurface soil profiles influenced by the Hoover Reservoir basin and the Alum Creek drainage watershed. The native subgrade consists primarily of silty clay loams interlaced with fine sand lenses.
+          </p>
+          <p>
+            These silty subgrades possess high capillary moisture retention. During wet Ohio spring seasons, elevated groundwater tables saturate the ground beneath residential flatwork. As moisture migrates toward storm sewers and creeks, fine silt particles wash away, carving subterranean cavities beneath concrete slabs.
+          </p>
+          <p>
+            When summer heat dries out the topsoil, the clay shrinks rapidly, depriving heavy concrete panels of bearing support. Throughout mature neighborhoods near Uptown Westerville, Otterbein University, County Line Road, and the Huber Ridge developments, this seasonal moisture swing causes driveway aprons to sink two to four inches below garage thresholds and front sidewalks to tilt inward.
+          </p>
+
+          <h2>Westerville Municipal Sidewalk Compliance & Trip Hazards</h2>
+          <p>
+            The City of Westerville maintains an active public sidewalk inspection and pedestrian safety program. City inspectors survey residential neighborhoods to identify trip hazards caused by uneven slab settlement or tree root displacement.
+          </p>
+          <p>
+            Under local municipal code, any vertical joint offset exceeding one-half inch is classified as an actionable defect that property owners are required to repair. Rather than facing costly full slab tear-out that damages front yard turf and requires city engineering permits, our polyurethane foam lifting process raises sunken walkway panels back into flush laser alignment in less than ninety minutes. The repaired sidewalk meets all local pedestrian grade specifications immediately.
+          </p>
+
+          <h2>Why Westerville Homeowners Choose Poly Foam Over Mudjacking</h2>
+          <p>
+            For years, traditional mudjacking was the primary method used to raise concrete in central Ohio. However, older mudjacking techniques have distinct drawbacks in Westerville:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Washout Vulnerability:</strong> Mudjacking pumps a water-based slurry of topsoil and portland cement. When Hoover Reservoir area groundwater or heavy rainfall washes beneath the slab, the mudjacking plug slowly dissolves, causing the slab to settle back down. Polyurethane foam is 100 percent waterproof closed-cell material that will never wash out.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Subgrade Overloading:</strong> Mud slurry weighs between 100 and 140 pounds per cubic foot. Adding thousands of pounds of heavy wet mud directly on top of silty Westerville subsoils often triggers deeper secondary soil collapse. Poly foam weighs only 3 to 5 pounds per cubic foot.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Small 5/8-Inch Ports:</strong> Mudjacking requires coring large 2-inch holes that leave permanent circular scars. Our polyjacking process uses dime-sized 5/8-inch holes sealed with color-matched mortar that blends cleanly into the concrete.
+            </li>
+          </ul>
+
+          <h2>Typical Westerville Concrete Leveling Applications</h2>
+          <div class="index-rows">
+            <div class="index-row">
+              <span class="index-row-title">Driveway Approach Alignment</span>
+              <p class="index-row-desc">
+                Lifting settled driveway slabs flush with garage door thresholds to eliminate tire jarring and prevent rainwater from pooling near foundation walls.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Front Entry Walkway Leveling</span>
+              <p class="index-row-desc">
+                Eliminating municipal trip hazards on residential sidewalks and front walkways without damaging flowerbeds or lawn sprinkler lines.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Backyard Patio Pitch Restoration</span>
+              <p class="index-row-desc">
+                Reversing negative patio slope directing storm runoff back against basement walls, protecting finished basements from water seepage.
+              </p>
+            </div>
+          </div>
+
+          <h2>Neighboring Central Ohio Communities We Serve</h2>
+          <p>
+            In addition to Westerville, our mobile leveling rigs provide daily dispatch across northern and central Franklin County:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/dublin/">Concrete Leveling in Dublin, {state}</a> for suburban driveway and sidewalk stabilization.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/gahanna/">Concrete Leveling in Gahanna, {state}</a> for patio and pool deck leveling.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/hilliard/">Concrete Leveling in Hilliard, {state}</a> for residential walkway and driveway repair.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/">View All Regional Service Areas</a>.
+            </li>
+          </ul>
+
+          <p style="margin-top: 24px;">
+            Want to learn more about the technical process? Read our detailed engineering guide on <a href="/concrete-leveling/polyurethane-foam-lifting/">polyurethane foam concrete leveling and polyjacking</a> or review our <a href="/concrete-leveling-cost/">concrete leveling cost guide</a> for typical pricing ranges.
+          </p>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Westerville Dispatch</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Serving all residential neighborhoods and commercial properties throughout {townCounty}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Service Area:</strong> {townName}, {state} (43081, 43082)</li>
+            <li><strong>Method:</strong> Two-Part Poly Foam</li>
+            <li><strong>Hole Size:</strong> 5/8-inch Dime Sized</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>Contractor ID:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Westerville Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule Your Westerville Concrete Inspection</h2>
+          <p>
+            Do not let an uneven walkway or sunken driveway continue posing liability or drainage risks. Provide your property details below and our Westerville estimator will visit to shoot laser elevations and deliver a firm written proposal.
+          </p>
+          <p>
+            Or reach our dispatch desk directly by calling <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle={`Request a ${townName} Inspection`} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

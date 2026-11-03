@@ -1,0 +1,173 @@
+---
+import type { PastProject } from '../data/pastProjects.ts';
+
+export interface Props {
+  project: PastProject;
+  showDetails?: boolean;
+}
+
+const { project, showDetails = true } = Astro.props;
+---
+
+<div class="ba-showcase-card" data-project-id={project.id}>
+  <div class="ba-slider-container" style="--clip-pos: 50%;">
+    <!-- Accessible Underneath Layer: BEFORE -->
+    <div class="ba-layer ba-layer-before">
+      <div class="ba-svg-wrapper" set:html={project.beforeSvg} />
+      <span class="ba-floating-badge ba-badge-before">{project.beforeBadge}</span>
+    </div>
+
+    <!-- Clipped Overlay Layer: AFTER -->
+    <div class="ba-layer ba-layer-after">
+      <div class="ba-svg-wrapper" set:html={project.afterSvg} />
+      <span class="ba-floating-badge ba-badge-after">{project.afterBadge}</span>
+    </div>
+
+    <!-- Vertical Split Divider & Handle -->
+    <div class="ba-divider" aria-hidden="true">
+      <div class="ba-handle">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M8 7l-5 5 5 5V7zm8 0v10l5-5-5-5z"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Zero-JS Accessible Range Slider Overlay -->
+    <input
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      class="ba-range-input"
+      aria-label={`Slide left or right to compare before and after concrete leveling for ${project.title}`}
+    />
+
+    <!-- Quick Switcher Controls for Touch / Keyboard Accessibility -->
+    <div class="ba-quick-controls" aria-label="Comparison View Controls">
+      <button type="button" class="ba-control-btn ba-btn-show-before" data-target="0">Show Before</button>
+      <button type="button" class="ba-control-btn ba-btn-show-split" data-target="50">50/50 Split</button>
+      <button type="button" class="ba-control-btn ba-btn-show-after" data-target="100">Show After</button>
+    </div>
+  </div>
+
+  {showDetails && (
+    <div class="ba-card-body">
+      <div class="ba-meta-header">
+        <div class="ba-tags">
+          <span class="ba-tag ba-tag-service">{project.serviceLabel}</span>
+          <span class="ba-tag ba-tag-location">{project.location} ({project.neighborhood})</span>
+        </div>
+        <h3 class="ba-project-title">{project.title}</h3>
+      </div>
+
+      <p class="ba-project-summary">{project.summary}</p>
+
+      <!-- Key Engineering & Value Metrics -->
+      <div class="ba-metrics-grid">
+        <div class="ba-metric">
+          <span class="ba-metric-label">Elevation Drop</span>
+          <strong class="ba-metric-value text-accent">{project.dropDepth}</strong>
+        </div>
+        <div class="ba-metric">
+          <span class="ba-metric-label">Job Duration</span>
+          <strong class="ba-metric-value">{project.timeToComplete}</strong>
+        </div>
+        <div class="ba-metric">
+          <span class="ba-metric-label">Curing Time</span>
+          <strong class="ba-metric-value">{project.cureTime}</strong>
+        </div>
+        <div class="ba-metric">
+          <span class="ba-metric-label">Client Savings</span>
+          <strong class="ba-metric-value text-success">{project.costSaved}</strong>
+        </div>
+      </div>
+
+      <!-- Problem and Technical Solution -->
+      <div class="ba-technical-details">
+        <div class="ba-tech-row">
+          <span class="ba-tech-label">Cause of Settlement:</span>
+          <span class="ba-tech-desc">{project.cause}</span>
+        </div>
+        <div class="ba-tech-row">
+          <span class="ba-tech-label">Polyjacking Solution:</span>
+          <span class="ba-tech-desc">{project.solution}</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="ba-card-actions">
+        <a href={`/contact/?service=${project.serviceType}`} class="btn-primary ba-action-btn">
+          Request Quote for {project.serviceLabel}
+        </a>
+        <a href={project.servicePageUrl} class="btn-secondary ba-action-btn">
+          Explore {project.serviceLabel} Guide
+        </a>
+      </div>
+    </div>
+  )}
+</div>
+
+<script is:inline>
+  (function() {
+    function initBeforeAfterSliders() {
+      var containers = document.querySelectorAll('.ba-slider-container');
+      containers.forEach(function(container) {
+        if (container.dataset.initialized === 'true') return;
+        container.dataset.initialized = 'true';
+
+        var range = container.querySelector('.ba-range-input');
+        if (!range) return;
+
+        function updatePosition(val) {
+          container.style.setProperty('--clip-pos', val + '%');
+          range.value = val;
+        }
+
+        range.addEventListener('input', function(e) {
+          updatePosition(e.target.value);
+        });
+
+        // Quick buttons
+        var buttons = container.querySelectorAll('.ba-control-btn');
+        buttons.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var targetVal = btn.getAttribute('data-target');
+            if (targetVal !== null) {
+              updatePosition(targetVal);
+            }
+          });
+        });
+
+        // Direct click/drag on container
+        var isPointerDown = false;
+        function handlePointerMove(e) {
+          if (!isPointerDown) return;
+          var rect = container.getBoundingClientRect();
+          var clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : null);
+          if (clientX === null) return;
+          var pct = ((clientX - rect.left) / rect.width) * 100;
+          pct = Math.max(0, Math.min(100, pct));
+          updatePosition(Math.round(pct));
+        }
+
+        container.addEventListener('pointerdown', function(e) {
+          if (e.target.classList.contains('ba-control-btn')) return;
+          isPointerDown = true;
+          handlePointerMove(e);
+        });
+
+        window.addEventListener('pointermove', handlePointerMove);
+        window.addEventListener('pointerup', function() {
+          isPointerDown = false;
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBeforeAfterSliders);
+    } else {
+      initBeforeAfterSliders();
+    }
+  })();
+</script>

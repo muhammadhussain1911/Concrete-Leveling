@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  warrantyText,
+  yearsInBusiness,
+} from '../../config/site.ts';
+import { businessId, websiteId } from '../../utils/schema.ts';
+
+// Meta constraints: Title <= 60 chars, Description 140-155 chars
+const pageTitle = `Concrete Leveling & Polyjacking Technical Guides`;
+const pageDescription = `Technical concrete leveling guides and research for homeowners in Columbus, OH. Learn how polyjacking works, costs, lifespan, and winter repairs. Read now.`;
+
+const breadcrumbs = [{ name: 'Technical Guides', path: '/guides/' }];
+
+const guides = [
+  {
+    title: 'Mudjacking vs. Polyjacking: Which Method Works Better?',
+    url: '/guides/mudjacking-vs-polyjacking/',
+    desc: 'An exhaustive trade comparison examining drill hole sizes, material density, curing speeds, subgrade overburden loads, and long-term settlement recurrence.',
+    readTime: '8 min read',
+    topic: 'Material Comparison',
+  },
+  {
+    title: 'Why Concrete Sinks: Subgrade Soil Settlement Explained',
+    url: '/guides/why-concrete-sinks/',
+    desc: 'Examine the primary geological and construction mechanisms causing sunken concrete in Ohio, including clay shrink-swell, downspout washouts, and uncompacted trench fill.',
+    readTime: '9 min read',
+    topic: 'Soil Geotechnology',
+  },
+  {
+    title: '6 Signs Your Concrete Slab Needs Leveling',
+    url: '/guides/signs-your-slab-needs-leveling/',
+    desc: 'How to spot early warning signs of subgrade void formation before your concrete flatwork fractures. Learn when to lift and when replacement is required.',
+    readTime: '7 min read',
+    topic: 'Homeowner Diagnostics',
+  },
+  {
+    title: 'How Long Does Polyurethane Foam Concrete Lifting Last?',
+    url: '/guides/how-long-foam-lifting-lasts/',
+    desc: 'Examine the cured durability, compressive load ratings, and environmental lifespan of closed-cell structural polyurethane foam beneath residential pavements.',
+    readTime: '8 min read',
+    topic: 'Durability & Lifespan',
+  },
+  {
+    title: 'Can Concrete Leveling Be Done in Winter?',
+    url: '/guides/concrete-leveling-in-winter/',
+    desc: 'Understand the temperature dynamics and technical requirements for lifting concrete during cold Ohio winter months. Learn how heated rigs operate in freezing weather.',
+    readTime: '7 min read',
+    topic: 'Winter Operations',
+  },
+];
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${domain}/guides/#collection`,
+    url: `${domain}/guides/`,
+    name: `Concrete Leveling & Maintenance Technical Guides`,
+    description: `Engineering guides, material comparisons, and homeowner maintenance resources for concrete leveling in ${city}, ${state}.`,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    publisher: {
+      '@id': businessId,
+    },
+  },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/guides/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 36px; padding-bottom: 24px;">
+    <h1>Concrete Leveling & Polyjacking Technical Guides</h1>
+    <p class="lead">
+      Practical, tradesperson-written engineering resources explaining soil mechanics, polymer chemistry, lifting procedures, and cost factors for homeowners across {city}, {state}.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Unbiased Technical Research for Property Owners</h2>
+          <p>
+            Exterior concrete flatwork—driveways, sidewalks, patios, pool decks, and garage slabs—represents a substantial financial investment in your residential or commercial property. When a 4-inch concrete slab begins to tilt, drop, or develop step fractures, choosing the right corrective action requires understanding how subgrade soils behave and how different restoration technologies perform over time.
+          </p>
+          <p>
+            Civil engineering research published by the <a href="https://www.asce.org/" target="_blank" rel="noopener noreferrer">American Society of Civil Engineers (ASCE)</a> emphasizes that rigid concrete flatwork depends entirely on continuous, uniform subgrade support. Concrete slabs are engineered to distribute vertical surface loads across the soil beneath. When soil erodes or consolidates, leaving an unsupported air gap, downward traffic loads produce extreme tensile strain on the top surface of the slab, causing unavoidable structural failure.
+          </p>
+          <p>
+            We have assembled this library of technical whitepapers, trade comparisons, and diagnostic guides to provide homeowners with clear, factual information free from sales hype. Explore our technical articles below:
+          </p>
+
+          <h2>Technical Guides Directory</h2>
+          <div class="index-rows" style="margin-top: 24px; margin-bottom: 36px;">
+            {guides.map((guide) => (
+              <a href={guide.url} class="index-row">
+                <span class="index-row-title">{guide.title}</span>
+                <p class="index-row-desc">{guide.desc}</p>
+                <div style="margin-top: 8px; font-size: 13px; color: var(--color-text-muted);">
+                  <strong>Topic:</strong> {guide.topic} &bull; <strong>Length:</strong> {guide.readTime}
+                </div>
+                <span class="index-row-action" style="margin-top: 10px;">Read Full Technical Guide &rarr;</span>
+              </a>
+            ))}
+          </div>
+
+          <h2>Core Engineering Principles of Slab Preservation</h2>
+          <p>
+            Throughout our field operations and technical articles, four core engineering principles guide every concrete lifting and stabilization decision:
+          </p>
+
+          <ol>
+            <li style="margin-bottom: 16px;">
+              <strong>Early Intervention Prevents Slab Pulverization:</strong>
+              When a slab first drops half an inch or an inch, it is almost always unbroken. Leveling it at this stage restores uniform subgrade contact and preserves the original slab integrity. If ignored, vehicle tires drive over the unsupported edge, causing the slab to snap into multiple unlevel pieces that require tear-out. Learn the critical thresholds in <a href="/guides/signs-your-slab-needs-leveling/">6 Signs Your Concrete Slab Needs Leveling</a>.
+            </li>
+            <li style="margin-bottom: 16px;">
+              <strong>Control Water Runoff at the Source:</strong>
+              According to the <a href="https://www.epa.gov/" target="_blank" rel="noopener noreferrer">Environmental Protection Agency (EPA)</a> stormwater management guidelines, concentrated roof runoff is the primary culprit behind residential soil erosion. If roof downspouts or sump pump discharge lines drain within five feet of concrete edges, water flows underneath, washing away subgrade sand and gravel. Polyurethane foam stabilizes the void, but proper downspout extensions are essential for permanent durability. Read our root-cause analysis in <a href="/guides/why-concrete-sinks/">Why Concrete Sinks: Subgrade Soil Settlement Explained</a>.
+            </li>
+            <li style="margin-bottom: 16px;">
+              <strong>Avoid Adding Deadweight to Vulnerable Soil:</strong>
+              Traditional mudjacking injects heavy cementitious slurry weighing up to 140 pounds per cubic foot. In Central Ohio's plastic clay soils, adding thousands of pounds of wet slurry beneath a sunken slab often causes the underlying subgrade to compress further under the added deadweight. Lightweight closed-cell polyurethane foam weighs only 2 to 4 pounds per cubic foot while delivering 100+ PSI compressive strength. Compare the mechanics in <a href="/guides/mudjacking-vs-polyjacking/">Mudjacking vs. Polyjacking: Which Method Works Better?</a>.
+            </li>
+            <li style="margin-bottom: 16px;">
+              <strong>Material Chemistry and Longevity:</strong>
+              Closed-cell structural polymers are completely impervious to moisture, freeze-thaw degradation, and soil acidity. Once the two-part polymer cures beneath the slab, it creates a hydrophobic barrier that repels water and will not break down over decades of service. Review laboratory test ratings and durability benchmarks in <a href="/guides/how-long-foam-lifting-lasts/">How Long Does Poly Foam Concrete Lifting Last?</a>.
+            </li>
+          </ol>
+
+          <h2>Comparing Restoration Costs vs. Replacement Costs</h2>
+          <p>
+            Demolishing settled concrete and pouring new slabs is frequently recommended by general paving contractors who do not specialize in geotechnical lifting. However, replacement is typically 2x to 3x more expensive, requires 7 to 28 days of curing downtime, and ruins surrounding lawns with heavy machinery.
+          </p>
+          <p>
+            Review our comprehensive cost analysis, complete with typical residential square footage price ranges, in our dedicated <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a>. You can also view verified project examples and cost comparisons in our <a href="/before-and-after/">Before & After Project Gallery</a>.
+          </p>
+
+          <h2>Our Technical Service Offerings</h2>
+          <p>
+            Each concrete flatwork application presents unique structural demands. Explore our specialized services across Central Ohio:
+          </p>
+          <ul>
+            <li><a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting:</a> The primary money page detailing polymer chemistry, drill port dimensions, and laser leveling.</li>
+            <li><a href="/concrete-leveling/driveways/">Driveway Leveling:</a> Correct sunken driveway panels flush with garage floor aprons.</li>
+            <li><a href="/concrete-leveling/sidewalks/">Sidewalk Repair:</a> Eliminate municipal trip hazard citations and ensure ADA compliance.</li>
+            <li><a href="/concrete-leveling/patios-and-pool-decks/">Patio & Pool Deck Lifting:</a> Re-establish positive pitch away from basements and level shifting pool copings.</li>
+            <li><a href="/concrete-leveling/garage-and-warehouse-floors/">Garage & Warehouse Floors:</a> Heavy-load interior slab lifting without wall disruption.</li>
+            <li><a href="/concrete-leveling/porches-and-steps/">Porches & Steps:</a> Realign heavy stoops pulling away from house siding.</li>
+          </ul>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Request Technical Inspection</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Have a question about a sinking concrete slab on your property in {city}? Schedule an on-site elevation assessment:
+          </p>
+          {warrantyText && (
+            <div style="background: var(--color-neutral-subtle); padding: 12px; border-radius: 4px; margin: 16px 0; font-size: 14px;">
+              <strong>Warranty Protection:</strong> {warrantyText}.
+            </div>
+          )}
+          {yearsInBusiness && (
+            <p style="font-size: 14px; margin-bottom: 12px;">
+              &check; <strong>{yearsInBusiness} Years</strong> local Central Ohio experience.
+            </p>
+          )}
+          <a href="/contact/" class="btn-primary" style="width: 100%; margin-top: 8px;">
+            Request Written Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct telephone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+
+          <hr style="margin: 24px 0; border: 0; border-top: 1px solid var(--color-border);" />
+
+          <h4>Central Ohio Service Areas</h4>
+          <ul style="font-size: 14px; padding-left: 20px;">
+            <li><a href="/service-areas/dublin/">Dublin, OH Concrete Leveling</a></li>
+            <li><a href="/service-areas/westerville/">Westerville, OH Concrete Leveling</a></li>
+            <li><a href="/service-areas/grove-city/">Grove City, OH Concrete Leveling</a></li>
+            <li><a href="/service-areas/hilliard/">Hilliard, OH Concrete Leveling</a></li>
+            <li><a href="/service-areas/gahanna/">Gahanna, OH Concrete Leveling</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule an Elevation Inspection</h2>
+          <p>
+            Tell us about your settled concrete. A leveling technician will review your property details and schedule an on-site visit to shoot laser transit elevations and assess subgrade soil conditions.
+          </p>
+          <ul style="margin-top: 16px;">
+            <li>Zero high-pressure sales pitches</li>
+            <li>Accurate optical laser elevation measurements</li>
+            <li>Clear, itemized proposals with guaranteed pricing</li>
+          </ul>
+        </div>
+        <div>
+          <EstimateForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

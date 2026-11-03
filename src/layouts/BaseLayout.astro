@@ -1,0 +1,227 @@
+---
+import {
+  businessName,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  city,
+  state,
+  streetAddress,
+  trackingScriptUrl,
+  gaId,
+} from '../config/site.ts';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs, { type BreadcrumbItem } from '../components/Breadcrumbs.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  noindex?: boolean;
+  breadcrumbs?: BreadcrumbItem[];
+  schemas?: object[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath = '/',
+  noindex = false,
+  breadcrumbs = [],
+  schemas = [],
+} = Astro.props;
+
+// Ensure trailing slash on canonical URL
+const cleanPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
+const formattedPath = cleanPath.endsWith('/') ? cleanPath : `${cleanPath}/`;
+const canonicalUrl = new URL(formattedPath, domain).toString();
+
+// Generate BreadcrumbList Schema for pages below home
+const breadcrumbSchema =
+  breadcrumbs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: `${domain}/`,
+          },
+          ...breadcrumbs.map((b, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 2,
+            name: b.name,
+            item: new URL(b.path.endsWith('/') ? b.path : `${b.path}/`, domain).toString(),
+          })),
+        ],
+      }
+    : null;
+
+const allSchemas = [
+  ...schemas,
+  ...(breadcrumbSchema ? [breadcrumbSchema] : []),
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script is:inline>
+      (function() {
+        // Intercept and suppress external Chrome extension errors in capture phase
+        window.addEventListener('error', function(event) {
+          try {
+            var msg = (event && (event.message || (event.error && event.error.message))) || '';
+            var file = (event && event.filename) || '';
+            if (file.indexOf('chrome-extension://') !== -1 || msg.indexOf('fetch of #<Window>') !== -1) {
+              if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+              if (event.preventDefault) event.preventDefault();
+              return true;
+            }
+          } catch (e) {}
+        }, true);
+
+        // Also suppress via window.onerror
+        try {
+          var prevOnError = window.onerror;
+          window.onerror = function(msg, url, line, col, error) {
+            if ((url && url.indexOf('chrome-extension://') !== -1) || (typeof msg === 'string' && msg.indexOf('fetch of #<Window>') !== -1)) {
+              return true;
+            }
+            if (typeof prevOnError === 'function') {
+              return prevOnError.apply(this, arguments);
+            }
+            return false;
+          };
+        } catch (e) {}
+
+        // Make window.fetch writable across entire prototype chain
+        try {
+          var currentFetch = window.fetch;
+          var target = window;
+          while (target) {
+            try {
+              var desc = Object.getOwnPropertyDescriptor(target, 'fetch');
+              if (desc && desc.configurable) {
+                Object.defineProperty(target, 'fetch', {
+                  configurable: true,
+                  enumerable: desc.enumerable !== false,
+                  get: function() { return currentFetch; },
+                  set: function(v) { currentFetch = v; }
+                });
+              }
+            } catch (err) {}
+            target = Object.getPrototypeOf(target);
+          }
+
+          // Fallback definition directly on window
+          try {
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function() { return currentFetch; },
+              set: function(v) { currentFetch = v; }
+            });
+          } catch (err2) {}
+        } catch (e) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <!-- OpenGraph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={businessName} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Self-Hosted Font Preloads (2 families, 3 files total, font-display swap) -->
+    <link
+      rel="preload"
+      href="/fonts/bitter-latin-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="/styles/global.css" />
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    {allSchemas.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify(allSchemas.length === 1 ? allSchemas[0] : allSchemas)} />
+    )}
+
+    <!-- Vanilla Client Scripts (Deferred, <10KB) -->
+    <script defer src="/scripts/site.js"></script>
+
+    <!-- Optional Analytics & Call Tracking (Loaded non-blocking after load event) -->
+    {trackingScriptUrl && (
+      <script is:inline define:vars={{ trackingScriptUrl }}>
+        window.addEventListener('load', function() {
+          var s = document.createElement('script');
+          s.src = trackingScriptUrl;
+          s.async = true;
+          document.body.appendChild(s);
+        });
+      </script>
+    )}
+    {gaId && (
+      <script is:inline define:vars={{ gaId }}>
+        window.addEventListener('load', function() {
+          var s = document.createElement('script');
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+          s.async = true;
+          document.body.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', gaId);
+        });
+      </script>
+    )}
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <Header currentPath={formattedPath} />
+
+    {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- Mobile Bottom Sticky Call Bar (<12% screen height, tap target >=48px) -->
+    <aside class="mobile-call-bar" aria-label="Quick contact call bar">
+      <span class="mobile-call-bar-text">Speak with an estimator:</span>
+      <a href={phoneTel} class="mobile-call-bar-btn" aria-label={`Call ${phoneDisplay}`}>
+        Call {phoneDisplay}
+      </a>
+    </aside>
+  </body>
+</html>

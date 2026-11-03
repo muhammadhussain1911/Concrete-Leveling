@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  businessName,
+  city,
+  phoneDisplay,
+  phoneTel,
+} from '../config/site.ts';
+
+// Noindex required, Title <= 60 chars, Description 140-155 chars
+const pageTitle = `Estimate Request Received | ${businessName}`;
+const pageDescription = `Thank you for requesting a concrete leveling inspection. Our estimator will review your property details and contact you within one business day.`;
+
+const breadcrumbs = [{ name: 'Request Received', path: '/thank-you/' }];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/thank-you/"
+  noindex={true}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="container" style="padding-top: 48px; padding-bottom: 64px;">
+    <h1>Inspection Request Received</h1>
+    <p class="lead">
+      Thank you for submitting your property details. Our local field estimator in {city} has received your request.
+    </p>
+
+    <div style="background-color: var(--surface); border: 1px solid var(--hairline); padding: 32px; border-radius: 4px; max-width: 760px; margin-top: 32px;">
+      <h2>What Happens Next</h2>
+      <ol class="process-list" style="margin-top: 24px; margin-bottom: 32px;">
+        <li class="process-item">
+          <div class="process-number">01</div>
+          <div class="process-content">
+            <h3>Initial File & Imagery Review</h3>
+            <p>
+              Our dispatch team reviews your address, service selection, and any attached photos to verify the scope of the settled flatwork and pull GIS satellite imagery of the property.
+            </p>
+          </div>
+        </li>
+
+        <li class="process-item">
+          <div class="process-number">02</div>
+          <div class="process-content">
+            <h3>Phone Call Confirmation</h3>
+            <p>
+              An estimator will call you from our local dispatch line (<a href={phoneTel} class="phone-link">{phoneDisplay}</a>) within one business day to confirm site access and discuss whether you wish to be on-site during elevation measurements.
+            </p>
+          </div>
+        </li>
+
+        <li class="process-item">
+          <div class="process-number">03</div>
+          <div class="process-content">
+            <h3>Written Elevation & Price Quote</h3>
+            <p>
+              Following the on-site inspection, we provide a formal written proposal detailing the required injection points, lift height, and fixed pricing.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <p style="margin-bottom: 24px;">
+        Need immediate emergency service for an active tripping hazard citation? Call us directly:
+      </p>
+
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href={phoneTel} class="btn-primary">
+          Call Dispatch: {phoneDisplay}
+        </a>
+        <a href="/" class="btn-secondary">
+          Return to Home Page
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

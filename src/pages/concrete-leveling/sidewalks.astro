@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const pageTitle = `Sidewalk Leveling & Trip Hazard Repair Columbus, OH`;
+const pageDescription = `Sidewalk leveling and trip hazard repair in Columbus, OH. Lift uneven walkway slabs to meet ADA standards without lawn damage. Call for a free quote.`;
+
+const breadcrumbs = [
+  { name: 'Concrete Leveling', path: '/concrete-leveling/' },
+  { name: 'Sidewalks', path: '/concrete-leveling/sidewalks/' },
+];
+
+const sidewalkProject = pastProjects.find((p) => p.serviceType === 'sidewalks') || pastProjects[1];
+
+const faqItems = [
+  {
+    q: `What vertical offset triggers a municipal sidewalk citation in Ohio?`,
+    a: `Most municipal engineering codes throughout central Ohio—including Columbus, Dublin, and Westerville—classify any vertical joint displacement exceeding one-quarter to one-half inch (1/4" to 1/2") as an actionable pedestrian trip hazard. Property owners are legally responsible for repairing public sidewalk sections traversing their lot perimeter.`,
+  },
+  {
+    q: `Why is foam lifting better than concrete grinding?`,
+    a: `Grinding uses abrasive diamond disks to shave down the raised edge of concrete. While grinding eliminates the immediate lip, it leaves an unsightly gouged, rough surface that exposes delicate internal stone aggregate. That exposed aggregate absorbs water and rapidly flakes during winter freeze-thaw cycles. Poly foam raises the settled low slab flush instead of weakening the high slab.`,
+  },
+  {
+    q: `Can you lift sidewalks where tree roots are growing underneath?`,
+    a: `It depends on root activity. If a dormant or deep root caused a void during past storm washouts, foam lifting easily stabilizes and levels the panel. However, if a massive living surface tree root is actively heaving the slab upward, cutting the root or ramping the adjoining slab is required before foam stabilization can succeed long term.`,
+  },
+  {
+    q: `How long does a sidewalk leveling job take?`,
+    a: `Most residential front walkway and sidewalk projects involving two to six settled panels are completely finished in one to two hours. Foot traffic can resume immediately after our crew patches the 5/8-inch ports.`,
+  },
+];
+
+import {
+  getServiceSchema,
+  getHowToSchema,
+  getFaqSchema,
+  getProjectGallerySchema,
+} from '../../utils/schema.ts';
+
+const sidewalkHowToSteps = [
+  {
+    title: 'Laser Transit Measurement',
+    text: 'We benchmark stable adjoining slabs and shoot laser transit readings across the settled joint to calculate the exact lift height in millimeters required to restore a flush transition.',
+  },
+  {
+    title: 'Dime-Sized Port Drilling (5/8-inch)',
+    text: 'We drill two to four small 5/8-inch holes in the sunken panel and vacuum away all concrete dust to maintain clean borehole edges.',
+  },
+  {
+    title: 'Controlled Foam Injection',
+    text: 'Our technician injects two-part high-density polyurethane foam in short, controlled bursts. The foam flows into voids, compacts loose soil, and elevates the slab until the laser sensor indicates zero offset.',
+  },
+  {
+    title: 'Flush Cement Patching & Cleanup',
+    text: 'We remove the injection packers and seal each port with color-matched hydraulic cement mortar. The walkway is immediately reopened to pedestrian foot traffic.',
+  },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Sidewalk Leveling and Trip Hazard Repair in ${city}, ${state}`,
+    serviceType: 'Sidewalk Concrete Lifting & ADA Compliance',
+    description: `Sidewalk leveling, municipal trip hazard repair, and ADA compliance concrete lifting across ${city}, ${state}.`,
+    canonicalPath: '/concrete-leveling/sidewalks/',
+  }),
+  getHowToSchema({
+    name: 'Sidewalk Trip Hazard Leveling Procedure',
+    description: 'A 4-step engineering method for raising uneven sidewalk slabs flush with adjoining panels to eliminate pedestrian trip hazards.',
+    canonicalPath: '/concrete-leveling/sidewalks/',
+    steps: sidewalkHowToSteps,
+  }),
+  getFaqSchema(faqItems),
+  getProjectGallerySchema([sidewalkProject]),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/concrete-leveling/sidewalks/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Sidewalk Leveling & Trip Hazard Repair in {city}</h1>
+    <p class="lead">
+      Eliminate dangerous joint offsets on your front walkways and public sidewalks. We lift sunken panels flush with high-density polyurethane foam, restoring ADA pedestrian safety in under two hours.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Homeowner Liability of Sunken Sidewalk Slabs</h2>
+          <p>
+            An uneven sidewalk panel is far more than an eye-sore. In {city}, {state}, municipal ordinances place the legal maintenance duty of public sidewalks directly on the adjacent property owner. If a postal carrier, neighborhood jogger, or child trips over an abrupt 1-inch concrete offset outside your home, you face substantial personal liability and potential insurance claims.
+          </p>
+          <p>
+            Furthermore, cities and homeowners associations across central Ohio conduct seasonal pedestrian infrastructure audits. When an inspector spots a vertical joint offset exceeding one-quarter inch, they issue a formal code violation notice mandating repair within thirty to sixty days. Failing to correct the defect can result in municipal fines or the city dispatching its own contractor at inflated taxpayer rates.
+          </p>
+          <p>
+            The accessible design standards established by <a href="https://www.ada.gov" target="_blank" rel="noopener noreferrer">ADA.gov walkway safety standards</a> mandate that accessible pedestrian paths maintain continuous, planar surfaces with changes in level between 1/4 inch and 1/2 inch beveled, and any offset greater than 1/2 inch remediated. Polyurethane foam lifting raises the sunken concrete slab to meet these strict planar thresholds without tearing up adjoining landscaping.
+          </p>
+
+          <h2>Why Sidewalks Sink & Shift in Central Ohio</h2>
+          <p>
+            Sidewalk slabs in {city} are typically four inches thick and poured directly over native subsoil or a thin gravel cushion. Because sidewalks run continuously across front lawns and curb strips, they are exposed to harsh environmental stresses:
+          </p>
+          <ul>
+            <li style="margin-bottom: 14px;">
+              <strong>Downspout and Surface Runoff:</strong> When roof downspouts or gutter overflow discharge near walkways, fast-moving rainwater cuts subterranean flow channels beneath the concrete, washing the soil out from under the slab corners.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Seasonal Freeze-Thaw Heaving:</strong> Water trapped in dense clay soils expands by roughly 9 percent upon freezing. During winter cold snaps, the soil lifts the slab. When the ground thaws in early spring, water escapes, leaving loose, uncompacted voids that allow the concrete to drop lower than its original grade.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Excavated Utility Corridors:</strong> Water mains, gas lines, and electrical conduits frequently pass beneath municipal sidewalks. Settlement in those utility trenches pulls the overlying sidewalk slabs downward.
+            </li>
+          </ul>
+
+          <h2>Why Poly Foam Leveling Beats Concrete Grinding & Mudjacking</h2>
+          <p>
+            When faced with an uneven walkway, property owners typically consider three options: grinding, mudjacking, or polyjacking.
+          </p>
+          <p>
+            Grinding uses circular diamond saws to cut down the high edge of the concrete. While grinding removes the lip, it leaves a discolored, rutted scar across the walkway. Shaving away the durable surface paste exposes the internal porous aggregate to winter rock salts and moisture, accelerating surface spalling. Furthermore, grinding does nothing to address the hollow void beneath the sunken slab, meaning the concrete will continue sinking deeper over time.
+          </p>
+          <p>
+            Mudjacking pumps heavy soil and portland cement slurry through large 2-inch drill holes. The heavy weight of mudjacking grout (over 100 pounds per cubic foot) frequently crushes the fragile subsoil under thin sidewalk slabs, causing repeat settlement. Furthermore, mudjacking slurry dissolves when rainwater washes beneath the walkway.
+          </p>
+          <p>
+            Polyurethane foam lifting is the modern engineering standard. We drill tiny 5/8-inch ports (the size of a dime), insert mechanical packers, and inject closed-cell hydrophobic foam. The material expands, fills the subterranean washouts, and raises the sunken slab back into flush laser alignment. Because poly foam weighs only 3 to 5 pounds per cubic foot and is 100 percent waterproof, it creates a permanent subsurface support barrier that will never wash away. Guidelines from the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> emphasize that addressing void stabilization early preserves the original structural integrity of flatwork.
+          </p>
+
+          <!-- Dedicated Sidewalk Before/After Project Case Study -->
+          <div style="margin-top: 40px; margin-bottom: 48px;">
+            <h2>Sidewalk Trip Hazard Leveling Before & After Case Study</h2>
+            <p class="text-secondary" style="margin-bottom: 24px;">
+              Review a recent municipal trip hazard remediation in Westerville, OH. Slide the divider to see the 1.75-inch dangerous edge brought flush with zero lawn disruption:
+            </p>
+            <BeforeAfterSlider project={sidewalkProject} showDetails={true} />
+          </div>
+
+          <h2>Our Step-by-Step Sidewalk Lifting Process</h2>
+          <ol class="process-list" style="margin-bottom: 32px;">
+            <li class="process-item">
+              <div class="process-number">01</div>
+              <div class="process-content">
+                <h3>Laser Transit Measurement</h3>
+                <p>
+                  We benchmark stable adjoining slabs and shoot laser readings across the settled joint to calculate the exact lift height in millimeters required to restore a flush transition.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">02</div>
+              <div class="process-content">
+                <h3>Dime-Sized Port Drilling (5/8-inch)</h3>
+                <p>
+                  We drill two to four small 5/8-inch holes in the sunken panel. We vacuum away all concrete dust to maintain clean borehole edges.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">03</div>
+              <div class="process-content">
+                <h3>Controlled Foam Injection</h3>
+                <p>
+                  Our technician injects two-part high-density polyurethane foam in short, controlled bursts. The foam flows into voids, compacts loose soil, and elevates the slab until the laser sensor indicates zero offset.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">04</div>
+              <div class="process-content">
+                <h3>Flush Cement Patching & Cleanup</h3>
+                <p>
+                  We remove the injection packers and seal each port with color-matched hydraulic cement mortar. The walkway is immediately reopened to pedestrian foot traffic.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <h2>Why Sidewalk Grinding Damages Slabs vs. Precision Lifting</h2>
+          <p>
+            When property owners receive sidewalk repair notices, some consider hiring concrete grinding contractors who use diamond saws to bevel down the elevated edge. While grinding creates a ramp, it creates several permanent problems:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <strong>Structural Thinning:</strong> Grinding removes 1 to 2 inches of concrete, reducing a 4-inch slab to a fragile 2-inch shell that cracks under pedestrian or lawnmower loads.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Exposed Aggregate & Aggregate Pitting:</strong> Grinding slices through the hard, cream-finished top surface, exposing the porous inner limestone aggregate to winter road deicing salts and freeze-thaw spalling.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Visual Scars:</strong> Ground ramps leave stark, white scar lines that clash with the weathered concrete sidewalk.
+            </li>
+          </ul>
+          <p>
+            Polyurethane concrete lifting addresses the root cause by raising the low slab rather than shaving down the high slab. The full 4-inch structural thickness of the concrete is preserved, the natural surface cream remains intact, and the repair is clean and permanent.
+          </p>
+
+          <h2>HOA Violations and Municipal Code Enforcement</h2>
+          <p>
+            Homeowners associations (HOAs) across Dublin, Westerville, and Hilliard actively patrol subdivisions, issuing repair notices for sidewalk offsets greater than 1/2 inch. In Ohio, municipal codes typically hold the adjacent property owner legally liable for maintaining public sidewalks passing through their frontage. If a delivery driver, mail carrier, or neighbor trips over an uneven slab, personal liability claims can be devastating. Our rapid polyjacking service resolves violations within hours, providing property owners with documentation to clear HOA warnings immediately.
+          </p>
+
+          <h2>Related Concrete Repair Services</h2>
+          <p>
+            Explore our related concrete stabilization services for other flatwork on your property:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair & Leveling</a> for apron and garage approach alignment.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/porches-and-steps/">Porch and Step Leveling</a> for front entry stoop stabilization.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting (Polyjacking)</a> for technical material specifications.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for residential pricing breakdowns.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions About Sidewalk Repair</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Sidewalk Quote Request</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Eliminate pedestrian trip hazards and municipal citations across {city}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Port Size:</strong> 5/8-inch (dime size)</li>
+            <li><strong>Cure Time:</strong> Ready immediately</li>
+            <li><strong>Compliance:</strong> Meets ADA standards</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>License:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Sidewalk Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule Your Walkway Inspection</h2>
+          <p>
+            Do not let an uneven sidewalk panel expose your family to slip-and-fall liability. Request an on-site inspection today or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm preselectedService="sidewalk" formTitle="Sidewalk Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

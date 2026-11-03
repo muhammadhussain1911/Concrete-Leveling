@@ -1,0 +1,206 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+} from '../../config/site.ts';
+
+const pageTitle = `Why Concrete Sinks: Subgrade Settlement Guide | ${city}`;
+const pageDescription = `Why do concrete slabs sink? Learn the primary soil and drainage causes behind settled driveways and sidewalks in Columbus, OH. Read our trade guide.`;
+
+const breadcrumbs = [
+  { name: 'Technical Guides', path: '/guides/' },
+  { name: 'Why Concrete Sinks', path: '/guides/why-concrete-sinks/' },
+];
+
+const faqItems = [
+  {
+    q: `Can a concrete slab sink if the concrete itself was mixed correctly?`,
+    a: `Yes. In over 95 percent of cases, concrete settlement has nothing to do with the quality of the concrete mix or the finisher's skill. Concrete is merely a rigid paving crust resting on the earth. When the supporting subgrade soil consolidates, washes away, or shrinks, the concrete inevitably drops into the resulting void.`,
+  },
+  {
+    q: `How far can a concrete slab sink before it fractures?`,
+    a: `Concrete has high compressive strength but very low tensile strength. An unreinforced 4-inch sidewalk or patio slab can typically bridge a small void cavity of two to three feet, but if settlement exceeds one to two inches along an edge or corner, the slab snaps under its own dead-weight along stress lines.`,
+  },
+  {
+    q: `Does extending downspouts stop concrete from sinking?`,
+    a: `Yes. Redirecting roof gutter downspouts at least five to ten feet away from driveway aprons, sidewalks, and foundation walls is the single most effective preventative measure a homeowner can take to stop subsurface soil washouts.`,
+  },
+  {
+    q: `Can mature tree roots cause concrete to sink?`,
+    a: `Tree roots typically heave concrete upward initially as they expand in diameter. However, when large tree roots eventually die, rot away, or are severed, the decomposed wood leaves large hollow tunnels in the subgrade, causing the overlying concrete to collapse inward.`,
+  },
+];
+
+import { getArticleSchema, getFaqSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getArticleSchema({
+    title: 'Why Concrete Sinks: Subgrade Soil Settlement and Void Mechanics Explained',
+    description: 'An in-depth trade guide explaining the geotechnical, moisture, and construction factors that cause residential concrete flatwork to sink.',
+    canonicalPath: '/guides/why-concrete-sinks/',
+  }),
+  getFaqSchema(faqItems),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/guides/why-concrete-sinks/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Why Concrete Sinks: Subgrade Soil Settlement Explained</h1>
+    <p class="lead">
+      Understand the geotechnical, moisture, and construction mechanisms behind sunken concrete slabs in {city}, {state}. Learn how clay shrinkage, trench washouts, and freeze-thaw cycles undermine flatwork.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Fundamental Physics of Concrete Slabs</h2>
+          <p>
+            When homeowners in {city}, {state} discover a sunken driveway apron or an uneven front sidewalk, their first reaction is often to blame the concrete. Did the builder pour bad concrete? Was the slab poured too thin?
+          </p>
+          <p>
+            In reality, the fault almost never lies within the concrete itself. Concrete is an extraordinarily dense, rigid paving material. A standard four-inch thick residential concrete slab weighs approximately 50 pounds per square foot (4,000 to 5,000 pounds per cubic yard).
+          </p>
+          <p>
+            However, concrete has a critical engineering characteristic: while its compressive strength is immense (typically 3,500 to 4,500 pounds per square inch), its tensile bending strength is only about 10 percent of that value. Concrete cannot bend. It relies entirely on the continuous vertical reaction of the compacted subsoil beneath it.
+          </p>
+          <p>
+            When soil shifts, compresses, or washes out, empty subterranean spaces called voids develop directly beneath the slab. Without uniform soil bearing, the rigid slab is forced to act as an unsupported bridge. Under its own immense dead-weight and the live impact of vehicle tires or foot traffic, the slab inevitably tilts, drops, or cracks. Geotechnical literature from the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> emphasizes that pavement longevity is governed by subgrade uniformity rather than slab thickness alone.
+          </p>
+
+          <h2>The 5 Primary Causes of Concrete Slab Settlement</h2>
+          <p>
+            Through decades of field experience lifting thousands of slabs across central Ohio, our technicians encounter five primary mechanisms that cause concrete to sink:
+          </p>
+
+          <h3>1. Clay Soil Shrink-Swell Cycles</h3>
+          <p>
+            Central Ohio soils are rich in Wisconsinan glacial till containing high concentrations of expansive clay minerals. Clay soil acts like a giant sponge.
+          </p>
+          <p>
+            During wet Ohio spring seasons, clay absorbs rainwater and swells upward. During hot, dry summer months, moisture evaporates and the clay soil shrinks dramatically. Deep desiccation fissures open in the ground, and the soil recedes away from foundation walls and concrete slab undersides. Over several seasons of this shrink-swell cycle, the uncompacted clay layer consolidates into a thinner, denser layer, leaving a permanent gap beneath the concrete.
+          </p>
+
+          <h3>2. Uncompacted Builder Backfill in Excavation Trenches</h3>
+          <p>
+            This is the leading cause of driveway apron, front porch, and garage floor settlement in newer residential subdivisions.
+          </p>
+          <p>
+            When home builders excavate for basements, crawlspaces, and underground utility conduits, they dig three to five feet wider than the foundation footprint. After foundation walls are poured, this "over-dig" zone is backfilled with excavated dirt. Proper engineering requires backfill to be placed in shallow six-inch layers and compacted with heavy vibratory plate tampers.
+          </p>
+          <p>
+            During rapid residential construction, builders frequently push all the loose dirt back into the trench at once with a bulldozer. Over five to ten years, rainwater naturally packs that loose dirt tighter. A void cavity two to six inches deep opens under the concrete driveway apron, front stoop, and garage approach, causing the slab to drop below the threshold.
+          </p>
+
+          <h3>3. Uncontrolled Downspout and Surface Water Washouts</h3>
+          <p>
+            Water is the universal solvent of subgrades. A typical residential roof collects thousands of gallons of water during a single heavy Ohio downpour.
+          </p>
+          <p>
+            If downspouts dump roof runoff directly at the edge of a driveway, walkway, or patio without underground pipe extensions, water rushes beneath the concrete. Moving water carves flow channels through gravel bedding and sandy subsoil, washing fine aggregate out into the lawn or storm sewer. Over time, that erosion creates hollow subterranean caverns that allow the slab corners to collapse downward.
+          </p>
+
+          <h3>4. Winter Freeze-Thaw Heaving and Void Creation</h3>
+          <p>
+            In central Ohio, temperatures fluctuate around the 32-degree Fahrenheit freezing mark dozens of times each winter.
+          </p>
+          <p>
+            When moisture trapped in the subgrade freezes, water expands by roughly 9 percent, generating powerful upward frost heave that lifts concrete slabs. During early spring thaws, the ground melts from the surface downward. Water cannot drain through the frozen soil below, creating a saturated, soup-like mud slurry. As heavy vehicle traffic rolls across the driveway, this soft subsoil pumps out from along the joints, leaving empty voids when the ground fully dries.
+          </p>
+
+          <h3>5. Buried Tree Root Decomposition and Utility Leaks</h3>
+          <p>
+            While living tree roots push concrete upward, dead tree roots cause the opposite problem. When a mature street tree is removed or roots die from drought, the large underground root system slowly decays over several years. As the organic wood fibers rot away, they leave hollow tunnels underground. The overlying soil collapses into these tunnels, causing sidewalk and patio panels to sink.
+          </p>
+          <p>
+            Similarly, underground irrigation leaks or cracked sewer laterals constantly saturate subsoils, eroding fine particles and inducing localized slab settlement. Pavement engineering research published by the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> details how moisture-induced subgrade piping undermines structural flatwork.
+          </p>
+
+          <h2>Why Tearing Out Concrete Does Not Fix the Soil Problem</h2>
+          <p>
+            When homeowners see a sunken driveway or patio, their first instinct is often to hire a concrete contractor to tear it out and pour a new one. This is a common and expensive mistake.
+          </p>
+          <p>
+            Pouring a new slab replaces the concrete crust, but it does nothing to address the weak, consolidating soil beneath it. In fact, pouring new wet concrete places an additional 150 pounds per cubic foot of dead-weight directly on top of the same unstable backfill. Without stabilizing the subgrade, the new slab often sinks again within three to five years.
+          </p>
+          <p>
+            Polyurethane foam leveling (polyjacking) targets the root cause directly. The expanding foam flows into the void cavities, penetrates loose soil fissures, and pre-compacts the subgrade. At only 3 to 5 pounds per cubic foot, poly foam raises the slab to level grade without overloading the fragile soil.
+          </p>
+
+          <h2>Related Technical Resources</h2>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/mudjacking-vs-polyjacking/">Mudjacking vs. Polyjacking Technical Comparison</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/signs-your-slab-needs-leveling/">6 Signs Your Concrete Slab Needs Leveling</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting Technical Specs</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for project budget estimates.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions About Sunken Concrete</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Diagnose Your Sinking Slab</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Our estimators inspect subgrade voids and check laser elevations across {city}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Assessment:</strong> Optical laser transit mapping</li>
+            <li><strong>Method:</strong> Void filling & poly foam lifting</li>
+            <li><strong>Quote:</strong> Itemized written proposal</li>
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Schedule Free Inspection
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Stop Your Concrete From Sinking Further</h2>
+          <p>
+            Do not wait for a small subgrade void to become an unrepairable fractured slab. Request an on-site evaluation today or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle="Sinking Slab Diagnostic Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

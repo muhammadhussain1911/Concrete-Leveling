@@ -1,0 +1,4 @@
+# Direct 1-hop 301 redirects to HTTPS apex domain (no chains)
+http://apexconcreteleveling.com/* https://apexconcreteleveling.com/:splat 301!
+http://www.apexconcreteleveling.com/* https://apexconcreteleveling.com/:splat 301!
+https://www.apexconcreteleveling.com/* https://apexconcreteleveling.com/:splat 301!

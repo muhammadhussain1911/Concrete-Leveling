@@ -1,0 +1,6 @@
+{
+  "name": "Apex Concrete Leveling",
+  "description": "High-conversion lead generation site for local concrete leveling and polyurethane foam lifting (polyjacking) contractors.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

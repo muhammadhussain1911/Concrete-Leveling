@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const pageTitle = `Sunken Driveway Repair & Leveling Columbus | Poly Foam`;
+const pageDescription = `Sunken driveway repair and apron leveling in Columbus, OH. Lift settled driveway slabs flush with your garage floor using poly foam. Get a free quote.`;
+
+const breadcrumbs = [
+  { name: 'Concrete Leveling', path: '/concrete-leveling/' },
+  { name: 'Driveways', path: '/concrete-leveling/driveways/' },
+];
+
+const drivewayProject = pastProjects.find((p) => p.serviceType === 'driveways') || pastProjects[0];
+
+const faqItems = [
+  {
+    q: `Why did my driveway drop right in front of the garage door?`,
+    a: `During home construction, builders excavate deep trenches around the foundation walls to lay perimeter drainage and pour the foundation footing. When that trench is backfilled with loose dirt, it is rarely compacted to the same density as virgin soil. Over several years, that uncompacted fill settles, creating a hollow void directly under the driveway apron.`,
+  },
+  {
+    q: `Can passenger cars drive on the driveway immediately after lifting?`,
+    a: `Yes. Polyurethane foam cures through a chemical polymerization reaction rather than water evaporation. It achieves 90 percent of its structural compressive strength within 15 to 30 minutes. Once our technicians pack and patch the 5/8-inch ports, you can drive your cars, SUVs, and delivery vans onto the slab.`,
+  },
+  {
+    q: `What happens if water continues pooling at the garage threshold?`,
+    a: `A sunken driveway slab acts like a funnel, channeling roof runoff and driving rain straight into the joint between the driveway and the garage floor. Over time, that water seeps under the garage slab and erodes more soil. Leveling reverses that negative pitch, directing water back toward the street or storm drainage channels.`,
+  },
+  {
+    q: `How long do drill hole patches last on a driveway?`,
+    a: `We plug each 5/8-inch injection port with non-shrink, polymer-modified hydraulic cement tinted to match standard aged concrete. These plugs bond chemically with the borehole walls and withstand snowblower blades, vehicle tire friction, and winter deicing treatments without popping loose.`,
+  },
+];
+
+import {
+  getServiceSchema,
+  getHowToSchema,
+  getFaqSchema,
+  getProjectGallerySchema,
+} from '../../utils/schema.ts';
+
+const drivewayHowToSteps = [
+  {
+    title: 'Transit Elevation Laser Mapping',
+    text: 'We shoot continuous optical laser transit lines across the garage slab floor, driveway joints, and street curb to calculate target elevations and restore positive drainage away from your garage door.',
+  },
+  {
+    title: '5/8-Inch Precision Port Drilling',
+    text: 'We drill dime-sized 5/8-inch ports through the driveway slab in a calculated grid, leaving wire mesh and rebar reinforcement intact.',
+  },
+  {
+    title: 'Two-Part Structural Foam Injection',
+    text: 'We inject expanding closed-cell polyurethane foam through mechanical packers. The liquid flows into subgrade voids and expands with up to 256 psi of vertical lifting force.',
+  },
+  {
+    title: 'Color-Matched Port Mortar Patching',
+    text: 'We extract injection packers, drive non-shrink hydraulic mortar flush into each port, and sweep the work area. The driveway is ready for immediate vehicle traffic.',
+  },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Sunken Driveway Repair and Leveling in ${city}, ${state}`,
+    serviceType: 'Driveway Slab Lifting & Apron Realignment',
+    description: `Driveway leveling and sunken apron repair using high-density polyurethane foam lifting across ${city}, ${state}.`,
+    canonicalPath: '/concrete-leveling/driveways/',
+  }),
+  getHowToSchema({
+    name: 'Sunken Driveway Slab Leveling Procedure',
+    description: 'A 4-step engineering process for raising sunken driveway aprons flush with garage door thresholds using polyurethane foam.',
+    canonicalPath: '/concrete-leveling/driveways/',
+    steps: drivewayHowToSteps,
+  }),
+  getFaqSchema(faqItems),
+  getProjectGallerySchema([drivewayProject]),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/concrete-leveling/driveways/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Sunken Driveway Repair and Leveling in {city}</h1>
+    <p class="lead">
+      Eliminate the jarring tire drop at your garage threshold. We lift settled driveway approaches and sunken panels flush using high-density polyurethane foam that supports vehicle loads in 30 minutes.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Mechanics of Driveway Slab Settlement</h2>
+          <p>
+            A sunken concrete driveway is one of the most frustrating maintenance issues a homeowner faces in {city}, {state}. You pull into your driveway every day and hit a 2-inch to 4-inch concrete lip right where the driveway meets the garage floor. That impact jolts your vehicle tires, strains front-end alignment, and creates an unsightly hazard that lowers curb appeal.
+          </p>
+          <p>
+            Driveways sink because concrete flatwork is heavy. A standard four-inch thick residential driveway slab weighs roughly 50 pounds per square foot. When that weight rests on uncompacted granular fill, subterranean drainage washouts, or central Ohio glacial clays that shrink during hot summers, the subsoil consolidates. Empty voids develop underneath the concrete panels. Without solid subgrade support, the slab slowly tilts, sinks, or snaps along saw-cut expansion joints.
+          </p>
+          <p>
+            The structural specifications published by the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> for residential concrete flatwork state that supporting subgrades must provide uniform vertical reaction. When voids compromise that reaction, lifting the slab with expanding structural foam restores continuous bearing without adding the crushing dead-weight of traditional mudjacking grout.
+          </p>
+
+          <h2>Why the Driveway Apron Drops First</h2>
+          <p>
+            Almost 80 percent of driveway settlement occurs on the final panel adjacent to the garage foundation wall—commonly called the apron or approach slab. This happens due to the way residential foundations are built.
+          </p>
+          <p>
+            When excavators dig out a basement or crawlspace, they over-dig by three to five feet on all sides to allow masons room to set forms or lay block. After the foundation walls cure, workers push loose soil back into that over-dug perimeter zone. Unless that backfill is mechanically compacted in six-inch lifts with heavy vibratory plate tampers—a step frequently skipped during rapid subdivision construction—the soil remains porous.
+          </p>
+          <p>
+            Over five to ten years, rainwater draining from the roof and driveway surface filters down through the backfill, packing the soil particles tighter. A void cavity two to six inches deep opens directly underneath the driveway apron. Because the garage floor rests on a solid foundation frost wall, it remains at its original height. The driveway slab, resting on settling fill, drops downward, creating the classic driveway lip.
+          </p>
+
+          <h2>Polyurethane Foam Lifting vs. Full Driveway Replacement</h2>
+          <p>
+            Homeowners often wonder if they should tear out the sunken section and pour a new slab. Comparing the real-world trade differences shows why foam leveling is the preferred choice for structurally sound concrete:
+          </p>
+          <ul>
+            <li style="margin-bottom: 16px;">
+              <strong>Structural Continuity:</strong> Tearing out a single driveway panel requires saw-cutting against adjoining slabs, which can shatter expansion dowels and damage the garage foundation lip. Polyjacking preserves your existing concrete without structural disruption.
+            </li>
+            <li style="margin-bottom: 16px;">
+              <strong>Subgrade Protection:</strong> Pouring new wet concrete adds 150 pounds per cubic foot of fresh dead-weight over the same uncompacted soil that settled originally. If the void is not stabilized, the new slab will sink within two seasons. Poly foam weighs only 3 to 5 pounds per cubic foot while densifying the soil beneath.
+            </li>
+            <li style="margin-bottom: 16px;">
+              <strong>Downtime & Use:</strong> Fresh concrete requires seven to twenty-eight days of curing before you can park passenger vehicles on it. Polyurethane foam achieves 90 percent compressive strength in 15 minutes, allowing you to park in your garage the same afternoon.
+            </li>
+            <li style="margin-bottom: 16px;">
+              <strong>Project Cost:</strong> Replacing driveway panels typically costs $3,500 to $8,000 once demolition, disposal fees, and forming are calculated. Foam leveling usually runs between $900 and $2,400. Review our detailed <a href="/concrete-leveling-cost/">concrete leveling cost guide</a> for itemized project estimates.
+            </li>
+          </ul>
+
+          <!-- Dedicated Driveway Before/After Project Case Study -->
+          <div style="margin-top: 40px; margin-bottom: 48px;">
+            <h2>Driveway Leveling Before & After Case Study</h2>
+            <p class="text-secondary" style="margin-bottom: 24px;">
+              Inspect real before and after results from a recent sunken driveway apron lift in Dublin, OH. Drag the center slider to examine the lift:
+            </p>
+            <BeforeAfterSlider project={drivewayProject} showDetails={true} />
+          </div>
+
+          <h2>Our 4-Step Driveway Leveling Procedure</h2>
+          <ol class="process-list" style="margin-bottom: 32px;">
+            <li class="process-item">
+              <div class="process-number">01</div>
+              <div class="process-content">
+                <h3>Transit Elevation Laser Mapping</h3>
+                <p>
+                  We shoot continuous optical laser transit lines across the garage slab floor, driveway joints, and street curb. This establishes exact target elevations and ensures the driveway restores positive drainage away from your garage door.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">02</div>
+              <div class="process-content">
+                <h3>5/8-Inch Precision Port Drilling</h3>
+                <p>
+                  We drill dime-sized 5/8-inch ports through the driveway slab in a calculated grid. These small holes leave wire mesh and rebar reinforcement intact and cause zero spiderweb cracking along the surface.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">03</div>
+              <div class="process-content">
+                <h3>Two-Part Structural Foam Injection</h3>
+                <p>
+                  We inject expanding closed-cell polyurethane foam through mechanical packers. The liquid flows into subgrade voids and expands with up to 256 psi of vertical lifting force, gently raising the slab millimeter by millimeter to match the garage threshold.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">04</div>
+              <div class="process-content">
+                <h3>Color-Matched Port Mortar Patching</h3>
+                <p>
+                  We extract the injection packers, drive hydraulic mortar flush into each port, and sweep the work area. The driveway is ready for immediate vehicle traffic.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <h2>Related Concrete Leveling Services</h2>
+          <p>
+            Sinking concrete often affects multiple flatwork surfaces across a residential lot. Explore our related services:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting (Polyjacking)</a> for technical chemical and equipment specifications.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/sidewalks/">Sidewalk Leveling & Trip Hazard Repair</a> to eliminate pedestrian offsets.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/garage-and-warehouse-floors/">Garage & Warehouse Floor Slab Leveling</a> for interior slab realignment.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/contact/">Request a Free On-Site Inspection</a> to get elevation measurements and a written quote.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions About Driveway Leveling</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Driveway Quote Request</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Get a fixed-price written proposal for your sunken driveway slab in {city}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Port Diameter:</strong> 5/8-inch (dime size)</li>
+            <li><strong>Cure Time:</strong> 15 to 30 minutes</li>
+            <li><strong>Traffic Load:</strong> Cars & pickup trucks</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>License:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Driveway Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Restore Your Driveway Alignment Today</h2>
+          <p>
+            Do not let a sunken driveway apron continue damaging your car or allowing water to pool near your foundation. Provide your details below for an on-site evaluation, or call <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm preselectedService="driveway" formTitle="Driveway Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

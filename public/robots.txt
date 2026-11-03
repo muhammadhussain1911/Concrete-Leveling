@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+Sitemap: https://apexconcreteleveling.com/sitemap.xml
+Sitemap: https://apexconcreteleveling.com/sitemap-index.xml

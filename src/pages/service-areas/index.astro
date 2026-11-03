@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  yearsInBusiness,
+} from '../../config/site.ts';
+import { getServiceSchema } from '../../utils/schema.ts';
+
+// Meta constraints: Title <= 60 chars, Description 140-155 chars
+const pageTitle = `Concrete Leveling Service Areas | ${city}, ${state} Metro`;
+const pageDescription = `Polyurethane foam concrete leveling across ${city}, ${state} and surrounding communities including Dublin, Westerville, Grove City, and Hilliard. Call today.`;
+
+const breadcrumbs = [
+  { name: 'Service Areas', path: '/service-areas/' },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Concrete Leveling Service Areas in ${city} Metro`,
+    serviceType: 'Regional Concrete Lifting Service Hub',
+    description: `Service area coverage for polyurethane foam slab lifting across ${city}, ${state} and surrounding townships.`,
+    canonicalPath: '/service-areas/',
+  }),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/service-areas/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 36px; padding-bottom: 24px;">
+    <h1>Concrete Leveling Service Areas in {city}, {state} Metro</h1>
+    <p class="lead">
+      We operate daily mobile polyurethane foam lifting rigs throughout Franklin County and contiguous Central Ohio townships. Review our municipal coverage profiles, local subgrade soil characteristics, and dispatch radius details below.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Daily Contractor Dispatch Across Central {state}</h2>
+          <p>
+            Subgrade soils vary significantly across the greater {city} metropolitan region. From the dense, over-consolidated glacial clay till of northwest suburbs to the deep alluvial silt pockets lining river valleys, exterior concrete flatwork is subjected to relentless geotechnical movement.
+          </p>
+          <p>
+            According to geotechnical research from the <a href="https://www.usgs.gov/" target="_blank" rel="noopener noreferrer">United States Geological Survey (USGS)</a>, Central Ohio was heavily shaped by Wisconsinan glaciation, leaving behind fine-grained clay soils with significant shrink-swell potential. During damp Midwestern springs and autumn rainstorms, subsoils become saturated and plastic. When summer drought conditions arrive, water evaporates, causing deep subterranean shrinkage gaps beneath rigid concrete slabs.
+          </p>
+          <p>
+            When unsupported concrete slabs span these shrinkage gaps under the weight of passenger SUVs or lawn tractors, settlement occurs rapidly. Our mobile polyjacking trailers provide localized elevation correction designed to compact these loose Central Ohio soils and restore uniform bearing capacity.
+          </p>
+
+          <h2>Primary Municipal Service Territories</h2>
+          <p>
+            Select your community below to view hyper-local soil profiles, common concrete settlement patterns, municipal trip-hazard regulations, and recent neighborhood project case studies:
+          </p>
+
+          <div class="index-rows" style="margin-top: 24px; margin-bottom: 36px;">
+            {serviceAreaTowns.map((town) => (
+              <a href={`/service-areas/${town.slug}/`} class="index-row">
+                <span class="index-row-title">{town.name}, {state}</span>
+                <p class="index-row-desc">
+                  {town.soilCharacteristics || `Specialized polyurethane concrete lifting for driveways, walkways, and patios throughout ${town.name}.`}
+                </p>
+                <div style="margin-top: 8px; font-size: 14px; color: var(--color-text-muted);">
+                  <strong>County:</strong> {town.county || 'Franklin County'} &bull; <strong>Average Crew Dispatch:</strong> {town.distanceMiles ? `${town.distanceMiles} miles from center` : 'Daily route'}
+                </div>
+                <span class="index-row-action" style="margin-top: 10px;">Explore {town.name} Service Details &rarr;</span>
+              </a>
+            ))}
+          </div>
+
+          <h2>Regional Geotechnical Profile: Why Central Ohio Slabs Settle</h2>
+          <p>
+            Concrete slabs poured in Ohio do not settle because the concrete material itself fails. Slabs settle because the subgrade soil underneath experiences volume loss. Three specific environmental conditions drive concrete movement across Franklin and Delaware counties:
+          </p>
+          <ol>
+            <li>
+              <strong>Freeze-Thaw Cycling:</strong> According to climatological records from the <a href="https://www.transportation.ohio.gov/" target="_blank" rel="noopener noreferrer">Ohio Department of Transportation (ODOT)</a>, Central Ohio experiences between 30 and 45 distinct freeze-thaw cycles every winter. As subgrade moisture freezes, it forms ice lenses that heave concrete slabs upward. When the ground thaws, the soil turns into uncompacted mud, allowing slabs to settle deeper than their original pour line.
+            </li>
+            <li>
+              <strong>Subdivision Backfill Settlement:</strong> In modern residential developments constructed over the last twenty years across Dublin, Hilliard, Westerville, and Grove City, heavy excavation around residential basement foundations created over-excavated zones. When builders backfilled utility trenches and garage foundation walls without pneumatic mechanical compaction, the soil slowly consolidated over 5 to 10 years, creating massive void pockets under driveway approach aprons and front porch stoops.
+            </li>
+            <li>
+              <strong>Downspout and Sump Pump Washout:</strong> Central Ohio homes rely heavily on sump pump discharge lines and roof gutters to manage rainfall. When downspout extensions discharge within three feet of a concrete patio or walkway, concentrated water cascades underneath the slab edge, scouring away fine sand and limestone screening bases.
+            </li>
+          </ol>
+
+          <h2>Comprehensive Concrete Leveling Services Across All Territories</h2>
+          <p>
+            No matter which Central Ohio community you reside in, our mobile units deliver our full spectrum of specialized polymer lifting solutions:
+          </p>
+          <ul>
+            <li>
+              <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting (Polyjacking):</a> The premier method for residential and commercial slab stabilization using 5/8-inch drill ports.
+            </li>
+            <li>
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair:</a> Lift sunken driveway aprons flush with your garage door threshold to protect vehicle tires and prevent winter ice dams.
+            </li>
+            <li>
+              <a href="/concrete-leveling/sidewalks/">Sidewalk Trip Hazard Leveling:</a> Eliminate municipal sidewalk repair citations and ensure ADA compliance for walkways.
+            </li>
+            <li>
+              <a href="/concrete-leveling/patios-and-pool-decks/">Patio & Pool Deck Lifting:</a> Re-establish positive pitch away from basement walls and remove sharp trip ledges around in-ground swimming pools.
+            </li>
+            <li>
+              <a href="/concrete-leveling/garage-and-warehouse-floors/">Garage & Warehouse Floor Leveling:</a> Stabilize rocking interior slabs subjected to vehicle and forklift loads.
+            </li>
+            <li>
+              <a href="/concrete-leveling/porches-and-steps/">Porch & Step Stabilization:</a> Raise pulling-away masonry stoops back into tight alignment with exterior door thresholds.
+            </li>
+          </ul>
+
+          <h2>Zero Travel Surcharges Within Service Radius</h2>
+          <p>
+            Unlike national franchise operations that bill homeowners for travel time and mileage surcharges, {businessName} maintains a strict zero-travel-fee policy within our published service area. When you schedule an on-site consultation, an experienced crew leader will arrive equipped with optical transit lasers, take millimeter-accurate elevation readings, inspect your downspouts, and present a firm, written proposal with zero hidden fees.
+          </p>
+          <p>
+            Before committing to a contractor, explore our transparent pricing breakdown on our <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a>, or read our homeowner analysis on <a href="/guides/concrete-leveling-vs-replacement/">Concrete Leveling vs. Replacement</a>.
+          </p>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Request Local Inspection</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Our mobile polyjacking trucks run daily routes across {city}, Dublin, Westerville, Grove City, Hilliard, and Gahanna.
+          </p>
+          {warrantyText && (
+            <div style="background: var(--color-neutral-subtle); padding: 12px; border-radius: 4px; margin: 16px 0; font-size: 14px;">
+              <strong>Warranty Coverage:</strong> {warrantyText}.
+            </div>
+          )}
+          {yearsInBusiness && (
+            <p style="font-size: 14px; margin-bottom: 12px;">
+              &check; <strong>{yearsInBusiness} Years</strong> local Central Ohio experience.
+            </p>
+          )}
+          <a href="/contact/" class="btn-primary" style="width: 100%; margin-top: 8px;">
+            Book On-Site Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct dispatch: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+
+          <hr style="margin: 24px 0; border: 0; border-top: 1px solid var(--color-border);" />
+
+          <h4>Technical Knowledge</h4>
+          <ul style="font-size: 14px; padding-left: 20px;">
+            <li><a href="/guides/why-concrete-sinks/">Why Ohio Concrete Sinks</a></li>
+            <li><a href="/guides/mudjacking-vs-polyjacking/">Mudjacking vs. Polyjacking</a></li>
+            <li><a href="/before-and-after/">Before & After Project Proof</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Check Elevation Service for Your Property</h2>
+          <p>
+            Submit your address and concrete details. Our dispatch team will confirm your location on our daily schedule and arrange an on-site laser inspection.
+          </p>
+          <ul style="margin-top: 16px;">
+            <li>Rapid turnaround on residential estimates</li>
+            <li>Optical laser transit elevation assessment</li>
+            <li>100% itemized written bids with no obligation</li>
+          </ul>
+        </div>
+        <div>
+          <EstimateForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

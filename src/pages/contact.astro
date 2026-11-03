@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EstimateForm from '../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  email,
+  streetAddress,
+  licenseNumber,
+  insured,
+  warrantyText,
+  yearsInBusiness,
+  gbpUrl,
+  domain,
+} from '../config/site.ts';
+
+// Meta Title (<= 60 chars) & Description (140-155 chars)
+const pageTitle = `Contact ${businessName} | Concrete Leveling Quote`;
+const pageDescription = `Request a free on-site concrete leveling inspection in ${city}, ${state}. Speak with an estimator or submit your property details for a firm written quote.`;
+
+const breadcrumbs = [{ name: 'Contact Us', path: '/contact/' }];
+
+import { getContactPageSchema } from '../utils/schema.ts';
+
+const schemas = [getContactPageSchema()];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/contact/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Request a Concrete Leveling Inspection in {city}</h1>
+    <p class="lead">
+      Speak directly with our local estimators. We measure subgrade void depth, check laser elevations across settled panels, and deliver a firm, itemized written proposal before any drilling begins.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>How Our Quotation & Inspection Process Works</h2>
+          <p>
+            When you contact {businessName}, you deal with experienced concrete tradespeople, not a high-pressure sales clearinghouse. We understand that sunken concrete flatwork around your home creates both an immediate safety hazard and potential water intrusion against your foundation.
+          </p>
+
+          <h3>1. Initial Phone Consultation & Dispatch</h3>
+          <p>
+            Call us directly at <a href={phoneTel} class="phone-link">{phoneDisplay}</a> or submit the estimate form with your address and photos. We review satellite imagery of the property and schedule an on-site evaluation window that fits your schedule. If you are unable to be present during normal working hours, we can inspect external driveways and front walkways independently and email your elevation report.
+          </p>
+
+          <h3>2. On-Site Laser Transit Evaluation</h3>
+          <p>
+            During the inspection, our technician takes optical laser elevation readings across all settled panels, adjoining foundation walls, and garage thresholds. We check for hidden drainage washouts, examine control joint integrity, and determine the exact volume of high-density polyurethane foam required to achieve level grade.
+          </p>
+
+          <h3>3. Transparent Itemized Proposal</h3>
+          <p>
+            We present an itemized written quote detailing the scope of work, injection grid location, expected lift height, port patching standards, and warranty coverage. You will never encounter hidden disposal fees, permit surcharges, or unexpected change orders.
+          </p>
+
+          <h2>Expedited Response for Municipal & HOA Violations</h2>
+          <p>
+            If you have received an urgent sidewalk repair notice or code violation citation from your city building department or homeowners association (HOA), let our dispatch desk know immediately. We offer expedited 24-to-48-hour elevation surveys and can provide written documentation of scheduled polyjacking repairs to submit to code enforcement officers or property managers to stay fines or penalties.
+          </p>
+
+          <h2>Commercial Property & Facility Inquiries</h2>
+          <p>
+            For commercial facilities, warehouses, retail plazas, and multi-family residential communities, {businessName} provides flexible scheduling including after-hours and weekend mobilizations. Our mobile units operate independently without requiring facility water or high-voltage electric hookups. We level sunken interior floor slabs and exterior loading dock aprons without disrupting normal shipping operations or customer foot traffic.
+          </p>
+
+          <h2>What to Prepare for Your Property Inspection</h2>
+          <p>
+            To help our estimators provide the most accurate assessment during their on-site transit survey, please consider the following simple preparations:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <strong>Mark Subsurface Utilities & Sprinklers:</strong> If you have private underground dog fences, landscape low-voltage lighting, or lawn irrigation lines near the concrete edge, let our technician know.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Note Water Drainage Patterns:</strong> Observe where rainwater ponds during heavy downpours or whether downspouts discharge directly alongside settled slab corners.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Clear Surface Debris:</strong> Ensure vehicles, trash receptacles, and outdoor patio furniture are positioned away from the affected concrete panels.
+            </li>
+          </ul>
+
+          <div style="background-color: var(--bg); border: 1px solid var(--hairline); padding: 24px; border-radius: 4px; margin-top: 32px;">
+            <h3>Direct Contractor Credentials</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+              <li><strong>Company:</strong> {businessName}</li>
+              <li><strong>Main Metro:</strong> {city}, {state}</li>
+              <li><strong>Telephone:</strong> <a href={phoneTel} class="phone-link">{phoneDisplay}</a></li>
+              <li><strong>Dispatch Inbox:</strong> <a href={`mailto:${email}`}>{email}</a></li>
+              {streetAddress && <li><strong>Physical Address:</strong> {streetAddress}</li>}
+              {licenseNumber && <li><strong>License Registration:</strong> {licenseNumber}</li>}
+              {insured && <li><strong>Insurance:</strong> Full Commercial General Liability and Workers' Comp</li>}
+              {warrantyText && <li><strong>Warranty Terms:</strong> {warrantyText}</li>}
+              {yearsInBusiness && <li><strong>Industry Experience:</strong> {yearsInBusiness} Years Active Field Service</li>}
+              {gbpUrl && (
+                <li>
+                  <strong>Google Profile:</strong> <a href={gbpUrl} target="_blank" rel="noopener noreferrer">View Google Business Profile</a>
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <EstimateForm formTitle="Submit Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+} from '../../config/site.ts';
+
+const pageTitle = `6 Signs Your Concrete Slab Needs Leveling | Home Guide`;
+const pageDescription = `How to tell if your concrete slab needs leveling. Discover 6 early warning signs of subgrade void settlement before slabs crack. Read our trade guide.`;
+
+const breadcrumbs = [
+  { name: 'Technical Guides', path: '/guides/' },
+  { name: 'Signs Slab Needs Leveling', path: '/guides/signs-your-slab-needs-leveling/' },
+];
+
+const faqItems = [
+  {
+    q: `Can a cracked concrete slab still be leveled with foam?`,
+    a: `Yes, as long as the concrete maintains structural continuity. If a driveway or patio panel has one or two clean hairline cracks across it, our technicians can place injection ports on both sides of the fracture and lift the sections in unison. However, if the slab has pulverized into dozens of small, dislodged chunks resembling gravel, replacement is required.`,
+  },
+  {
+    q: `How can I tell if there is a hollow void under my concrete?`,
+    a: `Perform the simple "sound test." Take a heavy broom handle, steel rod, or golf ball and bounce or tap it along the concrete surface. A solid slab over compacted subgrade produces a dull, low-pitched thud. A slab resting over an empty void cavity produces a distinctive hollow, ringing sound resembling a drum.`,
+  },
+  {
+    q: `Why does my garage door seal unevenly against the floor?`,
+    a: `If daylight shines under one side of your closed garage door while the other side touches the ground, the concrete floor slab beneath the door has settled. Leveling the slab restores a flat, planar surface, allowing the rubber weatherstrip to seal tightly and keep out drafts, leaves, and winter snow.`,
+  },
+  {
+    q: `Is it cheaper to level concrete as soon as it begins sinking?`,
+    a: `Yes. Addressing concrete settlement early requires significantly less polyurethane foam and avoids the structural cracking that occurs when an unsupported slab bridges a void under vehicle traffic. Once a slab shatters into multiple fragments, foam leveling becomes unviable and costly full replacement is necessary.`,
+  },
+];
+
+import { getArticleSchema, getFaqSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getArticleSchema({
+    title: '6 Warning Signs Your Concrete Slab Needs Leveling Before It Cracks',
+    description: 'A homeowner diagnostic guide detailing the primary visual, acoustic, and structural signs of subgrade concrete settlement.',
+    canonicalPath: '/guides/signs-your-slab-needs-leveling/',
+  }),
+  getFaqSchema(faqItems),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/guides/signs-your-slab-needs-leveling/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>6 Signs Your Concrete Slab Needs Leveling</h1>
+    <p class="lead">
+      Catching subgrade void formation early saves thousands of dollars in replacement costs. Learn how to recognize the six clear physical warning signs that your concrete flatwork is settling.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Why Early Detection Saves Concrete From Replacement</h2>
+          <p>
+            Concrete slabs rarely collapse overnight. In {city}, {state}, concrete settlement is a progressive geotechnical process that unfolds over months or years.
+          </p>
+          <p>
+            As subgrade soils compress, wash away under heavy rainfall, or shrink during dry summer heat, hollow void spaces develop beneath the pavement. For a period of time, the rigid slab is able to bridge that empty space. However, as vehicle traffic rolls over the driveway or pedestrians walk along the sidewalk, dynamic loads exert intense bending stress on the unreinforced concrete.
+          </p>
+          <p>
+            If you catch the settlement while the slab is still structurally intact, polyurethane foam leveling (polyjacking) can fill the void and raise the concrete back to grade for a fraction of replacement expense. If you wait until the unsupported slab snaps into a spiderweb of crumbling fragments, leveling is no longer possible.
+          </p>
+          <p>
+            Here are the six clear warning signs that your concrete flatwork requires professional leveling:
+          </p>
+
+          <h2>1. Vertical Trip Hazards Along Control Joints</h2>
+          <p>
+            The most obvious sign of concrete settlement is an uneven ledge where two adjoining concrete panels meet.
+          </p>
+          <p>
+            Concrete driveways and sidewalks are poured in distinct sections separated by tooled control joints or expansion strips. When soil consolidates unevenly, one panel drops while the adjacent panel stays at its original elevation. According to pedestrian safety regulations enforced by municipal code and <a href="https://www.ada.gov" target="_blank" rel="noopener noreferrer">ADA.gov walkway safety standards</a>, any vertical joint displacement exceeding one-quarter inch is classified as an actionable trip hazard. If you catch your toe walking up to your front door or notice an abrupt step between sidewalk squares, the low slab has lost subgrade support and must be lifted.
+          </p>
+
+          <h2>2. Rainwater Pooling or Sloping Backward Toward Foundations</h2>
+          <p>
+            Concrete flatwork is engineered to shed rainwater away from structures with a minimum slope of one-quarter inch per foot. When settlement occurs, this pitch reverses.
+          </p>
+          <p>
+            Take a walk around your property after a moderate rainstorm. Do you see puddles standing in the middle of your driveway? Does water collect against your garage door threshold or pool on your back patio against the home siding? Standing water accelerates surface freeze-thaw spalling during winter and channels moisture directly into your basement or crawlspace walls. Leveling reverses this negative slope, restoring positive drainage away from your home.
+          </p>
+
+          <h2>3. Gaps Opening Under Siding, Steps, or Garage Door Sweeps</h2>
+          <p>
+            Because residential foundation walls sit on deep footings below the winter frost line, they remain stationary. Flatwork slabs—such as front stoops, driveway aprons, and floating garage floors—rest on shallow subgrades.
+          </p>
+          <p>
+            When subgrades settle, flatwork pulls away from stationary walls. Look for a visible gap of one to three inches opening between the brick veneer and your front porch landing. In the garage, check whether light shines beneath one side of the closed garage door weatherstrip, or if baseboards have pulled away from the concrete floor. These gaps indicate that the soil beneath the slab has consolidated downward.
+          </p>
+
+          <h2>4. Hollow, Drum-Like Sounds When Tapping the Surface</h2>
+          <p>
+            You can often detect subterranean voids before the concrete slab drops a millimeter. This is known among tradespeople as the acoustic sounding test.
+          </p>
+          <p>
+            Take a heavy steel rod, broom handle, or golf ball and tap it firmly along the concrete surface every couple of feet. A slab resting on solid, compacted gravel produces a dull, low-pitched thud. When you tap over an empty void cavity where soil has washed out, the concrete produces a distinctive hollow, ringing sound resembling a drum. Structural inspection guidelines from the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> recommend sounding surveys to identify subsurface delaminations and void boundaries before structural failure occurs.
+          </p>
+
+          <h2>5. Jarring Vehicle Impact at the Driveway Threshold</h2>
+          <p>
+            If you pull into your garage and feel a sharp thud that jolts your steering wheel and rattles your vehicle suspension, your driveway apron has settled.
+          </p>
+          <p>
+            Driveway aprons frequently drop two to four inches because builders over-excavate foundation perimeter trenches and fail to compact the backfilled dirt properly. Over time, this lip damages vehicle rims, accelerates tire wear, and creates an ice dam that prevents melted snow from draining away from the garage door in winter.
+          </p>
+
+          <h2>6. Hairline Cracks Radiating From Unsupported Corners</h2>
+          <p>
+            When a concrete panel loses subgrade bearing on one corner, that corner acts as a cantilever. Under the weight of parked cars or pedestrian traffic, tension stresses build along the top surface of the concrete.
+          </p>
+          <p>
+            Watch for hairline cracks starting at an edge or saw-cut joint and radiating inward. If you address the slab while the crack is a hairline, polyurethane foam can be injected beneath both sides to stabilize the crack permanently. If ignored, the hairline crack will widen into an open fissure, and the unsupported corner will break off completely.
+          </p>
+
+          <h2>What to Do When You Spot These Signs</h2>
+          <p>
+            Do not wait for a small 1-inch settlement to become a shattered, unrepairable slab. Polyurethane foam concrete lifting (polyjacking) restores settled concrete quickly and cleanly:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <strong>Dime-Sized Ports:</strong> We drill tiny 5/8-inch holes that leave reinforcement intact.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>15-Minute Cure:</strong> You can walk and park on the concrete the same day.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>50% to 70% Savings:</strong> Foam lifting costs a fraction of full replacement.
+            </li>
+          </ul>
+
+          <h2>Related Technical Resources</h2>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/why-concrete-sinks/">Why Concrete Sinks: Subgrade Soil Settlement Explained</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/mudjacking-vs-polyjacking/">Mudjacking vs. Polyjacking Technical Comparison</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for residential pricing breakdowns.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair & Leveling</a>.
+            </li>
+          </ul>
+
+          <h2>The Marble & Golf Ball Test: Simple DIY Slope Diagnostics</h2>
+          <p>
+            Homeowners often suspect their patio or garage floor is sinking but cannot verify the direction of slope with the naked eye. An easy field test is placing a golf ball, marble, or smooth child's toy car on several sections of the concrete flatwork during dry weather.
+          </p>
+          <p>
+            On a properly graded outdoor patio, the ball should roll smoothly away from your home's foundation toward the lawn at a minimum rate of 1/4 inch per foot (2 percent slope). If the ball remains stationary in a dip or accelerates toward your exterior siding, basement windows, or garage sill plate, your slab has developed a negative pitch. Every rainstorm is now channeling hundreds of gallons of roof runoff directly against your foundation waterproofing.
+          </p>
+
+          <h2>When Is a Slab Too Far Gone to Level?</h2>
+          <p>
+            While polyjacking restores more than 90 percent of settled residential flatwork, there are scenarios where demolition and replacement is the only viable option:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <strong>Alligator Cracking & Pulverization:</strong> If a slab has shattered into dozens of jagged fragments smaller than a dinner plate, there is no cohesive structural concrete left for the expanding polymer to lift uniformly.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Severe Deep Scaling and Spalling:</strong> If winter road salts have caused the top 1/2 to 1 inch of concrete to delaminate and flake off across the entire driveway, lifting the slab will fix the elevation but will not restore the destroyed surface finish.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <strong>Active Tree Root Encroachment:</strong> If massive mature tree roots have grown directly under the slab and continue to expand, lifting with foam may provide temporary relief, but root removal or slab rerouting is necessary for permanent stability.
+            </li>
+          </ul>
+          <p>
+            If your concrete slab is simply dropped, tilted, or broken into two or three large pieces, polyjacking remains the most economical, non-destructive, and durable repair option available.
+          </p>
+
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Spot Sinking Concrete?</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Request a free laser elevation assessment on your property in {city}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Assessment:</strong> Precision laser transit survey</li>
+            <li><strong>Method:</strong> Void filling & poly foam lifting</li>
+            <li><strong>Cost:</strong> 50% to 70% less than replacement</li>
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Inspection
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule an Elevation Inspection Before Slabs Crack</h2>
+          <p>
+            Do not let subgrade voids turn into an expensive replacement job. Submit your address below and our estimator will inspect your concrete and deliver a written proposal.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle="Slab Settlement Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

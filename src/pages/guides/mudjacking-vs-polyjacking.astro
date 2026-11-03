@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+} from '../../config/site.ts';
+
+const pageTitle = `Mudjacking vs. Polyjacking: Which Works Better? | Guide`;
+const pageDescription = `Mudjacking vs. polyjacking comparison guide. Compare drill hole sizes, material weights, cure speeds, and longevity. Read our trade analysis.`;
+
+const breadcrumbs = [
+  { name: 'Technical Guides', path: '/guides/' },
+  { name: 'Mudjacking vs. Polyjacking', path: '/guides/mudjacking-vs-polyjacking/' },
+];
+
+const faqItems = [
+  {
+    q: `Why does mudjacking require such large drill holes?`,
+    a: `Mudjacking pumps a thick, highly viscous mechanical slurry of topsoil, crushed limestone aggregate, and portland cement. In order to pump that thick sludge without clogging the delivery hoses and piping, contractors must drill 1.5-inch to 2.5-inch diameter holes through the concrete slab. In contrast, polyjacking injects low-viscosity liquid chemicals through 5/8-inch holes roughly the size of a dime.`,
+  },
+  {
+    q: `Can mudjacking slurry wash out under heavy rain?`,
+    a: `Yes. Mudjacking slurry is water-based and cementitious. If subsurface groundwater, broken sprinkler lines, or roof downspouts channel water beneath the slab, the soil and sand particles in the mudjacking plug can slowly dissolve and erode, causing the slab to sink back down over several seasons.`,
+  },
+  {
+    q: `Is polyurethane foam environmentally toxic once in the ground?`,
+    a: `No. Structural lifting polyurethane foam cures completely into an inert, closed-cell solid within fifteen minutes. Once polymerized, the material does not leach chemicals, heavy metals, or volatile organic compounds into surrounding topsoil or underground water tables. It has been tested and approved by state departments of transportation across the United States.`,
+  },
+  {
+    q: `Why is polyurethane lifting more expensive upfront than mudjacking?`,
+    a: `The raw chemical polymers used in polyjacking are precision-manufactured engineered resins, whereas mudjacking uses inexpensive local quarry dirt and bagged cement. While polyurethane has a higher initial material expense, it eliminates repeat settlement callbacks, avoids heavy lawn ruts, and requires virtually invisible dime-sized drill holes.`,
+  },
+];
+
+import { getArticleSchema, getFaqSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getArticleSchema({
+    title: 'Mudjacking vs. Polyjacking: Which Concrete Leveling Method Works Better?',
+    description: 'A detailed trade analysis comparing cementitious mudjacking and polyurethane foam polyjacking for residential and commercial concrete slab lifting.',
+    canonicalPath: '/guides/mudjacking-vs-polyjacking/',
+  }),
+  getFaqSchema(faqItems),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/guides/mudjacking-vs-polyjacking/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Mudjacking vs. Polyjacking: Which Method Works Better?</h1>
+    <p class="lead">
+      An objective, tradesperson-written comparison of traditional cement-slurry mudjacking versus modern polyurethane foam lifting. Weigh drill hole size, subgrade loading, cure time, and long-term durability.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The History of Concrete Slab Lifting</h2>
+          <p>
+            When a concrete driveway, sidewalk, or patio settles in {city}, {state}, homeowners quickly discover that full replacement is rarely the best initial move. Tearing out and repouring a four-inch concrete slab is messy, expensive, and can cost upwards of $4,000 to $10,000 once excavation and lawn repairs are factored in.
+          </p>
+          <p>
+            Instead, concrete lifting—often referred to broadly as slabjacking—restores the existing concrete by filling the void beneath the slab and pumping material to exert upward hydraulic force. For decades, the only way to accomplish this was through traditional mudjacking. Over the past twenty years, however, the concrete restoration industry has shifted decisively toward polyurethane foam injection (polyjacking).
+          </p>
+          <p>
+            Both technologies share the same goal: raising sunken concrete back to level grade. However, the engineering principles, material properties, and long-term outcomes differ dramatically. Structural repair standards published by the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a> emphasize that subgrade stabilization must address subterranean void geometries without introducing excessive overburden that triggers secondary consolidation.
+          </p>
+
+          <h2>Head-to-Head Technical Comparison</h2>
+          <div class="table-wrap">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th scope="col">Performance Factor</th>
+                  <th scope="col">Polyurethane Foam (Polyjacking)</th>
+                  <th scope="col">Traditional Mudjacking</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Drill Hole Diameter</td>
+                  <td>5/8 inch (dime-sized, subtle patch)</td>
+                  <td>1.5 to 2.5 inches (noticeable patched circles)</td>
+                </tr>
+                <tr>
+                  <td>Cured Weight on Subsoil</td>
+                  <td>3 to 5 lbs per cubic foot (lightweight)</td>
+                  <td>100 to 140 lbs per cubic foot (heavy grout)</td>
+                </tr>
+                <tr>
+                  <td>Cure Time to Full Load</td>
+                  <td>15 to 30 minutes</td>
+                  <td>24 to 48 hours</td>
+                </tr>
+                <tr>
+                  <td>Moisture & Washout Resistance</td>
+                  <td>100% closed-cell hydrophobic (waterproof)</td>
+                  <td>Vulnerable to water erosion and breakdown</td>
+                </tr>
+                <tr>
+                  <td>Equipment Yard Impact</td>
+                  <td>Single lightweight hose from street trailer</td>
+                  <td>Heavy pump truck, wheelbarrows, mud splatter</td>
+                </tr>
+                <tr>
+                  <td>Compressive Strength</td>
+                  <td>6,000 – 14,000 psf (up to 100 psi)</td>
+                  <td>Varies widely depending on sand/water mix</td>
+                </tr>
+                <tr>
+                  <td>Lifecycle Settlement Risk</td>
+                  <td>Very low (does not overload clay subgrades)</td>
+                  <td>Moderate to high (overburden causes re-sinking)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>1. Drill Hole Size and Surface Aesthetics</h2>
+          <p>
+            One of the most noticeable cosmetic differences between the two methods is the surface damage required during drilling.
+          </p>
+          <p>
+            Because mudjacking pumps a thick mechanical slurry of screened topsoil, sand, and cement, the delivery piping must be wide enough to prevent clogging. Contractors must core holes measuring 1.5 inches to 2.5 inches in diameter through the concrete. Across an average two-car driveway, this means drilling fifteen to twenty large holes. Even after these holes are patched with mortar, the circles remain visible as discolored polka dots for the remaining life of the driveway.
+          </p>
+          <p>
+            Polyjacking handles thin, low-viscosity liquid polymers. We drill 5/8-inch holes—about the size of a ten-cent dime. After mechanical injection packers are removed, our technicians seal each hole with color-matched polymer cement. Within weeks of natural surface dusting, the tiny dots blend seamlessly into the concrete.
+          </p>
+
+          <h2>2. Subgrade Overburden and Secondary Settlement</h2>
+          <p>
+            The single greatest technical drawback of mudjacking is the massive weight of the pumped slurry. A cubic yard of cured mudjacking grout weighs between 2,700 and 3,500 pounds (roughly 100 to 140 pounds per cubic foot).
+          </p>
+          <p>
+            Consider why the slab sank in the first place: the native subsoil underneath was unable to support the weight of the 4-inch concrete slab alone. Pumping thousands of pounds of heavy wet mud directly on top of that already failing clay subgrade often triggers secondary soil collapse within two or three seasons.
+          </p>
+          <p>
+            In contrast, high-density structural polyurethane foam weighs only 3 to 5 pounds per cubic foot—approximately 95 percent less than mudjacking grout. As the foam expands, it flows into capillary fissures, compacts loose soil particles, and creates a lightweight cellular raft beneath the slab without adding dead-weight to the subgrade. Pavement stabilization research from the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> highlights that preserving uniform subgrade reaction without surcharge loading is critical to prevent recurring settlement.
+          </p>
+
+          <h2>3. Hydrophobic Qualities and Water Erosion</h2>
+          <p>
+            Uncontrolled rainwater from roof downspouts and seasonal snowmelt is the primary culprit behind concrete void formation in {city}.
+          </p>
+          <p>
+            Mudjacking slurry is water-based. If water flows beneath the leveled concrete, the cured mud slurry slowly softens, dissolves, and erodes. Over several wet spring cycles, the pumped mud washes out through the same channels that caused the original void.
+          </p>
+          <p>
+            Polyurethane lifting foam is closed-cell and completely hydrophobic. It does not absorb water, will not dissolve in soil moisture, and resists road salt deicing chemicals. Once cured underground, the foam acts as an impermeable barrier that diverts subterranean water flow away from the foundation.
+          </p>
+
+          <h2>4. Cure Speed and Return to Service</h2>
+          <p>
+            Mudjacking requires 24 to 48 hours for its cementitious slurry to hydrate and dry before it can bear vehicle loads. If a passenger vehicle drives onto a freshly mudjacked driveway prematurely, the wet slurry can displace under tire pressure, ruining the alignment.
+          </p>
+          <p>
+            Polyurethane foam cures through an exothermic chemical polymerization rather than water evaporation. It achieves 90 percent of its full compressive strength in 15 to 30 minutes. Homeowners can walk on sidewalks immediately, and driveways can be parked on within 30 minutes of our crew packing up their equipment.
+          </p>
+
+          <h2>When Mudjacking Might Still Be Used</h2>
+          <p>
+            To be completely fair, there is one scenario where traditional mudjacking may be considered: when a property owner is looking for the lowest upfront bid and does not prioritize surface aesthetics or long-term permanence.
+          </p>
+          <p>
+            Because mudjacking utilizes inexpensive dirt and quarry sand, contractors can sometimes price a job 15 to 25 percent lower than a polyjacking crew. However, when you factor in the high probability of secondary settlement, the risk of mud slurry washouts, and the unsightly 2-inch drill holes, polyjacking consistently delivers superior long-term financial value.
+          </p>
+
+          <h2>Related Concrete Leveling Resources</h2>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting Technical Specs</a> for chemical formulation details.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for detailed 2026 pricing breakdowns.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/why-concrete-sinks/">Why Concrete Sinks: Subgrade Soil Settlement Explained</a>.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/guides/how-long-foam-lifting-lasts/">How Long Does Foam Lifting Last?</a>.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Request Polyjacking Quote</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Get a free on-site laser elevation inspection for your property in {city}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Method:</strong> Two-Part Poly Foam</li>
+            <li><strong>Hole Size:</strong> 5/8-inch (dime size)</li>
+            <li><strong>Cure Time:</strong> 15 to 30 minutes</li>
+            <li><strong>Washout Risk:</strong> 100% waterproof</li>
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Get a Firm Proposal on Polyjacking</h2>
+          <p>
+            Do not settle for unsightly 2-inch mudjacking holes or heavy slurry that causes your concrete to re-sink. Request an on-site polyjacking assessment or call <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle="Polyjacking Estimate Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

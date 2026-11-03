@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  yearsInBusiness,
+} from '../../config/site.ts';
+import { getServiceSchema, getFaqSchema } from '../../utils/schema.ts';
+
+// Meta constraints: Title <= 60 chars, Description 140-155 chars
+const pageTitle = `Concrete Leveling Services in ${city}, ${state} | Polyjacking`;
+const pageDescription = `Complete concrete leveling services in ${city}, ${state}. We lift sunken driveways, sidewalks, patios, and garage floors using polyurethane foam. Call today.`;
+
+const breadcrumbs = [
+  { name: 'Concrete Leveling Services', path: '/concrete-leveling/' },
+];
+
+const services = [
+  {
+    title: 'Polyurethane Foam Lifting (Polyjacking)',
+    url: '/concrete-leveling/polyurethane-foam-lifting/',
+    desc: 'The gold standard in slab restoration. Lightweight two-component closed-cell polymer injected through penny-sized 5/8-inch ports cures in 15 minutes without adding heavy deadweight to vulnerable subgrades.',
+    highlight: 'Dime-sized holes, 15-minute traffic cure, hydrophobic subgrade barrier.',
+  },
+  {
+    title: 'Sunken Driveway Repair & Apron Leveling',
+    url: '/concrete-leveling/driveways/',
+    desc: 'Raise sunken concrete driveway slabs back into flush alignment with garage door headers and street curbs. Eliminate wheel-jarring tire drops and damaging winter ice pooling.',
+    highlight: 'Prevents foundation water intrusion and preserves vehicular suspension.',
+  },
+  {
+    title: 'Sidewalk Trip Hazard Leveling',
+    url: '/concrete-leveling/sidewalks/',
+    desc: 'Eliminate municipal offset citations and pedestrian liability. We lift uneven walkway slabs to meet strict ADA safety standards without lawn damage or messy jackhammering.',
+    highlight: 'Zero lawn damage, ADA compliant, 70% cheaper than municipal tear-out.',
+  },
+  {
+    title: 'Patio & Pool Deck Leveling',
+    url: '/concrete-leveling/patios-and-pool-decks/',
+    desc: 'Restore positive drainage pitch away from residential foundations and stabilize shifting pool coping slabs with waterproof closed-cell polymers that resist chlorinated splashout.',
+    highlight: 'Protects basements from runoff and eliminates sharp pool edge offsets.',
+  },
+  {
+    title: 'Garage & Warehouse Floor Slab Lifting',
+    url: '/concrete-leveling/garage-and-warehouse-floors/',
+    desc: 'Level interior industrial slabs and residential garage floors subjected to heavy vehicle and forklift loads without breaking up walls, sill plates, or anchor bolts.',
+    highlight: 'Up to 100+ PSI compressive strength engineered for heavy vehicle loads.',
+  },
+  {
+    title: 'Porch & Step Stabilization',
+    url: '/concrete-leveling/porches-and-steps/',
+    desc: 'Raise settled front stoops and heavy precast entry steps that have pulled away from brick veneer or door thresholds. Secure footing before water penetrates framing.',
+    highlight: 'Restores door threshold alignment and seals exterior wall gaps.',
+  },
+];
+
+const faqs = [
+  {
+    q: `How does polyurethane foam concrete leveling compare to traditional mudjacking?`,
+    a: `Traditional mudjacking uses a heavy slurry of crushed limestone, clay, and portland cement pumped through 2-inch drill holes. This slurry weighs between 100 and 140 pounds per cubic foot, frequently causing the already-weakened subsoil underneath to settle again under the immense added overburden. Polyurethane foam weighs only 2 to 4 pounds per cubic foot, expands into the smallest subgrade voids, and requires only 5/8-inch drill holes that leave virtually unnoticeable dime-sized patches.`,
+  },
+  {
+    q: `How long before newly leveled concrete can be walked or driven on?`,
+    a: `Unlike concrete pours that require 28 days to cure or mudjacking that requires 24 to 48 hours to dry, high-density polyurethane cures via an exothermic chemical reaction. It reaches 90 percent of its structural compressive strength within 15 minutes of injection. Sidewalks and patios are immediately open for pedestrian foot traffic, and driveways can accommodate passenger vehicles within 30 minutes after completion.`,
+  },
+  {
+    q: `Will polyurethane foam break down or wash away over time?`,
+    a: `No. We inject commercial closed-cell structural geopolymer foam designed specifically for civil subgrade stabilization. Once cured, the polymer is inert, impervious to water, and completely unaffected by underground moisture, road deicing salts, fertilizers, or petroleum spills. It will not rot, wash away, or biodegrade, providing lasting stability for decades.`,
+  },
+  {
+    q: `What causes concrete slabs to sink and crack in the first place?`,
+    a: `Concrete settlement is almost always caused by shifting subgrade soil beneath the slab. In Central Ohio, poorly compacted backfill soil, excessive roof downspout drainage washing away soil particles, tree root shrinkage, and severe winter freeze-thaw cycles cause subterranean voids. When the unsupported concrete slab spans an empty void, the weight of vehicles or foot traffic causes the slab to drop and crack along the stress line.`,
+  },
+  {
+    q: `How much cheaper is concrete leveling compared to slab replacement?`,
+    a: `Polyurethane concrete leveling generally costs between 50 and 70 percent less than full demolition and replacement. Tearing out concrete requires heavy demolition equipment, dump truck haul-away fees, lumber framing, wire mesh or rebar reinforcement, fresh ready-mix delivery, and extensive lawn reseeding. Polyjacking restores your existing slab in a few hours with zero landscaping destruction.`,
+  },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Concrete Leveling Services in ${city}, ${state}`,
+    serviceType: 'Concrete Lifting & Leveling Services Hub',
+    description: `Full spectrum of residential and commercial concrete lifting services across ${city}, ${state}.`,
+    canonicalPath: '/concrete-leveling/',
+  }),
+  getFaqSchema(faqs),
+];
+
+const selectedProject = pastProjects[0];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/concrete-leveling/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 36px; padding-bottom: 24px;">
+    <h1>Concrete Leveling Services in {city}, {state}</h1>
+    <p class="lead">
+      Specializing in high-density polyurethane foam slab lifting (polyjacking) for sunken driveways, sidewalks, patios, pool decks, garage floors, and front entry steps across {city} and surrounding Central Ohio communities.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Precision Polyurethane Slab Elevation Across All Concrete Flatwork</h2>
+          <p>
+            When residential or commercial concrete flatwork begins to drop, tilt, or crack, building owners frequently assume complete demolition and replacement is the only solution. However, unless the concrete surface has severely spalled into loose gravel, the slab itself is structurally intact. The failure is located underneath the concrete—where soil erosion, poor initial backfill compaction, or burrowing animals have hollowed out empty cavities known as subgrade voids.
+          </p>
+          <p>
+            According to technical standards published by the <a href="https://www.concrete.org/" target="_blank" rel="noopener noreferrer">American Concrete Institute (ACI)</a>, concrete is exceptionally strong in compression but inherently vulnerable in tensile bending. When an unsupported 4-inch concrete slab is forced to span an underground void, vehicle traffic or pedestrian loads apply downward bending stress. Left unaddressed, the slab inevitably cracks along the unsupported plane and drops several inches, creating severe trip hazards and structural foundation hazards.
+          </p>
+          <p>
+            Our precision polyurethane concrete lifting service solves the root issue without destructive jackhammering. By drilling small 5/8-inch ports and injecting closed-cell structural foam directly into the voids beneath your settled concrete, we compact the underlying soil matrix and gently raise the slab back to uniform laser elevation.
+          </p>
+
+          <h2>Complete Directory of Concrete Leveling Applications</h2>
+          <p>
+            Each concrete flatwork application presents unique structural demands, traffic loads, and drainage considerations. Explore our specialized services below to learn how polyjacking solves your specific concrete settlement issue:
+          </p>
+
+          <div class="index-rows" style="margin-top: 24px; margin-bottom: 36px;">
+            {services.map((svc) => (
+              <a href={svc.url} class="index-row">
+                <span class="index-row-title">{svc.title}</span>
+                <p class="index-row-desc">{svc.desc}</p>
+                <div style="margin-top: 8px; font-size: 14px; color: var(--color-text-muted);">
+                  <strong>Key Advantage:</strong> {svc.highlight}
+                </div>
+                <span class="index-row-action" style="margin-top: 10px;">Explore Application Details &rarr;</span>
+              </a>
+            ))}
+          </div>
+
+          <h2>How Polyurethane Foam Lifting Works</h2>
+          <p>
+            Polyurethane concrete leveling (often referred to in the trade as polyjacking or foam lifting) is an advanced geotechnical solution developed for highway slab maintenance and civil infrastructure. Two liquid chemical components—an isocyanate and a specially formulated polyol resin blend—are metered through a high-pressure mobile proportioner trailer parked on the street.
+          </p>
+          <p>
+            The two materials travel through heated hoses to an impingement injection gun inserted into 5/8-inch holes drilled through the concrete. As the liquid components blend at the tip, an exothermic reaction initiates within seconds:
+          </p>
+          <ul>
+            <li>
+              <strong>Liquid Penetration:</strong> For the first 5 to 10 seconds, the low-viscosity mixture flows like water into microscopic fissures, voids, and loose gravel pockets underneath the slab.
+            </li>
+            <li>
+              <strong>Hydrophobic Expansion:</strong> The reaction rapidly expands up to 20 times its original volume. Because our polymer is hydrophobic, it actively repels underground water rather than absorbing it.
+            </li>
+            <li>
+              <strong>Subgrade Compaction:</strong> As the foam expands against the downward resistance of the heavy concrete slab, it first pushes down and outward, densifying the loose subsoil beneath.
+            </li>
+            <li>
+              <strong>Controlled Hydraulic Lift:</strong> Once subgrade resistance is achieved, the expansive pressure (generating up to 100+ PSI compressive strength) lifts the slab incrementally with sub-millimeter precision monitored by continuous optical laser transits.
+            </li>
+            <li>
+              <strong>Permanent Rapid Cure:</strong> The polymer achieves 90 percent of its final structural capacity in roughly 15 minutes, allowing immediate resumption of foot traffic and vehicular use.
+            </li>
+          </ul>
+
+          <div style="margin: 36px 0;">
+            <h3>Real Project Before and After Proof</h3>
+            <p>
+              Witness the transformation from dangerous 2-inch trip hazards to flush, seamless concrete elevation restored in under two hours without lawn disruption.
+            </p>
+            <BeforeAfterSlider project={selectedProject} showDetails={true} />
+            <p style="font-size: 14px; color: var(--color-text-muted); margin-top: 10px;">
+              View all 6 documented Central Ohio case studies with settlement depths and client cost savings in our <a href="/before-and-after/">Before & After Project Gallery</a>.
+            </p>
+          </div>
+
+          <h2>Why Central Ohio Slabs Settle: Soil and Water Factors</h2>
+          <p>
+            In {city} and throughout Franklin and Delaware counties, concrete settlement is driven by regional geotechnical factors identified by the <a href="https://www.usgs.gov/" target="_blank" rel="noopener noreferrer">United States Geological Survey (USGS)</a>. Central Ohio sits on heavy glacial till composed of high-plasticity clay and silt loams. These cohesive soils undergo pronounced volumetric shrink-swell cycles:
+          </p>
+          <p>
+            During wet Ohio springs, clay soils absorb water and expand. During dry summer heat spells, clay shrinks and pulls away from the underside of concrete slabs, leaving hollow pockets. When combined with localized roof downspout discharge and uncompacted utility trench backfills common in subdivisions throughout Dublin, Westerville, Grove City, and Hilliard, slabs inevitably lose their uniform bearing support.
+          </p>
+          <p>
+            Learn more about soil dynamics in our in-depth diagnostic guide: <a href="/guides/why-concrete-sinks/">Why Concrete Sinks: Subgrade Settlement Explained</a>.
+          </p>
+
+          <h2>Polyjacking vs. Tear-Out and Mudjacking: Technical Comparison</h2>
+          <p>
+            Understanding your concrete repair options is essential before spending thousands on contractors. The table below compares the three primary approaches to settled concrete:
+          </p>
+
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 15px; border: 1px solid var(--color-border);">
+              <thead>
+                <tr style="background: var(--color-neutral-subtle); text-align: left;">
+                  <th style="padding: 12px; border: 1px solid var(--color-border);">Feature / Metric</th>
+                  <th style="padding: 12px; border: 1px solid var(--color-border); color: var(--color-primary-dark);">Polyurethane Foam (Polyjacking)</th>
+                  <th style="padding: 12px; border: 1px solid var(--color-border);">Traditional Mudjacking</th>
+                  <th style="padding: 12px; border: 1px solid var(--color-border);">Full Tear-Out & Pour</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border); font-weight: bold;">Drill Hole Size</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">5/8-inch (dime-sized)</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">1.5 to 2.0 inches (soda-can size)</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">None (full slab demolition)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border); font-weight: bold;">Weight Added to Soil</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">2 to 4 lbs / cubic foot</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">100 to 140 lbs / cubic foot</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">145 lbs / cubic foot</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border); font-weight: bold;">Cure / Usability Time</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">15 to 30 minutes</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">24 to 48 hours</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">7 to 28 days</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border); font-weight: bold;">Water Resistance</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">100% waterproof closed-cell</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">Vulnerable to washout</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">Porous to moisture</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border); font-weight: bold;">Relative Cost</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">$600 &ndash; $2,400 (Baseline)</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">$500 &ndash; $1,800</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">$3,000 &ndash; $8,500+ (2x to 3x)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border); font-weight: bold;">Lawn & Landscape Impact</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">Zero impact (lightweight hose)</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">Moderate (heavy pump trailer)</td>
+                  <td style="padding: 10px 12px; border: 1px solid var(--color-border);">Severe (excavators, cement mixers)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            For a detailed engineering analysis, read our comparative guide: <a href="/guides/mudjacking-vs-polyjacking/">Mudjacking vs. Polyjacking: Which Works Better?</a> or review comprehensive local costs on our <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a>.
+          </p>
+
+          <h2>Frequently Asked Questions About Slab Leveling</h2>
+          <div class="faq-accordion" style="margin-top: 20px;">
+            {faqs.map((faq) => (
+              <div class="faq-item" style="border-bottom: 1px solid var(--color-border); padding: 18px 0;">
+                <h3 style="margin-bottom: 8px; font-size: 18px;">{faq.q}</h3>
+                <p style="margin-bottom: 0; color: var(--color-text-secondary);">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+
+          <h2 style="margin-top: 48px;">Local Regional Service Coverage</h2>
+          <p>
+            {businessName} operates fully equipped mobile polyjacking rigs providing fast dispatch across Central Ohio. Explore localized soil information and response times in our primary service areas:
+          </p>
+          <ul style="margin-bottom: 24px;">
+            {serviceAreaTowns.map((town) => (
+              <li>
+                <a href={`/service-areas/${town.slug}/`}>Concrete Leveling in {town.name}, {state}</a>: {town.soilCharacteristics}
+              </li>
+            ))}
+          </ul>
+          <p>
+            View the complete coverage perimeter and travel radiuses on our <a href="/service-areas/">Central Ohio Service Areas Hub</a>.
+          </p>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Request On-Site Inspection</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Our crew measures elevations using optical laser transits and inspects site drainage patterns throughout {city} and surrounding townships.
+          </p>
+          {warrantyText && (
+            <div style="background: var(--color-neutral-subtle); padding: 12px; border-radius: 4px; margin: 16px 0; font-size: 14px;">
+              <strong>Warranty Protection:</strong> {warrantyText}.
+            </div>
+          )}
+          {yearsInBusiness && (
+            <p style="font-size: 14px; margin-bottom: 12px;">
+              &check; <strong>{yearsInBusiness} Years</strong> local field experience.
+            </p>
+          )}
+          <a href="/contact/" class="btn-primary" style="width: 100%; margin-top: 8px;">
+            Request Written Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Or call dispatch: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+
+          <hr style="margin: 24px 0; border: 0; border-top: 1px solid var(--color-border);" />
+
+          <h4>Educational Guides</h4>
+          <ul style="font-size: 14px; padding-left: 20px;">
+            <li><a href="/guides/how-long-foam-lifting-lasts/">How Long Does Poly Foam Last?</a></li>
+            <li><a href="/guides/signs-your-slab-needs-leveling/">6 Warning Signs of Sinking Concrete</a></li>
+            <li><a href="/guides/concrete-leveling-in-winter/">Concrete Leveling in Cold Weather</a></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Get a Firm Written Quote</h2>
+          <p>
+            Tell us about your sunken concrete project. An estimator will review your property via aerial imagery and dispatch an on-site technician with transit levels to provide a firm, itemized proposal.
+          </p>
+          <ul style="margin-top: 16px;">
+            <li>No high-pressure sales tactics</li>
+            <li>Firm written estimates with transparent line items</li>
+            <li>Clean work areas with color-matched port patching</li>
+          </ul>
+        </div>
+        <div>
+          <EstimateForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

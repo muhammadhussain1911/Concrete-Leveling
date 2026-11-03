@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const townName = 'Dublin';
+const townCounty = 'Franklin County';
+
+// SEO Title (<= 60 chars) & Meta Description (140-155 chars)
+const pageTitle = `Concrete Leveling in Dublin, ${state} | Polyjacking`;
+const pageDescription = `Precision polyurethane concrete leveling in Dublin, ${state}. Lift sunken driveways, sidewalks, and patios with 5/8-inch holes. Get a free local estimate.`;
+
+const breadcrumbs = [
+  { name: 'Service Areas', path: '/service-areas/' },
+  { name: `${townName}, ${state}`, path: `/service-areas/dublin/` },
+];
+
+const dublinProject = pastProjects.find((p) => p.townSlug === 'dublin') || pastProjects[0];
+
+import { getServiceSchema, getProjectGallerySchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getServiceSchema({
+    name: `Concrete Leveling and Polyjacking in ${townName}, ${state}`,
+    serviceType: 'Polyurethane Foam Concrete Leveling',
+    description: `Specialized polyurethane foam concrete lifting for residential driveways, sidewalks, and patios across ${townName}, ${state}.`,
+    canonicalPath: '/service-areas/dublin/',
+    areaName: townName,
+    countyName: townCounty,
+  }),
+  getProjectGallerySchema([dublinProject]),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/service-areas/dublin/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Concrete Leveling in Dublin, {state}</h1>
+    <p class="lead">
+      Restoring sunken driveways, sidewalks, patios, and garage floors across {townName} using high-density polyurethane foam lifting. Small 5/8-inch ports, 15-minute cure time, and zero lawn damage.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Local Soil Conditions and Slab Settlement in Dublin</h2>
+          <p>
+            Throughout Dublin and northwest {townCounty}, the native subgrade is characterized by dense glacial till overlaid by heavy clay loams. These cohesive clay soils are notoriously sensitive to seasonal moisture variations. During hot, dry Ohio summer months, the clay shrinks and desiccatess, pulling away from concrete slabs, foundation perimeter footings, and garage frost walls. When autumn storms and spring snowmelt arrive, water infiltrates those shrinkage cracks and washes uncompacted aggregate base material into underground cavities.
+          </p>
+          <p>
+            This shrink-swell cycle creates unsupported voids directly beneath 4-inch residential flatwork. Without uniform subgrade bearing capacity, heavy concrete slabs inevitably drop along control joints. In established Dublin neighborhoods such as Muirfield Village, Tartan Fields, Riverside Green, and the historic Scioto River corridor, we regularly encounter driveway slabs that have sunk two to three inches below the garage floor, front walkways that have pitched toward the home foundation, and back patios pulling away from brick veneer.
+          </p>
+
+          <h2>HOA Walkway Compliance and Municipal Trip Hazards</h2>
+          <p>
+            Property owners in Dublin face strict property maintenance guidelines. Many master-planned subdivisions enforce zero-tolerance policies for vertical sidewalk offsets that exceed one-quarter inch. If postal carriers, delivery couriers, or neighborhood pedestrians encounter an abrupt ledge, the property owner is held legally liable for injuries.
+          </p>
+          <p>
+            Furthermore, the City of Dublin maintains active pedestrian walkway inspections. Homeowners cited for vertical slab displacements are required to remediate the defect within specified compliance windows. Rather than tearing out healthy concrete and waiting weeks for municipal permitting, inspections, and new concrete curing, polyurethane foam lifting restores your walkway flush with adjoining slabs in less than two hours. Our technicians shoot laser levels to verify that the joint offset is eliminated entirely, providing the documentation needed to clear municipal or HOA citations.
+          </p>
+
+          <h2>Why Dublin Homeowners Choose Polyjacking Over Mudjacking</h2>
+          <p>
+            For decades, traditional mudjacking was the primary method for raising sunken concrete in Dublin. However, older mudjacking techniques have notable drawbacks on central Ohio clay soils:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Borehole Disfigurement:</strong> Mudjacking requires coring large 1.5-inch to 2.5-inch holes through your driveway to pump thick slurry. Those large patched circles remain visible permanently. Our polyjacking process uses clean 5/8-inch holes—about the diameter of a dime—that are filled with color-matched polymer mortar and blend into the concrete surface.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Subgrade Overloading:</strong> Mudjacking slurry weighs between 100 and 140 pounds per cubic foot. Adding thousands of pounds of heavy wet mud directly on top of already unstable Dublin clay frequently causes the entire subsoil layer to collapse a second time within two to three seasons. Polyurethane foam weighs only 3 to 5 pounds per cubic foot, lifting the slab without overloading the soil.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Washout Resistance:</strong> Mudjacking grout breaks down and washes away when exposed to subsurface groundwater or roof downspout drainage. Polyurethane is a closed-cell hydrophobic material that is completely impervious to water and will never erode.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Rapid Usability:</strong> Mudjacking requires 24 to 48 hours to dry before parking vehicles on the slab. Polyurethane foam cures to full vehicular load strength in 15 to 30 minutes, allowing Dublin homeowners to park in their garage the same afternoon.
+            </li>
+          </ul>
+
+          <!-- Local Dublin Project Showcase -->
+          <div style="margin-top: 40px; margin-bottom: 48px;">
+            <h2>Recent Dublin Project: Driveway Apron Leveling</h2>
+            <p class="text-secondary" style="margin-bottom: 24px;">
+              Explore a recent driveway apron lift in the Muirfield Village / Bridge Park corridor. Drag the slider to inspect how expanding poly foam eliminated the 2.5-inch lip:
+            </p>
+            <BeforeAfterSlider project={dublinProject} showDetails={true} />
+          </div>
+
+          <h2>Typical Dublin Residential Leveling Applications</h2>
+          <p>
+            Our mobile service rigs handle all common residential concrete repairs across the 43016 and 43017 ZIP codes:
+          </p>
+          <div class="index-rows">
+            <div class="index-row">
+              <span class="index-row-title">Driveway Approach Panels</span>
+              <p class="index-row-desc">
+                Lifting sunken driveway slabs back flush with the garage slab threshold, eliminating vehicle undercarriage scrape and protecting garage foundation frost walls.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Front Entry Steps & Stoops</span>
+              <p class="index-row-desc">
+                Raising heavy precast or poured front porches that have separated from the house sill plate due to foundation backfill consolidation.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Patio & Pool Deck Leveling</span>
+              <p class="index-row-desc">
+                Reversing negative slope on backyard patios to direct rainwater away from basement window wells and leveling uneven swimming pool surrounds.
+              </p>
+            </div>
+          </div>
+
+          <h2>Neighboring Communities We Serve in Franklin County</h2>
+          <p>
+            In addition to Dublin, our crews provide daily concrete lifting dispatch across neighboring central Ohio communities:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/westerville/">Concrete Leveling in Westerville, {state}</a> for suburban driveway and sidewalk stabilization.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/hilliard/">Concrete Leveling in Hilliard, {state}</a> for front walkway and patio slab repairs.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/grove-city/">Concrete Leveling in Grove City, {state}</a> for residential and commercial slab lifting.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/">View All Central {state} Service Areas</a>.
+            </li>
+          </ul>
+
+          <p style="margin-top: 24px;">
+            Want to learn more about the technical lifting process? Read our detailed engineering guide on <a href="/concrete-leveling/polyurethane-foam-lifting/">polyurethane foam concrete leveling and polyjacking</a> or check our <a href="/concrete-leveling-cost/">concrete leveling cost guide</a> for typical investment ranges.
+          </p>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Dublin Service Dispatch</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Serving all Dublin residential neighborhoods and commercial developments across {townCounty}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Service Area:</strong> {townName}, {state} (43016, 43017)</li>
+            <li><strong>Method:</strong> Two-Part Poly Foam</li>
+            <li><strong>Hole Size:</strong> 5/8-inch Dime Sized</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>Contractor ID:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Dublin Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Form Section -->
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule Your Dublin On-Site Slab Inspection</h2>
+          <p>
+            Do not let a trip hazard risk HOA penalties or pedestrian injury. Provide your address and describe your settled concrete, and our Dublin estimator will schedule an on-site visit to shoot laser elevations and deliver a fixed-price written proposal.
+          </p>
+          <p>
+            You can also reach our dispatch desk by calling <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle={`Request a ${townName} Inspection`} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

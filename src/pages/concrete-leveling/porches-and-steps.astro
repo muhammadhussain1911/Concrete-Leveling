@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const pageTitle = `Concrete Porch & Step Leveling Columbus | Poly Foam`;
+const pageDescription = `Concrete porch and step leveling in Columbus, OH. Raise pulling-away stoops and settled steps flush with your door threshold using poly foam. Call today.`;
+
+const breadcrumbs = [
+  { name: 'Concrete Leveling', path: '/concrete-leveling/' },
+  { name: 'Porches & Steps', path: '/concrete-leveling/porches-and-steps/' },
+];
+
+const porchProject = pastProjects.find((p) => p.serviceType === 'porches-and-steps') || pastProjects[4];
+
+const faqItems = [
+  {
+    q: `Why did my front porch pull away from the house wall?`,
+    a: `Front porches and entrance stoops sit directly over the deepest foundation excavation trench on your lot. When home builders backfilled around the basement or crawlspace, that soil was rarely compacted properly. Over several years, that loose backfill consolidates downward, causing the heavy porch structure to tilt forward and pull away from the home siding.`,
+  },
+  {
+    q: `Can heavy solid-poured concrete steps really be lifted with foam?`,
+    a: `Yes. High-density polyurethane lifting foam exerts an upward hydraulic force of up to 256 pounds per square inch (over 36,000 pounds per square foot). Even heavy multi-tier solid concrete stoops weighing 3,000 to 8,000 pounds can be elevated gently and held permanently at target grade.`,
+  },
+  {
+    q: `Will lifting the porch pull off attached wood handrails or columns?`,
+    a: `Our technicians inspect all attached porch posts, roof support columns, and railings before beginning. If columns are bolted to both the concrete deck and the roof soffit, we loosen mechanical fasteners so the porch can rise without pushing upward against the roof framing. Once level grade is reached, hardware is retightened.`,
+  },
+  {
+    q: `What happens to the gap left between the brick and the lifted stoop?`,
+    a: `As the stoop is raised back into its original position, the gap along the house siding closes. After the lift is completed and ports are sealed, we apply commercial polyurethane elastomeric joint sealant along the junction between the house wall and the porch to keep water and insects out permanently.`,
+  },
+];
+
+import {
+  getServiceSchema,
+  getHowToSchema,
+  getFaqSchema,
+  getProjectGallerySchema,
+} from '../../utils/schema.ts';
+
+const porchHowToSteps = [
+  {
+    title: 'Framing Inspection & Laser Transit Setup',
+    text: 'We examine porch posts, roof connections, and railing anchors, setting up continuous laser transit receivers to benchmark target elevations along the house siding.',
+  },
+  {
+    title: 'Strategic 5/8-Inch Port Drilling',
+    text: 'We core dime-sized 5/8-inch holes through the porch landing and lower step treads, vacuuming all pulverized concrete dust.',
+  },
+  {
+    title: 'Controlled Polymer Lift Injection',
+    text: 'We pump high-density foam under the stoop in short pulses. The foam consolidates loose backfill and raises the structure millimeter by millimeter until it meets the door threshold.',
+  },
+  {
+    title: 'Port Mortar Patching & Weather Sealing',
+    text: 'We seal all injection holes with color-matched hydraulic cement mortar and apply commercial polyurethane sealant along the wall joint to prevent future water intrusion.',
+  },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Concrete Porch and Step Leveling in ${city}, ${state}`,
+    serviceType: 'Porch and Step Realignment & Stabilization',
+    description: `Concrete porch leveling, front stoop stabilization, and sunken step repair using high-density polyurethane foam in ${city}, ${state}.`,
+    canonicalPath: '/concrete-leveling/porches-and-steps/',
+  }),
+  getHowToSchema({
+    name: 'Concrete Porch & Step Stabilization Procedure',
+    description: 'A 4-step engineering procedure for raising pulling-away front stoops and heavy concrete steps flush with residential door thresholds.',
+    canonicalPath: '/concrete-leveling/porches-and-steps/',
+    steps: porchHowToSteps,
+  }),
+  getFaqSchema(faqItems),
+  getProjectGallerySchema([porchProject]),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/concrete-leveling/porches-and-steps/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Concrete Porch and Step Leveling in {city}</h1>
+    <p class="lead">
+      Raise pulling-away front stoops and uneven concrete steps back into plumb alignment with your front door threshold. Fast, clean polyurethane foam lifting with zero landscape damage.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Danger of a Settling Front Stoop or Entry Porch</h2>
+          <p>
+            The front entrance of your home in {city}, {state} is the most visible architectural focal point of your property. When the concrete porch or front steps begin sinking, the impact is immediately noticeable.
+          </p>
+          <p>
+            You might observe a gap of one to three inches opening between the brick veneer or siding and the back of the porch slab. The top step drops below the door threshold, creating an awkward high step that catches the toes of visiting family and guests. Support posts holding up the front roof portico pull down, twisting gutters out of alignment and causing roof rafters to strain.
+          </p>
+          <p>
+            Furthermore, an un-level front stoop directs rainwater toward the foundation rather than shedding it outward toward the lawn. Water enters the gap between the house and the settled slab, saturating the rim joist and encouraging wood rot, termite infestation, and basement wall leaks.
+          </p>
+          <p>
+            Pedestrian accessibility guidelines from <a href="https://www.ada.gov" target="_blank" rel="noopener noreferrer">ADA.gov walkway safety standards</a> dictate that entrance landings and step risers must maintain uniform height and slope to prevent catastrophic trip-and-fall injuries. Lifting a settled porch with high-density polyurethane foam eliminates these hazards while protecting the structural framing of your home.
+          </p>
+
+          <h2>Why Front Porches Sink: The Excavator Over-Dig Zone</h2>
+          <p>
+            Homeowners often wonder why a heavy concrete porch that stayed level for several years suddenly begins to tilt and pull away. The root cause traces back to the day the basement was dug.
+          </p>
+          <p>
+            To pour the front basement wall and exterior waterproofing, heavy excavators dig an over-excavated trench around the entire front perimeter of the foundation. Once the foundation walls are completed, workers backfill this deep trench with loose soil. Unless this soil is compacted in thin six-inch increments with heavy pneumatic tamping equipment, the dirt contains millions of tiny air pockets.
+          </p>
+          <p>
+            Most front porches are poured shortly after backfilling so framers can build the entrance roof. A solid-poured concrete stoop weighs between 2,000 and 8,000 pounds. As rain, snowmelt, and downspout runoff soak down through the uncompacted fill over five to ten years, the loose dirt packs down. The soil directly beneath the porch compresses, creating an empty subterranean void. Deprived of subgrade bearing, the massive concrete stoop tilts forward toward the front yard.
+          </p>
+          <p>
+            According to structural flatwork restoration standards published by the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a>, subgrade consolidation must be stabilized with materials that will not dissolve or wash away over subsequent weather cycles.
+          </p>
+
+          <h2>Why Polyjacking Beats Mudjacking & Porch Demolition</h2>
+          <p>
+            When a front stoop separates from a house, homeowners are frequently told by general contractors that the only solution is to jackhammer the porch away and pour a new one. Demolishing a solid concrete porch is an expensive nightmare:
+          </p>
+          <ul>
+            <li style="margin-bottom: 14px;">
+              <strong>Risk to House Siding & Brick:</strong> Breaking up concrete attached to a house frequently damages brick veneer, tears housewrap, and fractures basement foundation walls from jackhammer vibration.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Extensive Downtime:</strong> Pouring a new multi-tier porch requires framing, inspection, and weeks of curing during which your front door cannot be used.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Prohibitive Cost:</strong> Replacing a concrete porch typically runs $4,000 to $10,000 once excavation, demolition haul-away, and masonry repairs are completed.
+            </li>
+          </ul>
+          <p>
+            Traditional mudjacking is also poorly suited for heavy front stoops. Mudjacking slurry weighs over 120 pounds per cubic foot. Pumping heavy wet dirt and cement directly on top of already consolidating backfill frequently triggers deeper soil collapse within two seasons.
+          </p>
+          <p>
+            High-density polyurethane foam lifting is the superior engineering approach:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Tremendous Lifting Capacity:</strong> Our specialized high-density polymer exerts up to 256 psi of vertical expansion pressure, effortlessly raising heavy solid-poured stoops back into flush contact with the house wall.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Lightweight Mass:</strong> At only 3 to 5 pounds per cubic foot, poly foam fills the excavation void and compacts the loose dirt without adding crushing dead-weight to the subgrade.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Small 5/8-Inch Ports:</strong> We drill dime-sized holes that are easily patched with custom-tinted polymer cement, preserving your porch appearance.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>15-Minute Cure:</strong> The material hardens almost instantly. Foot traffic can use the front entrance as soon as our technicians pack up their tools.
+            </li>
+          </ul>
+
+          <!-- Dedicated Porch & Step Before/After Project Case Study -->
+          <div style="margin-top: 40px; margin-bottom: 48px;">
+            <h2>Front Porch & Stoop Leveling Before & After Case Study</h2>
+            <p class="text-secondary" style="margin-bottom: 24px;">
+              See how our crew raised a pulling-away 2-tier concrete entry stoop in Gahanna, OH. Slide the divider to see the 2.0-inch threshold drop brought flush:
+            </p>
+            <BeforeAfterSlider project={porchProject} showDetails={true} />
+          </div>
+
+          <h2>Our 4-Step Porch & Step Stabilization Procedure</h2>
+          <ol class="process-list" style="margin-bottom: 32px;">
+            <li class="process-item">
+              <div class="process-number">01</div>
+              <div class="process-content">
+                <h3>Framing Inspection & Laser Transit Setup</h3>
+                <p>
+                  We examine porch posts, roof connections, and railing anchors, setting up continuous laser transit receivers to benchmark target elevations along the house siding.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">02</div>
+              <div class="process-content">
+                <h3>Strategic 5/8-Inch Port Drilling</h3>
+                <p>
+                  We core dime-sized 5/8-inch holes through the porch landing and lower step treads, vacuuming all pulverized concrete dust.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">03</div>
+              <div class="process-content">
+                <h3>Controlled Polymer Lift Injection</h3>
+                <p>
+                  We pump high-density foam under the stoop in short pulses. The foam consolidates loose backfill and raises the structure millimeter by millimeter until it meets the door threshold.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">04</div>
+              <div class="process-content">
+                <h3>Port Mortar Patching & Weather Sealing</h3>
+                <p>
+                  We seal all injection holes with color-matched hydraulic cement mortar and apply commercial polyurethane sealant along the wall joint to prevent future water intrusion.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <h2>Related Concrete Leveling Services</h2>
+          <p>
+            Explore our specialized leveling solutions for other flatwork around your property:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/sidewalks/">Sidewalk Leveling & Trip Hazard Repair</a> for front entry walkways.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair & Leveling</a> for driveway approach alignment.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/patios-and-pool-decks/">Patio and Pool Deck Concrete Leveling</a> for outdoor living spaces.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for complete pricing comparisons.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions About Porch & Step Leveling</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Porch Quote Request</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Eliminate step trip hazards and close the gap against your house wall:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Port Size:</strong> 5/8-inch (dime size)</li>
+            <li><strong>Lifting Force:</strong> Up to 256 psi</li>
+            <li><strong>Cure Time:</strong> Ready immediately</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>License:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Porch Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Restore Your Front Entrance Alignment</h2>
+          <p>
+            Do not let a pulling-away porch continue straining roof posts or allowing water behind your siding. Request an on-site evaluation today or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm preselectedService="steps" formTitle="Porch & Step Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

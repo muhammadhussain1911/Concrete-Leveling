@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import {
+  businessName,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const townName = 'Gahanna';
+const townCounty = 'Franklin County';
+
+const pageTitle = `Concrete Leveling Gahanna, OH | Poly Foam Lifting`;
+const pageDescription = `Precision concrete leveling in Gahanna, OH. Lift sunken driveways, sidewalks, and pool decks with 5/8-inch ports. Call for an on-site inspection.`;
+
+const breadcrumbs = [
+  { name: 'Service Areas', path: '/service-areas/' },
+  { name: `${townName}, ${state}`, path: `/service-areas/gahanna/` },
+];
+
+import { getServiceSchema } from '../../utils/schema.ts';
+
+const schemas = [
+  getServiceSchema({
+    name: `Concrete Leveling and Polyjacking in ${townName}, ${state}`,
+    serviceType: 'Polyurethane Foam Concrete Leveling',
+    description: `Professional polyurethane foam concrete lifting for residential driveways, walkways, and patios across ${townName}, ${state}.`,
+    canonicalPath: '/service-areas/gahanna/',
+    areaName: townName,
+    countyName: townCounty,
+  }),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/service-areas/gahanna/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Concrete Leveling in Gahanna, {state}</h1>
+    <p class="lead">
+      Restoring sunken driveways, sidewalks, patios, and pool decks across {townName}. High-density polyurethane foam lifting with small 5/8-inch ports, 15-minute cure time, and zero lawn disruption.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Alluvial Soil Settlement Patterns in Gahanna</h2>
+          <p>
+            Situated in northeast {townCounty}, Gahanna is defined geologically by the Big Walnut Creek and Rocky Fork waterways. The floodplain history of this region creates subgrade soil profiles containing high concentrations of alluvial sandy silt and porous loam beneath residential flatwork.
+          </p>
+          <p>
+            Alluvial soils are particularly prone to hydraulic erosion. During intense central Ohio spring thunderstorms and rapid snowmelt events, water flows through the topsoil toward creek drainage basins. As water moves beneath concrete slabs, it washes fine sand and silt particles away, creating hollow cavities.
+          </p>
+          <p>
+            Because Gahanna homes feature expansive outdoor living spaces—including backyard dining patios, swimming pool decks, and multi-tier front entry walkways—subsurface void washouts cause substantial slab movement. Throughout neighborhoods near the Creekside district, Royal Manor, and residential developments along Havens Corners Road, sunken patio slabs and uneven pool decks are common occurrences.
+          </p>
+
+          <h2>Pool Deck Leveling & Barefoot Safety in Gahanna</h2>
+          <p>
+            Gahanna has a high concentration of in-ground residential swimming pools. When soil consolidates around a swimming pool excavation, the surrounding concrete deck panels drop. This creates sharp vertical ledges that present dangerous barefoot tripping hazards for children and pool guests.
+          </p>
+          <p>
+            Furthermore, settling pool deck slabs tilt backward, pulling away from coping stones and straining buried PVC plumbing lines. Traditional mudjacking should never be used around pools because heavy cement grout can crush plastic pipes.
+          </p>
+          <p>
+            Our high-density polyurethane foam lifting process is lightweight and non-invasive. The foam enters through tiny 5/8-inch holes as a thin liquid, gently expanding around plumbing lines and filling voids without exerting destructive point-pressure. Once cured, the closed-cell foam is 100 percent waterproof and will never erode from pool splash-out or groundwater.
+          </p>
+
+          <h2>Why Gahanna Homeowners Choose Poly Foam Over Mudjacking</h2>
+          <p>
+            Older mudjacking techniques have distinct limitations on Gahanna's sandy alluvial soils:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Washout Resistance:</strong> Mudjacking slurry consists of water, clay, and cement. When spring creek runoff seeps under the slab, the mud slurry slowly dissolves and washes away. Polyurethane foam is hydrophobic and completely inert once cured.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Lightweight Subgrade Support:</strong> Poly foam weighs only 3 to 5 pounds per cubic foot compared to mudjacking grout at 120 pounds per cubic foot. It raises the slab without overloading fragile alluvial silt.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Dime-Sized Ports:</strong> Mudjacking cores 2-inch holes that leave permanent circular scars. Our polyjacking process uses 5/8-inch ports patched with color-matched mortar that blends cleanly into the concrete.
+            </li>
+          </ul>
+
+          <h2>Typical Gahanna Concrete Leveling Applications</h2>
+          <div class="index-rows">
+            <div class="index-row">
+              <span class="index-row-title">Pool Deck & Coping Stabilization</span>
+              <p class="index-row-desc">
+                Lifting uneven pool deck panels flush with coping stones to eliminate barefoot trip hazards and protect buried skimmers and plumbing.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Driveway Apron Realignment</span>
+              <p class="index-row-desc">
+                Raising settled driveway slabs flush with garage door thresholds to eliminate tire jarring and prevent rainwater pooling near foundation walls.
+              </p>
+            </div>
+            <div class="index-row">
+              <span class="index-row-title">Patio Drainage Pitch Correction</span>
+              <p class="index-row-desc">
+                Reversing negative patio slope directing storm runoff back toward basement walls, safeguarding finished living areas from moisture.
+              </p>
+            </div>
+          </div>
+
+          <h2>Neighboring Central Ohio Communities We Serve</h2>
+          <p>
+            In addition to Gahanna, our mobile leveling rigs provide daily dispatch across eastern and central Franklin County:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/westerville/">Concrete Leveling in Westerville, {state}</a> for driveway and walkway repair.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/dublin/">Concrete Leveling in Dublin, {state}</a> for suburban driveway and sidewalk stabilization.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/hilliard/">Concrete Leveling in Hilliard, {state}</a> for residential walkway and patio leveling.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/service-areas/">View All Regional Service Areas</a>.
+            </li>
+          </ul>
+
+          <p style="margin-top: 24px;">
+            Want to learn more about the technical process? Read our detailed engineering guide on <a href="/concrete-leveling/polyurethane-foam-lifting/">polyurethane foam concrete leveling and polyjacking</a> or review our <a href="/concrete-leveling-cost/">concrete leveling cost guide</a> for typical pricing ranges.
+          </p>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Gahanna Dispatch</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Serving all residential neighborhoods and commercial properties throughout {townCounty}:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Service Area:</strong> {townName}, {state} (43230)</li>
+            <li><strong>Method:</strong> Two-Part Poly Foam</li>
+            <li><strong>Hole Size:</strong> 5/8-inch Dime Sized</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>Contractor ID:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Gahanna Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Schedule Your Gahanna Concrete Inspection</h2>
+          <p>
+            Do not let a settled pool deck or sunken driveway continue posing safety or drainage hazards. Provide your property details below and our Gahanna estimator will visit to shoot laser elevations and deliver a firm written proposal.
+          </p>
+          <p>
+            Or reach our dispatch desk directly by calling <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm formTitle={`Request a ${townName} Inspection`} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,134 @@
+---
+import {
+  businessName,
+  phoneDisplay,
+  phoneTel,
+  email,
+  city,
+  state,
+  licenseNumber,
+  insured,
+  warrantyText,
+  yearsInBusiness,
+  streetAddress,
+  gbpUrl,
+  serviceAreaTowns,
+} from '../config/site.ts';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>{businessName}</h4>
+        <p class="text-secondary">
+          Specializing in residential and commercial polyurethane foam concrete leveling across {city}, {state} and surrounding communities.
+        </p>
+
+        <ul>
+          <li>
+            Direct Telephone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </li>
+          <li>
+            Dispatch Email: <a href={`mailto:${email}`}>{email}</a>
+          </li>
+          {streetAddress && (
+            <li>
+              Shop Address: <span>{streetAddress}</span>
+            </li>
+          )}
+          {licenseNumber && (
+            <li>
+              Contractor License: <span>{licenseNumber}</span>
+            </li>
+          )}
+          {insured && (
+            <li>
+              Coverage: <span>Fully Licensed and Insured</span>
+            </li>
+          )}
+          {yearsInBusiness && (
+            <li>
+              Track Record: <span>{yearsInBusiness} Years Local Field Experience</span>
+            </li>
+          )}
+          {warrantyText && (
+            <li>
+              Residential Protection: <span>{warrantyText}</span>
+            </li>
+          )}
+          {gbpUrl && (
+            <li>
+              <a href={gbpUrl} rel="noopener noreferrer" target="_blank">
+                Google Business Profile
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Leveling Services</h4>
+        <ul>
+          <li>
+            <a href="/concrete-leveling/polyurethane-foam-lifting/">Polyurethane Foam Lifting</a>
+          </li>
+          <li>
+            <a href="/concrete-leveling/driveways/">Sunken Driveway Repair</a>
+          </li>
+          <li>
+            <a href="/concrete-leveling/sidewalks/">Sidewalk Trip Hazard Leveling</a>
+          </li>
+          <li>
+            <a href="/concrete-leveling/patios-and-pool-decks/">Patio & Pool Deck Lifting</a>
+          </li>
+          <li>
+            <a href="/concrete-leveling/garage-and-warehouse-floors/">Garage & Warehouse Floors</a>
+          </li>
+          <li>
+            <a href="/concrete-leveling/porches-and-steps/">Porch & Step Stabilization</a>
+          </li>
+          <li>
+            <a href="/before-and-after/">Before & After Project Gallery</a>
+          </li>
+          <li>
+            <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Service Areas</h4>
+        <ul>
+          {serviceAreaTowns.map((town) => (
+            <li>
+              <a href={`/service-areas/${town.slug}/`}>
+                {town.name}, {state}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a href="/service-areas/">All Regional Service Areas</a>
+          </li>
+          <li>
+            <a href="/guides/">Technical Concrete Guides</a>
+          </li>
+          <li>
+            <a href="/about/">About Our Contracting Crew</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <p>
+        &copy; {currentYear} {businessName}. All rights reserved. Professional concrete lifting and polyjacking in {city}, {state}.
+      </p>
+      <p>
+        <a href="/privacy/">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+</footer>

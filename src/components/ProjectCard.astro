@@ -1,0 +1,88 @@
+---
+import type { PastProject } from '../data/pastProjects.ts';
+
+export interface Props {
+  project: PastProject;
+  mode?: 'slider' | 'side-by-side' | 'tabbed';
+}
+
+const { project, mode = 'side-by-side' } = Astro.props;
+---
+
+<article class="project-showcase-item" data-project-id={project.id}>
+  <div class="project-header">
+    <div class="project-pills">
+      <span class="pill-service">{project.serviceLabel}</span>
+      <span class="pill-geo">{project.location}</span>
+      <span class="pill-savings">Saved {project.costSaved}</span>
+    </div>
+    <h3 class="project-title">{project.title}</h3>
+    <p class="project-lead">{project.summary}</p>
+  </div>
+
+  <!-- Comparison Visuals (Side by Side Grid with zero layout shift) -->
+  <div class="project-visual-grid">
+    <!-- Before Figure -->
+    <figure class="project-figure project-figure-before">
+      <div class="figure-media-wrap">
+        <div class="figure-svg" set:html={project.beforeSvg} />
+        <span class="figure-badge badge-before">{project.beforeBadge}</span>
+      </div>
+      <figcaption class="figure-caption">
+        <strong>Pre-Leveling Condition:</strong> {project.beforeAlt}
+      </figcaption>
+    </figure>
+
+    <!-- After Figure -->
+    <figure class="project-figure project-figure-after">
+      <div class="figure-media-wrap">
+        <div class="figure-svg" set:html={project.afterSvg} />
+        <span class="figure-badge badge-after">{project.afterBadge}</span>
+      </div>
+      <figcaption class="figure-caption">
+        <strong>Restored Grade:</strong> {project.afterAlt}
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- Project Engineering Snapshot Bar -->
+  <div class="project-stats-bar">
+    <div class="stat-col">
+      <span class="stat-lbl">Settlement Drop:</span>
+      <strong class="stat-val stat-val-alert">{project.dropDepth}</strong>
+    </div>
+    <div class="stat-col">
+      <span class="stat-lbl">Turnaround:</span>
+      <strong class="stat-val">{project.timeToComplete}</strong>
+    </div>
+    <div class="stat-col">
+      <span class="stat-lbl">Curing Time:</span>
+      <strong class="stat-val">{project.cureTime}</strong>
+    </div>
+    <div class="stat-col">
+      <span class="stat-lbl">Ports Drilled:</span>
+      <strong class="stat-val">{project.portsDrilled} (5/8" dime size)</strong>
+    </div>
+    <div class="stat-col">
+      <span class="stat-lbl">Leveling Cost:</span>
+      <strong class="stat-val stat-val-price">{project.levelingCost}</strong>
+    </div>
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="project-footer">
+    <div class="project-context">
+      <p class="project-note">
+        <strong>Subgrade Cause:</strong> {project.cause}
+      </p>
+    </div>
+    <div class="project-ctas">
+      <a href={`/contact/?service=${project.serviceType}`} class="btn-primary">
+        Get Quote for Similar Slab
+      </a>
+      <a href={project.servicePageUrl} class="btn-secondary">
+        Learn More
+      </a>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BeforeAfterSlider from '../components/BeforeAfterSlider.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import EstimateForm from '../components/EstimateForm.astro';
+import { pastProjects } from '../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+} from '../config/site.ts';
+import { getProjectGallerySchema } from '../utils/schema.ts';
+
+const pageTitle = `Concrete Leveling Before & After | Real Project Photos`;
+const pageDescription = `See real before and after concrete leveling photos across Columbus, OH. View driveway, sidewalk, patio, and pool deck slab lifting projects with cost savings.`;
+
+const breadcrumbs = [
+  { name: 'Before & After Gallery', path: '/before-and-after/' },
+];
+
+const featuredProject = pastProjects[0]; // Dublin Driveway Apron
+const remainingProjects = pastProjects.slice(1);
+
+const schemas = [
+  getProjectGallerySchema(pastProjects),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/before-and-after/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <!-- Page Header -->
+  <section class="section bg-surface">
+    <div class="container text-center max-w-3xl mx-auto">
+      <span class="ba-tag ba-tag-service">Verified Field Case Studies</span>
+      <h1>Concrete Leveling Before & After Results in {city}, {state}</h1>
+      <p class="lead">
+        Explore documented residential and commercial slab lifting transformations. Compare pre-injection settlement drops with laser-verified restored grades, turnaround times, and verified homeowner cost savings across Central Ohio.
+      </p>
+      <div class="hero-actions justify-center mt-6">
+        <a href="/contact/" class="btn-primary">Schedule Free On-Site Inspection</a>
+        <a href={phoneTel} class="btn-secondary">Direct Call: {phoneDisplay}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Featured Showcase Slider -->
+  <section class="section bg-bg">
+    <div class="container">
+      <div class="section-heading text-center mb-8">
+        <h2>Interactive Before & After Lift Comparison</h2>
+        <p class="section-lead">
+          Drag the center handle or tap the view controls to reveal how expanding high-density polyurethane foam lifts heavy sunken slabs flush in real time.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <BeforeAfterSlider project={featuredProject} showDetails={true} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Filterable Case Studies Portfolio -->
+  <section class="section bg-surface">
+    <div class="container">
+      <div class="section-heading mb-6">
+        <h2>Documented Central Ohio Slab Lifting Projects</h2>
+        <p class="section-lead">
+          Browse recent field jobs categorized by concrete structure type. Every project represents a real property where polyurethane foam saved the owner 50% to 75% compared to concrete demolition and repouring.
+        </p>
+      </div>
+
+      <!-- Filter Tabs (Client-side fast filter) -->
+      <div class="gallery-filter-bar" role="tablist" aria-label="Filter Projects by Category">
+        <button type="button" class="filter-btn is-active" data-filter="all">All Projects ({pastProjects.length})</button>
+        <button type="button" class="filter-btn" data-filter="driveways">Driveways</button>
+        <button type="button" class="filter-btn" data-filter="sidewalks">Sidewalks & Walkways</button>
+        <button type="button" class="filter-btn" data-filter="patios-and-pool-decks">Patios & Pool Decks</button>
+        <button type="button" class="filter-btn" data-filter="porches-and-steps">Porches & Stoops</button>
+        <button type="button" class="filter-btn" data-filter="garage-and-warehouse-floors">Garage Floors</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-list" id="projects-container">
+        {pastProjects.map((p) => (
+          <div class="project-wrapper" data-category={p.serviceType}>
+            <ProjectCard project={p} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering & Quality Standards Section (High SEO Authority & Minimum Word Count) -->
+  <section class="section bg-bg">
+    <div class="container max-w-4xl">
+      <h2>Engineering Standards Behind Our Concrete Leveling Results</h2>
+      <p>
+        Every concrete leveling result displayed above follows stringent structural geotechnical protocols. Sunken concrete is rarely a defect of the concrete slab itself; standard 4-inch residential slabs engineered with 3,500 to 4,000 psi compressive concrete can support immense vehicular loads for decades. Instead, settling is almost universally triggered by subterranean void formation within the underlying subgrade.
+      </p>
+
+      <h3>1. Subgrade Compaction & Controlled Hydrophobic Expansion</h3>
+      <p>
+        Traditional mudjacking pumps water-saturated topsoil and Portland cement slurries weighing up to 120 pounds per cubic foot. This massive added dead load frequently causes secondary settlement in Central Ohio's silt and clay-heavy soils. In contrast, our high-density geotechnical polyurethane foam weighs merely 3.5 to 4.5 pounds per cubic foot while generating an expansive lifting force of up to 256 pounds per square inch.
+      </p>
+      <p>
+        Because the polymers react exothermically through a closed-cell hydrophobic matrix, our foam is impervious to subterranean moisture. As highlighted by the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer" class="link-external">American Concrete Institute (ACI)</a>, moisture mitigation and subgrade void stabilization are essential for long-term slab longevity. The expanding foam compacts loose subsoil particles laterally before exerting uniform upward hydraulic pressure to lift the slab.
+      </p>
+
+      <h3>2. Precision Optical Transit Laser Leveling</h3>
+      <p>
+        Lifting concrete requires precision calibration to avoid slab stress cracking. Our technicians set continuous optical laser transits across the work zone, shooting elevation datum points in millimeters across every control joint and adjacent foundation sill. This guarantees that driveways, pool decks, and sidewalks achieve the precise slope required by modern building codes—specifically establishing a minimum 1/4-inch per linear foot positive drainage slope away from residential structures according to the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer" class="link-external">Portland Cement Association (PCA)</a>.
+      </p>
+
+      <h3>3. ADA Compliance & Municipal Trip Hazard Remediation</h3>
+      <p>
+        Under Title II and Title III guidelines of the <a href="https://www.ada.gov" target="_blank" rel="noopener noreferrer" class="link-external">Americans with Disabilities Act (ADA)</a>, any vertical abrupt change in level on a pedestrian walking surface greater than 1/4 inch is classified as an actionable trip hazard. When municipal code enforcement officers issue sidewalk violation notices in communities like Westerville, Dublin, or Upper Arlington, homeowners are typically granted 30 to 60 days to eliminate the hazard. Polyurethane foam lifting eliminates the vertical ledge completely without grinding or damaging the slab's aggregate crown.
+      </p>
+
+      <div class="estimate-callout mt-12">
+        <h3>Have a Sunken Slab on Your Property?</h3>
+        <p>
+          Don't wait for pooling rainwater to erode foundation footings or risk liability from pedestrian trip hazards. Our estimators provide complimentary laser elevation assessments with written, same-day fixed proposals across Central Ohio.
+        </p>
+        <div class="mt-6">
+          <EstimateForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function() {
+    var filterBtns = document.querySelectorAll('.filter-btn');
+    var projectItems = document.querySelectorAll('.project-wrapper');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+
+        var filter = btn.getAttribute('data-filter');
+        projectItems.forEach(function(item) {
+          var category = item.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+</script>

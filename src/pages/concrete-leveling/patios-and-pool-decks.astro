@@ -1,0 +1,301 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EstimateForm from '../../components/EstimateForm.astro';
+import BeforeAfterSlider from '../../components/BeforeAfterSlider.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { pastProjects } from '../../data/pastProjects.ts';
+import {
+  businessName,
+  city,
+  state,
+  phoneDisplay,
+  phoneTel,
+  domain,
+  serviceAreaTowns,
+  warrantyText,
+  licenseNumber,
+} from '../../config/site.ts';
+
+const pageTitle = `Patio & Pool Deck Concrete Leveling Columbus | Poly Foam`;
+const pageDescription = `Patio and pool deck concrete leveling in Columbus, OH. Restore drainage slope and eliminate coping trip hazards using poly foam. Get a free quote.`;
+
+const breadcrumbs = [
+  { name: 'Concrete Leveling', path: '/concrete-leveling/' },
+  { name: 'Patios & Pool Decks', path: '/concrete-leveling/patios-and-pool-decks/' },
+];
+
+const poolProject = pastProjects.find((p) => p.id === 'hilliard-pool-deck-settlement') || pastProjects[2];
+const patioProject = pastProjects.find((p) => p.id === 'grove-city-backyard-patio') || pastProjects[3];
+
+const faqItems = [
+  {
+    q: `Why is my patio sloping backward toward the house foundation?`,
+    a: `Patios are frequently poured over uncompacted backfill dirt alongside the basement or crawlspace walls. As that backfill consolidates over years of rain and snow, the edge of the patio nearest the house drops, creating a negative pitch that channels stormwater directly against your basement sill plate and foundation walls.`,
+  },
+  {
+    q: `Will polyurethane injection damage underground pool lines or skimmers?`,
+    a: `No. Unlike mudjacking pumps that generate crushing mechanical pressures and pump heavy abrasive stone aggregate, polyurethane foam is injected as a low-viscosity liquid at controlled pressures. The foam expands outward through loose soil voids and gently wraps around PVC plumbing, electrical conduits, and skimmer boxes without pinching or cracking them.`,
+  },
+  {
+    q: `Can you level stamped or colored decorative concrete patios?`,
+    a: `Yes. Polyurethane foam requires only 5/8-inch drill holes. On decorative stamped or colored concrete, our technicians drill through existing faux grout lines or textured impressions. After lifting, we patch the holes with custom-tinted polymer mortar matched to your patio's specific surface color and antique release agent.`,
+  },
+  {
+    q: `How long before we can place outdoor patio furniture back on the slab?`,
+    a: `Polyurethane foam cures in 15 to 30 minutes. You can place heavy cast-iron patio tables, grills, and lounge chairs back on the concrete immediately after our technicians finish patching and sweeping the area.`,
+  },
+];
+
+import {
+  getServiceSchema,
+  getHowToSchema,
+  getFaqSchema,
+  getProjectGallerySchema,
+} from '../../utils/schema.ts';
+
+const patioHowToSteps = [
+  {
+    title: 'Elevation & Drainage Transit Mapping',
+    text: 'We shoot optical laser levels to calculate the exact lift needed to establish a consistent pitch directing rainwater away from foundation walls or pool coping edges.',
+  },
+  {
+    title: '5/8-Inch Strategic Drilling',
+    text: 'We drill dime-sized 5/8-inch ports at calculated intervals. On decorative stamped patios, we place holes inconspicuously along texture grooves.',
+  },
+  {
+    title: 'High-Density Foam Injection',
+    text: 'Our technician delivers micro-shots of polyurethane foam. As the material expands underground, laser sensors monitor the elevation in real time, gently lifting the slab without cracking surface joints.',
+  },
+  {
+    title: 'Custom-Color Port Patching',
+    text: 'We extract packers and seal each port with color-matched polymer-modified mortar. Patio furniture and pool equipment can be replaced immediately.',
+  },
+];
+
+const schemas = [
+  getServiceSchema({
+    name: `Patio and Pool Deck Concrete Leveling in ${city}, ${state}`,
+    serviceType: 'Patio & Pool Deck Concrete Lifting',
+    description: `Patio and pool deck leveling, negative pitch restoration, and void filling using polyurethane foam lifting in ${city}, ${state}.`,
+    canonicalPath: '/concrete-leveling/patios-and-pool-decks/',
+  }),
+  getHowToSchema({
+    name: 'Patio & Pool Deck Concrete Leveling Procedure',
+    description: 'A 4-step sequence for restoring positive drainage slope away from foundations and stabilizing shifting pool coping slabs.',
+    canonicalPath: '/concrete-leveling/patios-and-pool-decks/',
+    steps: patioHowToSteps,
+  }),
+  getFaqSchema(faqItems),
+  getProjectGallerySchema([poolProject, patioProject]),
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/concrete-leveling/patios-and-pool-decks/"
+  breadcrumbs={breadcrumbs}
+  schemas={schemas}
+>
+  <div class="container" style="padding-top: 32px; padding-bottom: 32px;">
+    <h1>Patio and Pool Deck Concrete Leveling in {city}</h1>
+    <p class="lead">
+      Correct negative drainage slope away from your foundation and eliminate dangerous barefoot trip hazards around swimming pools using lightweight, waterproof polyurethane foam lifting.
+    </p>
+  </div>
+
+  <section class="section bg-surface" style="padding-top: 0;">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>The Threat of Negative Patio Pitch on Home Foundations</h2>
+          <p>
+            When a backyard patio slab sinks in {city}, {state}, the damage extends far beyond an uneven spot for your outdoor dining table. The primary danger of a sunken patio is water intrusion.
+          </p>
+          <p>
+            Patios are designed to slope away from the home with a minimum gradient of one-quarter inch per foot. When the patio slab settles adjacent to the house, that positive slope reverses into a negative pitch. Every rainstorm sends hundreds of gallons of water washing off the patio directly into the foundation expansion joint.
+          </p>
+          <p>
+            This concentrated moisture saturates the soil against your basement wall or crawlspace footing. Over time, that hydrostatic pressure causes basement wall cracking, efflorescence, wet carpets, and mold growth. As documented by structural moisture guidelines from the <a href="https://www.concrete.org" target="_blank" rel="noopener noreferrer">American Concrete Institute</a>, maintaining positive exterior surface drainage is the single most effective defense against below-grade foundation failure. Raising the settled patio slab with polyurethane foam restores positive drainage slope in under two hours without ripping up landscaping or disturbing deck footings.
+          </p>
+
+          <h2>Pool Deck Sinking & Barefoot Safety Hazards</h2>
+          <p>
+            Concrete swimming pool decks present a unique set of geotechnical challenges. During pool installation, excavators dig a massive crater. After the pool walls and steel or fiberglass structure are installed, thousands of cubic yards of soil are backfilled around the perimeter.
+          </p>
+          <p>
+            Because backfilled soil around a pool is notoriously difficult to compact, settlement is almost inevitable. When the concrete apron around the pool drops, several critical problems arise:
+          </p>
+          <ul>
+            <li style="margin-bottom: 14px;">
+              <strong>Barefoot Trip Hazards:</strong> Even a half-inch vertical offset between pool deck panels creates an acute tripping hazard for barefoot family members and guests walking around slippery pool perimeters.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Coping Stone & Tile Separation:</strong> As the deck slab tilts backward, it pulls away from the pool coping and water line tile. Water then pours behind the pool wall, freezing in winter and causing expensive structural tile popping.
+            </li>
+            <li style="margin-bottom: 14px;">
+              <strong>Plumbing Stress:</strong> Buried skimmer throats and PVC return lines run directly underneath the deck. As heavy concrete slabs settle, they can shear PVC pipes, resulting in underground leaks that drain thousands of gallons of pool water into the subgrade.
+            </li>
+          </ul>
+
+          <h2>Why Polyjacking is the Only Safe Method for Pool Decks</h2>
+          <p>
+            Traditional mudjacking should never be used around swimming pools. Mudjacking relies on heavy mechanical pumps that blast thick cement slurry under high hydraulic pressures. That heavy slurry can crush delicate underground PVC plumbing lines, fracture skimmer housings, and push against pool walls. Furthermore, mudjacking slurry adds thousands of pounds of weight to already unstable backfill.
+          </p>
+          <p>
+            In contrast, high-density polyurethane foam lifting is non-invasive and lightweight:
+          </p>
+          <ul>
+            <li style="margin-bottom: 12px;">
+              <strong>Lightweight Support:</strong> Expanding poly foam weighs only 3 to 5 pounds per cubic foot compared to mudjacking grout at 100 to 140 pounds. It lifts the slab without adding overburden to loose backfill.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Plumbing Protection:</strong> Poly foam enters as a thin liquid and gently expands around buried pipes and skimmers, encasing them in a protective, shock-absorbing cellular shell.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>100% Waterproof:</strong> Chlorinated water and salt splash-out from the pool will not dissolve or degrade closed-cell polyurethane. It forms an impervious subsurface barrier that prevents future washouts.
+            </li>
+            <li style="margin-bottom: 12px;">
+              <strong>Clean Application:</strong> Because our trailers park in the street and pull a single hose into your backyard, there are no heavy mixer trucks tearing up your grass or cracking garden paver paths.
+            </li>
+          </ul>
+          <p>
+            Technical concrete literature from the <a href="https://www.cement.org" target="_blank" rel="noopener noreferrer">Portland Cement Association</a> emphasizes that non-invasive void filling preserves existing flatwork investments at a fraction of replacement expense.
+          </p>
+
+          <!-- Dedicated Pool Deck & Patio Before/After Project Case Studies -->
+          <div style="margin-top: 40px; margin-bottom: 48px;">
+            <h2>Pool Deck & Patio Leveling Before & After Case Studies</h2>
+            <p class="text-secondary" style="margin-bottom: 24px;">
+              See how our crew stabilized a sunken pool deck coping in Hilliard, OH and reversed negative patio pitch in Grove City, OH:
+            </p>
+
+            <div style="margin-bottom: 32px;">
+              <BeforeAfterSlider project={poolProject} showDetails={true} />
+            </div>
+
+            <ProjectCard project={patioProject} />
+          </div>
+
+          <h2>Our Patio & Pool Deck Leveling Sequence</h2>
+          <ol class="process-list" style="margin-bottom: 32px;">
+            <li class="process-item">
+              <div class="process-number">01</div>
+              <div class="process-content">
+                <h3>Elevation & Drainage Transit Mapping</h3>
+                <p>
+                  We shoot optical laser levels to calculate the exact lift needed to establish a consistent pitch directing rainwater away from foundation walls or pool coping edges.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">02</div>
+              <div class="process-content">
+                <h3>5/8-Inch Strategic Drilling</h3>
+                <p>
+                  We drill dime-sized 5/8-inch ports at calculated intervals. On decorative stamped patios, we place holes inconspicuously along texture grooves.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">03</div>
+              <div class="process-content">
+                <h3>High-Density Foam Injection</h3>
+                <p>
+                  Our technician delivers micro-shots of polyurethane foam. As the material expands underground, laser sensors monitor the elevation in real time, gently lifting the slab without cracking surface joints.
+                </p>
+              </div>
+            </li>
+            <li class="process-item">
+              <div class="process-number">04</div>
+              <div class="process-content">
+                <h3>Custom-Color Port Patching</h3>
+                <p>
+                  We extract packers and seal each port with color-matched polymer-modified mortar. Patio furniture and pool equipment can be replaced immediately.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <h2>Pool Coping Alignment, Skimmer Boxes, and Vinyl Liner Protection</h2>
+          <p>
+            When concrete pool decking shifts, the risks extend far beyond unsightly steps. In-ground swimming pools depend on flexible mastic expansion joints between the concrete coping and the pool wall. When a deck slab settles several inches, it pulls directly downward on the pool's underground plumbing return lines and skimmer throats. If left uncorrected, the downward drag fractures PVC fittings beneath the deck, triggering underground water leaks that can cost thousands in excavation repairs.
+          </p>
+          <p>
+            Furthermore, for vinyl liner pools, a sunken pool deck tears the perimeter coping track, allowing pool water to seep behind the liner and wash out the sand or vermiculite pool bottom. Our polyjacking method lifts the coping back into true horizontal alignment without placing mechanical pressure on the pool wall, re-establishing the proper expansion gap so a fresh bead of self-leveling silicone sealant can be applied.
+          </p>
+
+          <h2>Preserving Stamped and Decorative Concrete Finishes</h2>
+          <p>
+            Homeowners who invested in stamped, colored, or exposed aggregate patios often hesitate to repair sunken slabs for fear of ruining their custom surface. Traditional mudjacking requires drilling large 2-inch holes that resemble circular core-drill plugs, destroying decorative textures. In contrast, our 5/8-inch polyurethane injection ports are carefully placed within natural faux-grout lines, slate textures, or broom-finish grooves. We blend custom mineral colorants into our high-strength hydraulic repair mortar to match your patio's distinct tone, ensuring injection ports remain virtually invisible once cured.
+          </p>
+
+          <h2>Related Concrete Leveling Services</h2>
+          <p>
+            Explore our specialized leveling solutions for other areas around your property:
+          </p>
+          <ul>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/driveways/">Sunken Driveway Repair & Leveling</a> for approach slab alignment.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/sidewalks/">Sidewalk Leveling & Trip Hazard Repair</a> for front walkways.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling/porches-and-steps/">Porch and Step Leveling</a> for entry stoop stabilization.
+            </li>
+            <li style="margin-bottom: 8px;">
+              <a href="/concrete-leveling-cost/">Concrete Leveling Cost Guide</a> for complete pricing comparisons.
+            </li>
+          </ul>
+
+          <h2>Frequently Asked Questions About Patio & Pool Deck Leveling</h2>
+          <div class="faq-list">
+            {faqItems.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <aside class="sidebar-box">
+          <h3>Patio & Pool Deck Quote</h3>
+          <p class="text-secondary" style="font-size: 15px;">
+            Eliminate water pooling against your foundation and restore pool safety:
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; font-size: 15px;">
+            <li><strong>Port Size:</strong> 5/8-inch (dime size)</li>
+            <li><strong>Cure Time:</strong> 15 to 30 minutes</li>
+            <li><strong>Water Resistance:</strong> 100% closed-cell</li>
+            {warrantyText && <li><strong>Warranty:</strong> {warrantyText}</li>}
+            {licenseNumber && <li><strong>License:</strong> {licenseNumber}</li>}
+          </ul>
+          <a href="/contact/" class="btn-primary" style="width: 100%;">
+            Get Free Patio Quote
+          </a>
+          <p style="text-align: center; margin-top: 16px; margin-bottom: 0;">
+            Direct phone: <a href={phoneTel} class="phone-link">{phoneDisplay}</a>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-neutral">
+    <div class="container">
+      <div class="content-grid">
+        <div>
+          <h2>Restore Your Outdoor Living Space</h2>
+          <p>
+            Do not let a sunken patio continue channeling rainwater toward your basement walls. Request an on-site evaluation today or call our dispatch desk at <a href={phoneTel} class="phone-link">{phoneDisplay}</a>.
+          </p>
+        </div>
+        <div>
+          <EstimateForm preselectedService="patio" formTitle="Patio / Pool Deck Inspection Request" />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

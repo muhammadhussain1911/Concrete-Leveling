@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { businessName } from '../config/site.ts';
+
+// Noindex required, Title <= 60 chars, Description 140-155 chars
+const pageTitle = `Page Not Found | ${businessName}`;
+const pageDescription = `The page you requested could not be found. Navigate back to our home page or explore our concrete leveling services hub to locate what you need.`;
+
+const breadcrumbs = [{ name: 'Page Not Found', path: '/404/' }];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonicalPath="/404/"
+  noindex={true}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="container" style="padding-top: 64px; padding-bottom: 96px; text-align: left;">
+    <h1>Page Not Found (404)</h1>
+    <p class="lead">
+      The specific address or technical document you requested has moved, been updated, or does not exist on our server.
+    </p>
+
+    <div style="background-color: var(--surface); border: 1px solid var(--hairline); padding: 32px; border-radius: 4px; max-width: 680px; margin-top: 32px;">
+      <h2>Where Would You Like to Go?</h2>
+      <p>
+        Use the direct links below to return to the main sections of our site:
+      </p>
+
+      <ul style="display: flex; flex-direction: column; gap: 16px; margin-top: 24px; margin-bottom: 32px;">
+        <li>
+          <a href="/" class="phone-link" style="font-size: 18px;">
+            &larr; Return to Concrete Leveling Home Page
+          </a>
+          <p class="text-secondary" style="margin-top: 4px; margin-bottom: 0;">
+            Overview of residential and commercial polyurethane lifting services.
+          </p>
+        </li>
+        <li>
+          <a href="/concrete-leveling/" class="phone-link" style="font-size: 18px;">
+            &rarr; Browse Concrete Leveling Services Hub
+          </a>
+          <p class="text-secondary" style="margin-top: 4px; margin-bottom: 0;">
+            Technical guides for driveways, sidewalks, pool decks, and garage floors.
+          </p>
+        </li>
+        <li>
+          <a href="/concrete-leveling/polyurethane-foam-lifting/" class="phone-link" style="font-size: 18px;">
+            &rarr; Read Polyurethane Foam Lifting (Polyjacking) Technical Specifications
+          </a>
+          <p class="text-secondary" style="margin-top: 4px; margin-bottom: 0;">
+            Detailed chemical and mechanical analysis of closed-cell structural lifting foam.
+          </p>
+        </li>
+        <li>
+          <a href="/contact/" class="phone-link" style="font-size: 18px;">
+            &rarr; Request a Free On-Site Inspection
+          </a>
+          <p class="text-secondary" style="margin-top: 4px; margin-bottom: 0;">
+            Connect with our local estimating team for laser transit measurements.
+          </p>
+        </li>
+      </ul>
+
+      <a href="/" class="btn-primary">
+        Go to Home Page
+      </a>
+    </div>
+  </div>
+</BaseLayout>
